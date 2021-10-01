@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-follow-up',
   templateUrl: './follow-up.component.html',
-  styleUrls: ['./follow-up.component.css']
+  styleUrls: ['../app.component.css']
 })
 export class FollowUpComponent implements OnInit {
 
