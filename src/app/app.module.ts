@@ -8,8 +8,11 @@ import { ProjectsComponent } from './projects/projects.component';
 import { HeaderComponent } from './header/header.component';
 import { HeadingComponent } from './heading/heading.component';
 import { RouterModule, Routes } from "@angular/router";
+import { HomeComponent } from './home/home.component';
+import { AddContactComponent } from './contacts/add-contact/add-contact.component';
 
 const appRoutes: Routes =[
+  { path: '', component: HomeComponent},
   { path: 'contacts', component: ContactsComponent }, 
   { path: 'projects', component: ProjectsComponent },
   { path: 'follow-up', component: FollowUpComponent }
@@ -22,7 +25,9 @@ const appRoutes: Routes =[
     FollowUpComponent,
     ProjectsComponent,
     HeaderComponent,
-    HeadingComponent
+    HeadingComponent,
+    HomeComponent,
+    AddContactComponent
   ],
   imports: [
     BrowserModule,
