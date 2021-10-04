@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-contacts', 
-  templateUrl: './contacts.component.html',
+  selector: 'app-add-project',
+  templateUrl: './add-project.component.html',
   styleUrls: ['../app.component.css']
 })
-
-
-
-export class ContactsComponent implements OnInit {
+export class AddProjectComponent implements OnInit {
 
   constructor() { }
 
@@ -16,4 +13,3 @@ export class ContactsComponent implements OnInit {
   }
 
 }
-

@@ -5,19 +5,26 @@
       <h1 class="mb-3">Contacts</h1>
       
       <div class="input-group">
-        <div class="btn-group-justified">
-          <button type="button" class="btn btn-success">All</button>
-          <button class="btn btn-success">By Country</button>
+
+        <div class="dropdown">
+          <button class="dropbtn">Sort By</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#">All</a>
+            <a href="#">Country</a>
+            <a href="#">Date</a>
+          </div>
+        </div>
+
           <button class="btn btn-success">Search</button>
         </div>
-      </div>
-    </div>  
+    </div>
+
     <div class="panel-body">
       
     </div>
     <div class="panel panel-footer">
       <div>
-        <button class="btn btn-primary">+ Contact</button>
+        <button class="btn btn-primary" routerLink="/add-contact" routerLinkActive="active">Add a New Contact</button>
       </div>
     </div>
   </div>

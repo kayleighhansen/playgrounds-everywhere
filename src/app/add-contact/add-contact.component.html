@@ -1,0 +1,56 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="mb-3">Add Contact</h1>
+      <a routerLink="contacts">Back to Contacts</a>
+    </div>  
+    <div class="panel-body">
+      <div class="btn-container">
+
+        <form>
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" class="form-control" id="fname" aria-describedby="emailHelp" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" class="form-control" id="lname" placeholder="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="job-title">Job Title</label>
+                <input type="text" class="form-control" id="job-title" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="details">Details</label>
+                <textarea class="form-control" id="details" rows="3" cols="50"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="photos">Photo</label>
+                <input type="file" id="photos" accept ="image/*">
+            </div><br>
+
+            <button type="submit" class="btn btn-primary">Add to Contact List</button>
+        </form>
+      </div>
+    </div>
+</div>

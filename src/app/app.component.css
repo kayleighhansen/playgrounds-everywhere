@@ -1,5 +1,5 @@
 main {
-    margin: 30px;
+    margin:30px;
 }
 
 .panel-heading {
@@ -17,17 +17,27 @@ main {
     height: 40px;
 }
 
-.input-group {
+/* .input-group {
     gap: 10px;
+} */
+.btn-group-justified {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 30% 40% 30%;
+    table-layout: fixed;
+    border-collapse: separate;
 }
 
-.btn-group-justified>.btn {
-    width: 30% !important;
-    background-color: white;
+.btn-group-justified> .btn {
+    width: 100%;
+    background: none;
     color: black;
-    border: 1px solid black;
-    margin: 3px;
-    height: 40px;
+    border:none;
+    border-radius:none;
+}
+
+.input-group {
+    display: block;
 }
 
 .fa-home:before {
@@ -40,6 +50,11 @@ main {
 
 .navbar-nav {
     margin: 0px 10px;
+}
+
+.form-section {
+    display:flex;
+    gap: 15px;
 }
 
 @media only screen and (max-width: 600px) {
