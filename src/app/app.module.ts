@@ -10,6 +10,9 @@ import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from './home/home.component';
 import { AddContactComponent } from './add-contact/add-contact.component';
 import { AddProjectComponent } from './add-project/add-project.component';
+import { DropdownDirective } from './dropdown.directive';
+import { ContactItemComponent } from './contacts/contact-item/contact-item.component';
+import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 
 const appRoutes: Routes =[
   { path: '', component: HomeComponent},
@@ -29,7 +32,10 @@ const appRoutes: Routes =[
     HeaderComponent,
     HomeComponent,
     AddContactComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    DropdownDirective,
+    ContactItemComponent,
+    ContactListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="mb-3">Contacts</h1>
+
+      <div class="input-group">
+
+        <ul class="nav navbar-nav">
+          <li class="dropdown" appDropdown>
+            <a class="dropdown-toggle" role="button">Sort By <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="default">All</a></li>
+              <li class="default"><a>By Country</a></li>
+              <li class="default"><a>By Date</a></li>
+              <li class="default"><a>By Name</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="search-container">
+          <form action="/action_page.php" class="pull-right">
+            <input class="search-bar-text" type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-body">
+        <app-contact-item *ngFor="let contactEl of contacts" [contact]="contactEl"></app-contact-item>
+    </div>
+    <div class="panel panel-footer">
+      <div>
+        <button class="btn btn-primary" routerLink="/add-contact" routerLinkActive="active">Add a New Contact</button>
+      </div>
+    </div>
+  </div>

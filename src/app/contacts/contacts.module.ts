@@ -4,6 +4,9 @@ import { RouterModule, Routes } from "@angular/router";
 
 
 import { AddContactComponent } from '../add-contact/add-contact.component';
+import { ContactItemComponent } from './contact-item/contact-item.component';
+import { ContactListComponent } from './contact-list/contact-list.component';
+import { DropdownDirective } from '../dropdown.directive';
 
 const appRoutes: Routes =[
   { path: 'add-contact', component: AddContactComponent}
@@ -11,7 +14,10 @@ const appRoutes: Routes =[
 
 @NgModule({
   declarations: [
-    AddContactComponent
+    AddContactComponent,
+    ContactItemComponent,
+    ContactListComponent,
+    DropdownDirective
   ],
   imports: [
     CommonModule,
