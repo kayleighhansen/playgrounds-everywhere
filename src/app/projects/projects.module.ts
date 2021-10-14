@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from "@angular/router";
 
 import { AddProjectComponent } from '../add-project/add-project.component';
+import { ProjectListComponent } from './project-list/project-list.component';
+import { ProjectItemComponent } from './project-item/project-item.component';
 
 const appRoutes: Routes =[
   { path: 'add-project', component: AddProjectComponent}
@@ -10,7 +12,9 @@ const appRoutes: Routes =[
 
 @NgModule({
   declarations: [
-    AddProjectComponent
+    AddProjectComponent,
+    ProjectListComponent,
+    ProjectItemComponent
   ],
   imports: [
     CommonModule,
