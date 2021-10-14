@@ -6,6 +6,11 @@
     text-align:center;
 }
 
+.panel-buttons {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 .btn-container {
     display:flex;
     justify-content: center;

@@ -1,6 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-      <h1 class="mb-3">Projects</h1>
+      <h1 class="mb-3">Organizations</h1>
 
       <div class="input-group">
 
@@ -25,12 +25,12 @@
       </div>
     </div>
 
-    <!-- <div class="panel-body">
-        <app-project-item *ngFor="let projectEl of projects" [project]="projectEl"></app-project-item>
-    </div> -->
+    <div class="panel-body">
+        <app-organization-item *ngFor="let organizationEl of organizations" [organization]="organizationEl"></app-organization-item>
+    </div>
     <div class="panel panel-footer">
       <div>
-        <button class="btn btn-primary" routerLink="/add-project" routerLinkActive="active">Add a Project </button>
+        <button class="btn btn-primary" routerLink="/add-project" routerLinkActive="active">Add an Organization </button>
       </div>
     </div>
   </div>

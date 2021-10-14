@@ -6,6 +6,7 @@ import { AddContactComponent } from '../add-contact/add-contact.component';
 import { ContactItemComponent } from './contact-item/contact-item.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { DropdownDirective } from '../dropdown.directive';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
 
 const appRoutes: Routes =[
   { path: 'add-contact', component: AddContactComponent}
@@ -17,6 +18,7 @@ const appRoutes: Routes =[
     ContactItemComponent,
     ContactListComponent,
     DropdownDirective,
+    ContactDetailsComponent,
   ],
   imports: [
     CommonModule,
