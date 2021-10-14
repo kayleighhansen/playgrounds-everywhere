@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Contact } from '../contact.module'
+import { Contact } from '../contact.model'
 
 @Component({
   selector: 'app-contact-list',

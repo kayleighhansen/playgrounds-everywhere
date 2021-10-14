@@ -1,0 +1,72 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="mb-3">Add Organization</h1>
+      <a href="/organizations">Back to Organizations</a>
+    </div>  
+    <div class="panel-body">
+      <div class="btn-container">
+
+        <form>
+            <div class="form-group">
+                <label for="name">Organization Name</label>
+                <input type="text" class="form-control" id="name" placeholder="">
+            </div>
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" class="form-control" id="country" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" placeholder="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="contacts">Contacts</label>
+                <input type="text" class="form-control" id="contacts" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="date">Relationship Date</label>
+                <input type="text" class="form-control" id="date" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="type">Organization Type</label><br>
+                <select id="type" name="type">
+                    <option value="none">Select an Organization Type</option>
+                    <option value="primarySchool">Primary School</option>
+                    <option value="secondarySchool">Secondary School</option>
+                    <option value="localGovernment">Local Government</option>
+                    <option value="nonProfit">Non Profit</option>
+                    <option value="prison">Prison</option>
+                  </select>
+            </div>
+
+            <div class="form-group">
+                <label for="photos">Photo</label>
+                <input type="file" id="photos" accept ="image/*">
+            </div><br>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="3" cols="50"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add to Organization List</button>
+        </form>
+      </div>
+    </div>
+</div>
