@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
-  styleUrls: ['../../app.component.css']
+  styleUrls: ['../app.component.css']
 })
 export class TodosComponent implements OnInit {
 
