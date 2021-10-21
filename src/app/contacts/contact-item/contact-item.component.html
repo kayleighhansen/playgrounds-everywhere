@@ -1,11 +1,11 @@
 <div class="contact-detail-link">
     <a class="pointer" href="/contact-detail" (click)="onSelected()">
         <div class="contact-item">
-            <h3 class="contact-name">{{ contact.contactFirstName }} {{ contact.contactLastName }}</h3>
+            <h3 class="contact-name">{{ contact.fname }} {{ contact.lname }}</h3>
             <div class="contact-details">
-                <p class="contact-phone">{{ contact.contactPhone }}</p>
-                <p class="contact-email">{{ contact.contactEmail }}</p>
-                <p class="contact-country">{{ contact.contactCountry }}</p>
+                <p class="contact-phone">{{ contact.phone }}</p>
+                <p class="contact-email">{{ contact.email }}</p>
+                <p class="contact-country">{{ contact.country }}</p>
             </div>
         </div>
     </a>

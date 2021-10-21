@@ -135,6 +135,10 @@ h3 {
    
 }
 
+.submit-buttons {
+    display:flex;
+}
+
 @media only screen and (max-width: 600px) {
     .navbar-nav {
         margin: 7.5px -15px;

@@ -1,16 +1,16 @@
 export class Contact {
 
-    public contactId : number;
-    public contactFirstName : string;
-    public contactLastName : string;
-    public contactEmail : string;
-    public contactPhone : string;
-    public contactImageUrl : string;
-    public contactCountry : string;
-    public contactJob : string;
-    public contactDetails : string;
+    public id : string;
+    public fname : string;
+    public lname : string;
+    public email : string;
+    public phone : string;
+    public imageUrl : string;
+    public country : string;
+    public job : string;
+    public details : string;
 
-    constructor(id: number, 
+    constructor(id: string, 
                 fname: string, 
                 lname: string,
                 email: string,
@@ -21,15 +21,16 @@ export class Contact {
                 details: string
                 ){
 
-        this.contactFirstName = fname;
-        this.contactLastName = lname;
-        this.contactId = id;
-        this.contactEmail = email;
-        this.contactPhone = phone;
-        this.contactImageUrl = imageUrl;
-        this.contactCountry = country;
-        this.contactJob = job;
-        this.contactDetails = details;
+        this.id = id;
+        this.fname = fname;
+        this.lname = lname;
+        
+        this.email = email;
+        this.phone = phone;
+        this.imageUrl = imageUrl;
+        this.country = country;
+        this.job = job;
+        this.details = details;
 
     };
 }

@@ -8,48 +8,51 @@
 
         <form>
             <div class="form-section">
-                <div class="form-group">
+                <div class="form-group"> 
                     <label for="fname">First Name</label>
-                    <input type="text" class="form-control" id="fname" placeholder="">
+                    <input type="text" class="form-control" id="fname" placeholder="" #fnameInput required>
                 </div>
 
                 <div class="form-group">
                     <label for="lname">Last Name</label>
-                    <input type="text" class="form-control" id="lname" placeholder="">
+                    <input type="text" class="form-control" id="lname" placeholder="" #lnameInput>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="">
+                <input type="email" class="form-control" id="email" placeholder="" #emailInput>
             </div>
 
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" placeholder="">
+                <input type="tel" class="form-control" id="phone" placeholder="" #numberInput>
             </div>
 
             <div class="form-group">
-                <label for="country">Country</label>
-                <input type="text" class="form-control" id="country" placeholder="">
+                <label for="country">Home Country</label>
+                <input type="text" class="form-control" id="country" placeholder="" #countryInput required>
             </div>
 
             <div class="form-group">
                 <label for="job-title">Job Title</label>
-                <input type="text" class="form-control" id="job-title" placeholder="">
+                <input type="text" class="form-control" id="job-title" placeholder="" #jobInput>
             </div>
 
             <div class="form-group">
                 <label for="details">Details</label>
-                <textarea class="form-control" id="details" rows="3" cols="50"></textarea>
+                <textarea class="form-control" id="details" rows="3" cols="50" #detailsInput required></textarea>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="photos">Photo</label>
                 <input type="file" id="photos" accept ="image/*">
-            </div><br>
+            </div><br> -->
 
-            <button type="submit" class="btn btn-primary">Add to Contact List</button>
+            <div class="submit-buttons">
+                <button type="button" class="btn btn-primary" (click)="OnAddContact()">Save</button>
+                <button type="button" class="btn btn-primary" (click)="OnAddContact()" routerLink="contacts">Save and Close</button>
+            </div>
         </form>
       </div>
     </div>
