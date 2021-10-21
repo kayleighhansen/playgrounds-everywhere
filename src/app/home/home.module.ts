@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from "@angular/router";
 
-import { AddContactComponent } from '../add-contact/add-contact.component';
-import { AddProjectComponent } from '../add-project/add-project.component';
-import { AddOrganizationComponent } from '../add-organization/add-organization.component';
+import { AddContactComponent } from '../contacts/add-contact/add-contact.component';
+import { AddProjectComponent } from '../projects/add-project/add-project.component';
+import { AddOrganizationComponent } from '../organizations/add-organization/add-organization.component';
 
 
 const appRoutes: Routes =[
