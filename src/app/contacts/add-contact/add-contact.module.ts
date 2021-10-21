@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from "@angular/router";
 
-import { ProjectsComponent } from '../projects/projects.component';
+import { ContactsComponent } from '../contacts.component';
 
 const appRoutes: Routes =[
-  { path: 'back', component: ProjectsComponent}
+  { path: 'contacts', component: ContactsComponent}
 ];
 
 @NgModule({
   declarations: [
-    ProjectsComponent
+    ContactsComponent
   ],
   imports: [
     CommonModule,
