@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "playgrounds-everywhere": {
+      "hosting": {
+        "playgrounds-everywhere": [
+          "playgrounds-everywhere"
+        ]
+      }
+    }
+  }
+}

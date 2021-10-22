@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { DataStorageService } from 'src/app/data-storage.service';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
 
@@ -15,8 +16,9 @@ export class AddContactComponent implements OnInit {
   @ViewChild('countryInput') countryInput: ElementRef;
   @ViewChild('jobInput') jobInput: ElementRef;
   @ViewChild('detailsInput') detailsInput: ElementRef;
+  @ViewChild('organizationInput') organizationInput: ElementRef;
 
-  constructor(private contactService: ContactService) { }
+  constructor(private contactService: ContactService, private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +29,8 @@ export class AddContactComponent implements OnInit {
     const lnameValue = this.lnameInput.nativeElement.value;
     const emailValue = this.emailInput.nativeElement.value;
     const numberValue = this.numberInput.nativeElement.value;
-    const countryValue = this. countryInput.nativeElement.value;
+    const countryValue = this.countryInput.nativeElement.value;
+    const organizationValue = this.organizationInput.nativeElement.value;
     const jobValue = this.jobInput.nativeElement.value;
     const detailValue = this.detailsInput.nativeElement.value;
 
@@ -37,19 +40,25 @@ export class AddContactComponent implements OnInit {
       lnameValue,
       emailValue,
       numberValue,
-      '',
+      organizationValue,
       countryValue,
+      '',
       jobValue,
       detailValue);
 
       // ADD THE MESSAGE TO DATABASE
       this.contactService.addContact(contact);
 
+      if (this.dataStorageService.saveData())
+      {
+        alert("Message Saved Correctly!");
+        this.onClear();
+
+      };
+
       // SEND BACK TO CONTACTS PAGE
-      this.onClear();
 
       // Saved Correctly message
-      alert("Message Saved Correctly!");
   }
 
   onClear() {
@@ -60,5 +69,6 @@ export class AddContactComponent implements OnInit {
     this.countryInput.nativeElement.value= "";
     this.jobInput.nativeElement.value = "";
     this.detailsInput.nativeElement.value = "";
+    this.organizationInput.nativeElement.value = "";
   }
 }

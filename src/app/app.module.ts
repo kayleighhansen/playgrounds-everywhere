@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ContactsComponent } from './contacts/contacts.component';
@@ -30,13 +31,22 @@ const appRoutes: Routes =[
   { path: 'projects', component: ProjectsComponent },
   { path: 'organizations', component: OrganizationsComponent },
   { path: 'todos', component: TodosComponent}, 
-
   { path: 'add-contact', component: AddContactComponent},
   { path: 'add-organization', component: AddOrganizationComponent},
   { path: 'add-project', component: AddProjectComponent},
   { path: 'contact-detail', component: ContactDetailsComponent}, 
   { path: 'add-todo', component: AddTodoComponent},
 ];
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDBcuS-jMLjBM3Dbj72C3AAtMQq1_aRavo",
+  authDomain: "playgrounds-everywhere.firebaseapp.com",
+  projectId: "playgrounds-everywhere",
+  storageBucket: "playgrounds-everywhere.appspot.com",
+  messagingSenderId: "32300982326",
+  appId: "1:32300982326:web:7c4d7d611b5e7a04193897",
+  measurementId: "G-NWWVEL4E9V"
+}
 
 @NgModule({
   declarations: [
@@ -60,11 +70,12 @@ const appRoutes: Routes =[
     TodosComponent,
     AddTodoComponent,
     TodoListComponent,
-    TodoItemComponent
+    TodoItemComponent,
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
