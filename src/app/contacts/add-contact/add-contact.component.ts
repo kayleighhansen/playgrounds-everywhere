@@ -21,6 +21,7 @@ export class AddContactComponent implements OnInit {
   constructor(private contactService: ContactService, private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
+    
   }
 
   OnAddContact() {
@@ -46,7 +47,7 @@ export class AddContactComponent implements OnInit {
       jobValue,
       detailValue);
 
-      // ADD THE MESSAGE TO DATABASE
+      // ADD THE CONTACT TO DATABASE
       this.contactService.addContact(contact);
 
       if (this.dataStorageService.saveData())

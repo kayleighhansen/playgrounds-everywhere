@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
@@ -9,16 +10,17 @@ import { ContactService } from '../contact.service';
 })
 export class ContactListComponent implements OnInit {
   @Output() contactWasSelected = new EventEmitter<Contact>();
-
-  contacts: Contact[] = [];
   
+  public contacts: Contact[];
   constructor(private contactService: ContactService) { }
 
-  ngOnInit(): void {
-    this.contacts = this.contactService.getContacts();
+  OnFetchContacts() {
+    this.contactService.getContacts();
   }
-  
-  // onContactSelected(contact: Contact) { 
-  //   this.contactWasSelected.emit(contact);
-  // }
+ 
+  ngOnInit(): void {
+    this.contactService.getContacts().subscribe(contacts=>{
+      console.log(contacts);
+    });
+  }
 }
