@@ -48,14 +48,16 @@ export class AddContactComponent implements OnInit {
       detailValue);
 
       // ADD THE CONTACT TO DATABASE
-      this.contactService.addContact(contact);
+      //this.contactService.addContact(contact);
 
-      if (this.dataStorageService.saveData())
-      {
-        alert("Message Saved Correctly!");
+      console.log(contact);
+
+      //if (this.dataStorageService.saveData())
+      //{
+        alert("Contact Saved Correctly!");
         this.onClear();
 
-      };
+      //};
 
       // SEND BACK TO CONTACTS PAGE
 

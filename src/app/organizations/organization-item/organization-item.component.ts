@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { Organization } from '../organization.model';
+import { OrganizationService } from '../organization.service';
 
 @Component({
   selector: 'app-organization-item',
@@ -9,9 +10,13 @@ import { Organization } from '../organization.model';
 export class OrganizationItemComponent implements OnInit {
   @Input() organization: Organization;
 
-  constructor() { }
+  constructor(private organizationService: OrganizationService) { }
 
   ngOnInit(): void {
   }
+
+  // onSelected() {
+  //   this.organizationService.organizationSelectedEvent.emit(this.organization);
+  // }
 
 }

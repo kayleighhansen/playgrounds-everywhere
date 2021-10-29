@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, OnDestroy, Output } from '@angular/core';
 import { Organization } from '../organization.model';
+import { Subscription } from 'rxjs';
+import { OrganizationService } from '../organization.service';
+
 
 @Component({
   selector: 'app-organization-list',
@@ -7,14 +10,28 @@ import { Organization } from '../organization.model';
   styleUrls: ['../../app.component.css']
 })
 export class OrganizationListComponent implements OnInit {
-  organizations: Organization[] = [
-    new Organization(1, 'The US Government', 'USA', 'Washington D.C.', 'email@email.com', '123-456-7890', 'Michelle Obama', '07-05-1998', 'Local Government', 'imgurl.jpeg', 'just the greatest'),
-    new Organization(2, 'The US Government', 'USA', 'Washington D.C.', 'email@email.com', '123-456-7890', 'Michelle Obama', '07-05-1998', 'Local Government', 'imgurl.jpeg', 'just the greatest'),
-    new Organization(3, 'The US Government', 'USA', 'Washington D.C.', 'email@email.com', '123-456-7890', 'Michelle Obama', '07-05-1998', 'Local Government', 'imgurl.jpeg', 'just the greatest'),
-  ]; 
-  constructor() { }
+  @Output() organizationWasSelected = new EventEmitter<Organization>();
+
+  public organizations: Organization[];
+  fetchOrganizationsSubscription: Subscription;
+
+  constructor(private organizationService: OrganizationService) { }
+
+  OnFetchOrganizations() {
+    this.organizationService.getOrganizations();
+  }
 
   ngOnInit(): void {
+    const list = this.organizationService.fetchOrganizations();
+
+    this.fetchOrganizationsSubscription = this.organizationService.fetchOrganizationsEvent.subscribe((result => {
+      this.organizations = result;
+      console.log(this.organizations);
+    }))
+  }
+
+  ngOnDestroy(): void {
+    this.fetchOrganizationsSubscription.unsubscribe();
   }
 
 }

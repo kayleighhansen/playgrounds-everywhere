@@ -1,5 +1,5 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
 
@@ -8,10 +8,12 @@ import { ContactService } from '../contact.service';
   templateUrl: './contact-list.component.html',
   styleUrls: ['../../app.component.css']
 })
-export class ContactListComponent implements OnInit {
+export class ContactListComponent implements OnInit, OnDestroy {
   @Output() contactWasSelected = new EventEmitter<Contact>();
   
   public contacts: Contact[];
+  fetchContactsSubscription: Subscription;
+ 
   constructor(private contactService: ContactService) { }
 
   OnFetchContacts() {
@@ -20,5 +22,16 @@ export class ContactListComponent implements OnInit {
  
   ngOnInit(): void {
     const list = this.contactService.fetchContacts();
+
+    this.fetchContactsSubscription = this.contactService.fetchContactsEvent.subscribe((result)=> {
+      this.contacts = result;
+      console.log(this.contacts);
+    });
+
   }
+
+  ngOnDestroy(): void {
+    this.fetchContactsSubscription.unsubscribe();
+  }
+
 }

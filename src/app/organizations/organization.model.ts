@@ -1,18 +1,18 @@
 export class Organization {
 
-    public organizationId : number;
-    public organizationName : string;
-    public organizationCountry : string;
-    public organizationCity : string;
-    public organizationEmail : string;
-    public organizationPhone : string;
-    public organizationContacts : string;
-    public organizationDate : string;
-    public organizationType : string;
-    public organizationImageUrl : string;
-    public organizationDescription : string;
+    public id : string;
+    public name : string;
+    public country : string;
+    public city : string;
+    public email : string;
+    public phone : string;
+    public contacts : string;
+    public date : string;
+    public type : string;
+    //public imageUrl : string;
+    public description : string;
 
-    constructor(id: number, 
+    constructor(id: string, 
                 name: string, 
                 country: string,
                 city: string,
@@ -21,21 +21,21 @@ export class Organization {
                 contacts: string,
                 date: string,
                 type: string,
-                imgUrl : string,
+                //imageUrl : string,
                 description : string
                 ){
 
-        this.organizationId = id;
-        this.organizationName = name;
-        this.organizationCountry = country;
-        this.organizationCity = city;
-        this.organizationEmail = email;
-        this.organizationPhone = phone;
-        this.organizationContacts = contacts;
-        this.organizationDate = date;
-        this.organizationType = type;
-        this.organizationImageUrl = imgUrl;
-        this.organizationDescription = description;
+        this.id = id;
+        this.name = name;
+        this.country = country;
+        this.city = city;
+        this.email = email;
+        this.phone = phone;
+        this.contacts = contacts;
+        this.date = date;
+        this.type = type;
+        //this.imageUrl = imageUrl;
+        this.description = description;
 
     };
 }
