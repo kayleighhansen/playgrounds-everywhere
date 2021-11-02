@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Project } from '../project.model';
+import { Subscription } from 'rxjs';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-project-list',
@@ -7,16 +9,28 @@ import { Project } from '../project.model';
   styleUrls: ['../../app.component.css']
 })
 export class ProjectListComponent implements OnInit {
+  @Output() projectWasSelected = new EventEmitter<Project>();
 
-  projects: Project[] = [
-    new Project(1, 'White House Playground', 'The U.S. Government', '07-05-1998', 'USA', 'Washington D.C.', 'Swings', '', 2000, 'Michelle Obama', 'It went great', 'One swingset built'),
-    new Project(2, 'White House Playground', 'The U.S. Government', '07-05-1998', 'USA', 'Washington D.C.', 'Swings', '', 2000, 'Michelle Obama', 'It went great', 'One swingset built'),
-    new Project(3, 'White House Playground', 'The U.S. Government', '07-05-1998', 'USA', 'Washington D.C.', 'Swings', '', 2000, 'Michelle Obama', 'It went great', 'One swingset built'),
-  ]; 
+  public projects: Project[] = []; 
+  fetchProjectsSubscription: Subscription;
+  
+  constructor(private projectService: ProjectService) { }
 
-  constructor() { }
+  OnFetchProjects() {
+    this.projectService.getProjects();
+  }
 
   ngOnInit(): void {
+    const list = this.projectService.getProjects();
+
+    this.fetchProjectsSubscription = this.projectService.fetchProjectsEvent.subscribe((result => {
+      this.projects = result;
+      console.log(this.projects);
+    }))
+  }
+
+  ngOnDestroy():void {
+    this.fetchProjectsSubscription.unsubscribe();
   }
 
 }

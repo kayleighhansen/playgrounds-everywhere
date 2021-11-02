@@ -12,6 +12,7 @@ export class OrganizationService {
 
   organizationAdded = new EventEmitter<Organization[]>();
   organizationSelectedEvent = new EventEmitter<Organization[]>();
+  
   organizationChanged = new Subject<Organization[]>();
   fetchOrganizationsEvent = new Subject<Organization[]>();
 

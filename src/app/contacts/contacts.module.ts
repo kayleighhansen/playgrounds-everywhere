@@ -8,6 +8,7 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 import { DropdownDirective } from '../dropdown.directive';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
 import { ContactsRoutingModule } from './contacts-routing/contacts-routing.module';
+import { ContactsComponent } from './contacts.component';
 
 
 @NgModule({
@@ -17,9 +18,11 @@ import { ContactsRoutingModule } from './contacts-routing/contacts-routing.modul
     ContactListComponent,
     DropdownDirective,
     ContactDetailsComponent,
+    ContactsComponent
   ],
   imports: [
     CommonModule,
+    ContactsRoutingModule
   ]
 })
 export class HomeModule { }

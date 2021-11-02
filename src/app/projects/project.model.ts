@@ -1,19 +1,19 @@
 export class Project {
 
-    public projectId : number;
-    public projectName : string;
-    public projectOrganization : string;
-    public projectDate : string;
-    public projectCountry : string;
-    public projectCity : string;
-    public projectEquipment : string;
-    public projectDonations : string;
-    public projectPrice : number;
-    public projectContacts : string;
-    public projectDetails : string;
-    public projectResults : string;
+    public id : string;
+    public name : string;
+    public organization : string;
+    public date : string;
+    public country : string;
+    public city : string;
+    public equipment : string;
+    public donations : string;
+    public price : number;
+    public contacts : string;
+    public details : string;
+    public results : string;
 
-    constructor(id: number, 
+    constructor(id: string, 
                 name: string, 
                 organization: string,
                 date: string,
@@ -27,17 +27,17 @@ export class Project {
                 results: string
                 ){
 
-        this.projectId = id;
-        this.projectName = name;
-        this.projectOrganization = organization;
-        this.projectDate = date;
-        this.projectCountry = country;
-        this.projectCity = city;
-        this.projectEquipment = equipment;
-        this.projectDonations = donations;
-        this.projectPrice = price;
-        this.projectContacts = contacts;
-        this.projectDetails = details;      
-        this.projectResults = results;
+        this.id = id;
+        this.name = name;
+        this.organization = organization;
+        this.date = date;
+        this.country = country;
+        this.city = city;
+        this.equipment = equipment;
+        this.donations = donations;
+        this.price = price;
+        this.contacts = contacts;
+        this.details = details;      
+        this.results = results;
     };
 }

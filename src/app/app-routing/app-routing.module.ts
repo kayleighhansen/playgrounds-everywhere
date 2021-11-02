@@ -14,6 +14,7 @@ import { TodosComponent } from '../todos/todos.component';
 
 const appRoutes: Routes =[
   { path: '', component: HomeComponent},
+  
   { path: 'contacts', component: ContactsComponent, loadChildren: () => import('../contacts/contacts-routing/contacts-routing.module').then(m => m.ContactsRoutingModule)
 
   }, 
