@@ -43,7 +43,7 @@ export class AddContactComponent implements OnInit {
       numberValue,
       organizationValue,
       countryValue,
-      '',
+      //'',
       jobValue,
       detailValue);
 

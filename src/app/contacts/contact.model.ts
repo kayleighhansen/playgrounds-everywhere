@@ -5,7 +5,7 @@ export class Contact {
     public lname : string;
     public email : string;
     public phone : string;
-    public imageUrl : string;
+    //public imageUrl : string;
     public country : string;
     public organization : string;
     public job : string;
@@ -16,7 +16,7 @@ export class Contact {
                 lname: string,
                 email: string,
                 phone: string, 
-                imageUrl: string,
+                //imageUrl: string,
                 country: string,
                 organization: string,
                 job: string,
@@ -28,11 +28,10 @@ export class Contact {
         this.lname = lname;
         this.email = email;
         this.phone = phone;
-        this.imageUrl = imageUrl;
+        //this.imageUrl = imageUrl;
         this.country = country;
         this.organization = organization;
         this.job = job;
         this.details = details;
-
     };
 }

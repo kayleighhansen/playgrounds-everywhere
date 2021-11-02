@@ -10,13 +10,18 @@ import { Observable, Subject } from 'rxjs';
 
 export class ContactService {
   private contacts: Contact[] = [];
+  maxContactId:number;
     
+  fetchContactsEvent = new Subject<Contact[]>();
   contactAdded = new EventEmitter<Contact[]>();
+
   contactSelectedEvent = new EventEmitter<Contact>();
   contactsChanged = new Subject<Contact[]>();
-  fetchContactsEvent = new Subject<Contact[]>();
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) { 
+    
+  }
 
   setContacts() {
     this.getContacts().subscribe(res => {

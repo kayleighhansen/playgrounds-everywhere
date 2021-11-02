@@ -1,4 +1,3 @@
-import { ConstantPool } from '@angular/compiler';
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Contact } from '../contact.model';

@@ -24,29 +24,8 @@ import { TodosComponent } from './todos/todos.component';
 import { AddTodoComponent } from './todos/add-todo/add-todo.component';
 import { TodoListComponent } from './todos/todo-list/todo-list.component';
 import { TodoItemComponent } from './todos/todo-item/todo-item.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
-const appRoutes: Routes =[
-  { path: '', component: HomeComponent},
-  { path: 'contacts', component: ContactsComponent }, 
-  { path: 'projects', component: ProjectsComponent },
-  { path: 'organizations', component: OrganizationsComponent },
-  { path: 'todos', component: TodosComponent}, 
-  { path: 'add-contact', component: AddContactComponent},
-  { path: 'add-organization', component: AddOrganizationComponent},
-  { path: 'add-project', component: AddProjectComponent},
-  { path: 'contact-detail', component: ContactDetailsComponent}, 
-  { path: 'add-todo', component: AddTodoComponent},
-];
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDBcuS-jMLjBM3Dbj72C3AAtMQq1_aRavo",
-  authDomain: "playgrounds-everywhere.firebaseapp.com",
-  projectId: "playgrounds-everywhere",
-  storageBucket: "playgrounds-everywhere.appspot.com",
-  messagingSenderId: "32300982326",
-  appId: "1:32300982326:web:7c4d7d611b5e7a04193897",
-  measurementId: "G-NWWVEL4E9V"
-}
 
 @NgModule({
   declarations: [
@@ -74,7 +53,7 @@ const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     HttpClientModule
   ],
   providers: [],
