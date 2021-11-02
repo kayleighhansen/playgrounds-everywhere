@@ -1,28 +1,14 @@
-<nav class="navbar navbar-defaultm center-block center">
-    <div class="container-fluid">
-      <ul class="nav navbar-nav">
-        <li><a routerLink=""><i class="fa fa-home"></i></a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a routerLink="contacts">Contacts</a></li>
-        <li><a routerLink="projects">Projects</a></li>
-        <li><a routerLink="organizations">Organizations</a></li>
-        <li><a routerLink="todos">ToDos</a></li>
-      </ul>
-      <ul class="responsive-nav">
-        <li><a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars responsive-icon"></i></a></li>
-        <div class="dropdown-content">
-          <li><a routerLink="contacts">Contacts</a></li>
-          <li><a routerLink="projects">Projects</a></li>
-          <li><a routerLink="organizations">Organizations</a></li>
-          <li><a routerLink="todos">ToDos</a></li>
-        </div>
-      </ul>
-
-
-
-    </div>
-  </nav>
+<nav class="header">
+  <a href="" class="logo"><i class="fa fa-home"></i></a>
+  <input class="menu-btn" type="checkbox" id="menu-btn" />
+  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+  <ul class="menu">
+    <li><a routerLink="contacts">Contacts</a></li>
+    <li><a routerLink="organizations">Organizations</a></li>
+    <li><a routerLink="projects">Projects</a></li>
+    <li><a routerLink="todos">To Dos</a></li>
+  </ul>
+</nav>
 
 
 

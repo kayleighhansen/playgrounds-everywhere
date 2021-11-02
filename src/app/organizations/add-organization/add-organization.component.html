@@ -8,21 +8,19 @@
 
             <form>
                 <div class="fieldset">
-                    <h4>Organization Details</h4>
+                    <div class="fieldset-title">
+                        <h4>Organization Details</h4>
+                        <small class="required explanation">* required fields *</small>
+                    </div>
                     <div class="form-group">
-                        <label for="name">Organization Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="" #nameInput>
+                        <label for="name">Organization Name <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="name" placeholder="" required #nameInput>
                     </div>
 
                     <div class="form-group">
-                        <label for="contacts">Contacts</label><br>
-                        <small>Contacts in the organization</small>
-                        <input type="text" class="form-control" id="contacts" placeholder="" #contactsInput>
-                    </div>
-                    <div class="form-group">
-                        <label for="type">Organization Type</label><br>
-                        <select id="type" name="type" #typeInput>
-                            <option value="none">Select an Organization Type</option>
+                        <label for="type">Organization Type <span class="required">*</span></label><br>
+                        <select id="type" class="form-control" name="type" required #typeInput>
+                            <option value="">Select an Organization Type</option>
                             <option value="primarySchool">Primary School</option>
                             <option value="secondarySchool">Secondary School</option>
                             <option value="localGovernment">Local Government</option>
@@ -30,14 +28,30 @@
                             <option value="prison">Prison</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="contacts">Contact</label><br>
+                        <small>Main Contact in this Organization</small>
+                        <select id="type" class="form-control" name="type" required #typeInput>
+                            <option value="">Select a Contact</option>
+                            <option value="0">Kayleigh Hansen</option>
+                            <option value="1">Judith Nalube</option>
+                            <option value="2">Zayne</option>
+                        </select>   
+                        <div class="form-link-container">
+                            <small><a href="add-contact" class="form-link">Don't see the contact you need?</a></small>  
+                        </div>               
+                    </div>
                 </div>
 
                 <div class="fieldset">
-                    <h4>Organization Location</h4>
+                    <div class="fieldset-title">
+                        <h4>Organization Location</h4>
+                    </div>
                     <div class="form-section">
                         <div class="form-group">
-                            <label for="country">Country</label><br>
-                            <select class="input-country" #countryInput>
+                            <label for="country">Country <span class="required">*</span></label><br>
+                            <select class="input-country" required #countryInput>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
                                 <option value="Algeria">Algeria</option>
@@ -263,7 +277,7 @@
                                 <option value="Ukraine">Ukraine</option>
                                 <option value="United Arab Emirates">United Arab Emirates</option>
                                 <option value="United Kingdom">United Kingdom</option>
-                                <option value="United States">United States</option>
+                                <option value="United States" selected>United States</option>
                                 <option value="United States Minor Outlying Islands">United States Minor Outlying
                                     Islands</option>
                                 <option value="Uruguay">Uruguay</option>
@@ -290,7 +304,9 @@
                 </div>
 
                 <div class="fieldset">
-                    <h4>Contact Information</h4>
+                    <div class="fieldset-title">
+                        <h4>Contact Information</h4>
+                    </div>
                     <div class="form-group">
                         <label for="phone">Phone</label><br>
                         <small>Primary Phone number</small>
@@ -311,15 +327,15 @@
 
                 <div class="fieldset">
                     <div class="form-group">
-                        <label for="description">More Details</label><br>
+                        <label for="description">More Details <span class="required">*</span></label><br>
                         <small>Any other important information about this organization</small>
-                        <textarea class="form-control" id="description" rows="3" cols="50" #descriptionInput></textarea>
+                        <textarea class="form-control" id="description" rows="3" cols="50" required #descriptionInput></textarea>
                     </div>
                 </div>
                 <div class="submit-buttons">
                     <button type="button" class="btn btn-primary" (click)="OnAddOrganization()">Save</button>
                     <a href="./contacts"><button type="button" class="btn btn-primary"
-                            (click)="OnAddOrganization()">Save and Close</button></a>
+                        (click)="OnAddOrganization()">Save and Close</button></a>
                 </div>
             </form>
         </div>

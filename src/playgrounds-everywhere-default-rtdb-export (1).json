@@ -1,0 +1,44 @@
+{
+  "contacts" : [ {
+    "country" : "United States",
+    "details" : "Rogers granddaughter",
+    "email" : "kayleigh@hansens.org",
+    "fname" : "Kayleigh",
+    "job" : "Developer",
+    "lname" : "Hansen",
+    "organizationId" : 0,
+    "phone" : "571-361-8641"
+  } ],
+  "organizations" : [ {
+    "city" : "Washington D.C.",
+    "contacts" : "Kayleigh Hansen",
+    "country" : "United States",
+    "date" : "01-01-1111",
+    "description" : "The bestest",
+    "email" : "kayleigh@hansens.org",
+    "name" : "Hansen Consulting",
+    "phone" : "5713618641",
+    "type" : "Non-Profit"
+  } ],
+  "projects" : [ {
+    "city" : "Washington D.C.",
+    "contactId" : 0,
+    "country" : "United States",
+    "details" : "Building a bunch of swings to help stuff",
+    "donations" : " ",
+    "equipment" : "swings",
+    "name" : "White House Playground",
+    "price" : 0,
+    "results" : "The white house has more swings"
+  } ],
+  "todos" : [ {
+    "city" : "Washington D.C.",
+    "contactId" : 0,
+    "country" : "United States",
+    "details" : "Gonna build the bestest swings to replace the old ones",
+    "equipment" : "swings",
+    "price" : 0,
+    "projectId" : 0,
+    "title" : "Build More Swings for White House"
+  } ]
+}
