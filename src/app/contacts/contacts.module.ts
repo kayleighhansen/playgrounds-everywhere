@@ -7,10 +7,8 @@ import { ContactItemComponent } from './contact-item/contact-item.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { DropdownDirective } from '../dropdown.directive';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { ContactsRoutingModule } from './contacts-routing/contacts-routing.module';
 
-const appRoutes: Routes =[
-  { path: 'add-contact', component: AddContactComponent}
-];
 
 @NgModule({
   declarations: [
@@ -22,10 +20,6 @@ const appRoutes: Routes =[
   ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  exports: [
-    RouterModule
   ]
 })
 export class HomeModule { }
