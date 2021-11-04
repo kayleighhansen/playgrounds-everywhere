@@ -11,6 +11,10 @@ export class OrganizationEditComponent implements OnInit {
 
   ngOnInit(): void {
     let contactsList = [{  
+      value: '',  
+      fname: '',
+      lname: ''
+    },{  
       value: '0',  
       fname: 'Kayleigh',
       lname: 'Hansen'

@@ -12,6 +12,24 @@ main {
 a {
     color: #000;
 }
+
+.home-body > div  {
+    margin: 20px 10%;;
+}
+
+.home-body > div > .panel-heading {
+    background-color: #d3d3d3;
+}
+
+.home-body > div > .panel-body > div {
+    margin: 10px 30px;
+}
+
+.home-body > div > .panel-footer {
+    display:flex;
+    justify-content: center;
+}
+
   
 h4 {
     text-align: center;

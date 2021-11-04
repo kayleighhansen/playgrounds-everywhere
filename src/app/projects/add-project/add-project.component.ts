@@ -92,7 +92,13 @@ export class AddProjectComponent implements OnInit {
     });
 
     // json list of options
-    let contactsList = [{  
+    let contactsList = [
+    {  
+      value: '',  
+      fname: '',
+      lname: ''
+    }, 
+    {  
       value: '0',  
       fname: 'Kayleigh',
       lname: 'Hansen'
@@ -118,7 +124,12 @@ export class AddProjectComponent implements OnInit {
       selectList.appendChild(option);
     }
 
-    let organizationsList = [{  
+    let organizationsList = [
+    {  
+      value: '',  
+      name: ''
+    }, 
+    {  
       value: '0',  
       name: 'Hansen Web Consulting'  
     },  
