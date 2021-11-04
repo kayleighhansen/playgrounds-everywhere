@@ -1,6 +1,6 @@
 export class Contact {
 
-    public id : string;
+    public contactId : string;
     public fname : string;
     public lname : string;
     public email : string;
@@ -25,7 +25,7 @@ export class Contact {
                 details: string
                 ){
 
-        this.id = id;
+        this.contactId = id;
         this.fname = fname;
         this.lname = lname;
         this.email = email;

@@ -11,7 +11,7 @@ import { ContactService } from '../contact.service';
 
 export class ContactItemComponent implements OnInit {
   @Input() contact: Contact;
-  @Input() id: string;
+  @Input() id: number;
  
   constructor(private contactService: ContactService) { }
 
@@ -19,7 +19,7 @@ export class ContactItemComponent implements OnInit {
 
   } 
 
-  onSelected() {
-    this.contactService.contactSelectedEvent.emit(this.contact);
-  } 
+  // onSelected() {
+  //   this.contactService.contactSelectedEvent.emit(this.contact);
+  // } 
 }

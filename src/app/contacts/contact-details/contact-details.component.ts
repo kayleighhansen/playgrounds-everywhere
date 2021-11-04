@@ -18,9 +18,12 @@ export class ContactDetailsComponent implements OnInit {
               private route: ActivatedRoute) { }  
 
   ngOnInit(): void {
+
+    console.log(this.contact);
+
     this.route.params
     .subscribe((params: Params) => {
-      this.id = params['contactId'];
+      this.id = params['id'];
       this.contact = this.contactService.getContact(this.id);
     });  
   }  

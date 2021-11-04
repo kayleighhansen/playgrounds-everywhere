@@ -23,7 +23,11 @@ export class AddContactComponent implements OnInit {
   ngOnInit(): void {
 
     // json list of options
-    let organizationsList = [{  
+    let organizationsList = [{
+      value:'',
+      name:''
+    },
+    {  
       value: '0',  
       name: 'Hansen Web Consulting'  
     },  

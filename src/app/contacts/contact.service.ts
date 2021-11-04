@@ -33,7 +33,7 @@ export class ContactService {
   }
 
   getContact(id: string): Contact {
-    return this.contacts.find((contact) => contact.id === id)
+    return this.contacts.find((contact) => contact.contactId === id)
   } 
 
   addContact(contact: Contact) {
