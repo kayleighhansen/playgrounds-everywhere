@@ -22,38 +22,35 @@ export class AddOrganizationComponent implements OnInit {
   constructor(private organizationService: OrganizationService, private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
+    // json list of options
+    let contactsList = [{  
+      value: '0',  
+      fname: 'Kayleigh',
+      lname: 'Hansen'
+    },  
+    {  
+      value: '1',  
+      fname: 'Zayne',
+      lname: ''  
+    },{  
+      value: '2',  
+      fname: 'Judith',
+      lname: 'Nalube'  
+    }
+  ];
 
-    
+    const selectList = document.getElementsByClassName("contactSelectList")[0];
 
-        // json list of options
-        let contactsList = [{  
-          value: '0',  
-          fname: 'Kayleigh',
-          lname: 'Hansen'
-        },  
-       {  
-          value: '1',  
-          fname: 'Zayne',
-          lname: ''  
-        },{  
-          value: '2',  
-          fname: 'Judith',
-          lname: 'Nalube'  
-        }
-      ];
-    
-        const selectList = document.getElementsByClassName("contactSelectList")[0];
-    
-        for (const item of contactsList ) {
-          var option = document.createElement("option");
-          option.value = item.value;
-          option.text = item.fname + " " + item.lname;
-    
-          selectList.appendChild(option);
-        }
+    for (const item of contactsList ) {
+      var option = document.createElement("option");
+      option.value = item.value;
+      option.text = item.fname + " " + item.lname;
+
+      selectList.appendChild(option);
+    }
 
 
-        
+    
 
   }
 
