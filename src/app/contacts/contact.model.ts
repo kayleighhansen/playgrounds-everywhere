@@ -7,7 +7,8 @@ export class Contact {
     public phone : string;
     //public imageUrl : string;
     public country : string;
-    public organization : string;
+    public city : string;
+    public organizationId : string;
     public job : string;
     public details : string;
 
@@ -18,7 +19,8 @@ export class Contact {
                 phone: string, 
                 //imageUrl: string,
                 country: string,
-                organization: string,
+                city: string,
+                organizationId : string,
                 job: string,
                 details: string
                 ){
@@ -30,7 +32,8 @@ export class Contact {
         this.phone = phone;
         //this.imageUrl = imageUrl;
         this.country = country;
-        this.organization = organization;
+        this.city = city;
+        this.organizationId = organizationId;
         this.job = job;
         this.details = details;
     };

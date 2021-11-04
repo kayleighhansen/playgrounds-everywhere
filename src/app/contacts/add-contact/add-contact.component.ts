@@ -21,7 +21,30 @@ export class AddContactComponent implements OnInit {
   constructor(private contactService: ContactService, private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
-    
+
+    // json list of options
+    let organizationsList = [{  
+      value: '0',  
+      name: 'Hansen Web Consulting'  
+    },  
+   {  
+      value: '0',  
+      name: 'SEEEme'  
+    },{  
+      value: '2',  
+      name: 'The US Government'  
+    }
+  ];
+
+    const selectList = document.getElementsByClassName("organizationSelectList")[0];
+
+    for (const item of organizationsList ) {
+      var option = document.createElement("option");
+      option.value = item.value;
+      option.text = item.name;
+
+      selectList.appendChild(option);
+    }
   }
 
   OnAddContact() {
@@ -44,6 +67,7 @@ export class AddContactComponent implements OnInit {
       organizationValue,
       countryValue,
       //'',
+      '',
       jobValue,
       detailValue);
 

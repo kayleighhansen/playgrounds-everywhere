@@ -2,13 +2,16 @@ import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { Organization } from '../organization.model';
 import { OrganizationService } from '../organization.service';
 
+
 @Component({
   selector: 'app-organization-item',
   templateUrl: './organization-item.component.html',
   styleUrls: ['../../app.component.css']
 })
+
 export class OrganizationItemComponent implements OnInit {
   @Input() organization: Organization;
+  @Input() id: string;
 
   constructor(private organizationService: OrganizationService) { }
 
@@ -18,5 +21,4 @@ export class OrganizationItemComponent implements OnInit {
   // onSelected() {
   //   this.organizationService.organizationSelectedEvent.emit(this.organization);
   // }
-
 }

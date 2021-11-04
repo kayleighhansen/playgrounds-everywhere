@@ -1,7 +1,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
       <h1 class="mb-3">Add Contact</h1>
-      <a href="/contacts" class="form-link">Back to Contacts</a>
+      <a href="./contacts" class="form-link">Back to Contacts</a>
     </div>  
     <div class="panel-body">
       <div class="btn-container">
@@ -27,11 +27,8 @@
                 <div class="form-group">
                     <label for="organization">Organization</label><br>
                     <small>Organization they work or volunteer for</small>
-                    <select id="type" class="form-control" name="type" required #typeInput>
-                        <option value="">Select an Organization</option>
-                        <option value="0">Hansen Web Consulting</option>
-                        <option value="1">SEEEme</option>
-                        <option value="2">American Government</option>
+                    <select id="type" class="form-control organizationSelectList" name="type" required #typeInput>
+
                     </select>  
                     <div class="form-link-container">
                         <small><a href="add-organization" class="form-link">Don't see the organization you need?</a></small>

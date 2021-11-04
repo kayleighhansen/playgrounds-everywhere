@@ -1,0 +1,78 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 class="mb-3">Organization Details</h1>
+        <a href="/organizations">Back to Organizations</a>
+    </div>
+    <div class="panel-body">
+        <div class="btn-container">
+
+            <form>
+                <div class="fieldset">
+                    <div class="form-group">
+                        <label for="name">Organization Name </label>
+                        <input type="text" class="form-control" id="name" placeholder="" value="{{ organization.name }}" style="cursor: default" disabled #nameInput>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type">Organization Type</label><br>
+                        <input type="text" class="form-control" id="type" placeholder="" value="{{ organization.type }}" style="cursor: default" disabled #nameInput>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contacts">Contact</label><br>
+                        <input type="text" class="form-control" id="type" placeholder="" value="{{ organization.contactId }}" style="cursor: default" disabled #nameInput>  
+                    </div>
+                </div>
+
+                <div class="fieldset">
+                    <div class="fieldset-title">
+                        <h4>Organization Location</h4>
+                    </div>
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label for="country">Country </label><br>
+                            <input type="text" class="form-control" id="country" placeholder="" value="{{ organization.country }}" style="cursor: default" disabled #nameInput>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">City</label><br>
+                            <input type="text" class="form-control" id="country" placeholder="" value="{{ organization.city }}" style="cursor: default" disabled #nameInput>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fieldset">
+                    <div class="fieldset-title">
+                        <h4>Contact Information</h4>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label><br>
+                        <input type="text" class="form-control" id="phone" placeholder="" value="{{ organization.phone }}" style="cursor: default" disabled #nameInput>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label><br>
+                        <input type="email" class="form-control" id="email" placeholder="" value="{{ organization.email }}" style="cursor: default" disabled #nameInput>
+                    </div>
+                </div>
+
+                <!-- <div class="form-group">
+                <label for="photos">Photo</label>
+                <input type="file" id="photos" accept ="image/*">
+            </div><br> -->
+
+                <div class="fieldset">
+                    <div class="form-group">
+                        <label for="description">More Details</label><br>
+                        <textarea class="form-control" id="description" rows="3" cols="50" value="{{ organization.description }}" style="cursor: default" disabled #descriptionInput></textarea>
+                    </div>
+                </div>
+                <div class="submit-buttons">
+                    <button type="button" class="btn btn-primary">Edit</button>
+                    <a href="./contacts"><button type="button" class="btn btn-primary">Delete</button></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -8,6 +8,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ProjectService {
   private projects: Project[] = [];
+  maxContactId:number;
 
   projectAdded = new EventEmitter<Project[]>();
   projectSelectedEvent = new EventEmitter<Project[]>();
@@ -41,6 +42,7 @@ export class ProjectService {
       console.log(projects);
       this.projects = projects;
       this.fetchProjectsEvent.next(this.projects);
-    })
+    });
+    return;
   }
 }

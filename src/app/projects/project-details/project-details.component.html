@@ -1,0 +1,100 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="mb-3">Project Details</h1>
+      <a href="/projects">Back to Projects</a>
+    </div>  
+    <div class="panel-body">
+      <div class="btn-container">
+
+        <form>
+            <div class="fieldset">
+                <div class="form-group">
+                    <label for="name">Project Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="" value="{{ project.name }}" style="cursor: default" disabled #nameInput>
+                </div>
+                <div class="form-group">
+                    <label for="contacts">Contacts Assisted</label><br>
+                    <input type="text" class="form-control" id="contacts" placeholder="" value="{{ project.contacts }}" style="cursor: default" disabled #nameInput>             
+                </div>
+                <div class="form-group">
+                    <label for="price">Total Project Price</label>
+                    <input type="text" class="form-control" id="price" placeholder="" value="{{ project.price }}" style="cursor: default" disabled #nameInput>             
+                </div>
+                <div class="form-group">
+                    <label for="details">Project Details</label>
+                    <textarea type="text" class="form-control" id="details" placeholder="" value="{{ project.details }}" style="cursor: default" disabled #nameInput></textarea>             
+                </div>
+            </div>
+            <div class="fieldset">
+                <div class="fieldset-title">
+                    <h4>Project Location</h4>
+                </div>
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="country">Country</label><br>
+                        <input type="text" class="form-control" id="country" placeholder="" value="{{ project.country }}" style="cursor: default" disabled #nameInput>             
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" placeholder="" value="{{ project.city }}" style="cursor: default" disabled #nameInput>             
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="organization">Organization</label><br>
+                    <input type="text" class="form-control" id="organization" placeholder="" value="{{ project.organization }}" style="cursor: default" disabled #nameInput>             
+             
+                </div>
+            </div>
+            <div class="fieldset">
+                <div class="fieldset-title">
+                    <h4>Project Results</h4>
+                </div>
+                <div class="form-group">
+                    <label for="equipment">Equipment Built</label>
+                    <div class="quantity-input">
+                        <div>
+                            <small>Quantity</small>
+                            <input type="text" class="form-control" id="equipment-quantity" placeholder="(1)" style="cursor: default" disabled>
+                        </div>
+                        <div>
+                            <small>Type</small>
+                            <input type="text" class="form-control" id="equipment-name" placeholder="(Swingset)" style="cursor: default" disabled>
+                        </div>
+                        <button class="add-input-item">+</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="equipment">Items Donated</label>
+                    <div class="quantity-input">
+                        <div>
+                            <small>Quantity</small>
+                            <input type="text" class="form-control" id="donation-quantity" placeholder="(1)" style="cursor: default" disabled>
+                        </div>
+                        <div>
+                            <small>Type</small>
+                            <input type="text" class="form-control" id="donation-name" placeholder="(Tablet)" style="cursor: default" disabled>
+                        </div>
+                        <button class="add-input-item">+</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="results">Project Results </label>
+                    <textarea class="form-control" id="results" rows="3" cols="50" value="{{ project.results }}" style="cursor: default" disabled></textarea>
+                </div>
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="photos">Photo</label>
+                <input type="file" id="photos" accept ="image/*">
+            </div><br> -->
+
+            <div class="submit-buttons">
+                <button type="button" class="btn btn-primary">Edit</button>
+                <a href="./projects"><button type="button" class="btn btn-primary">Delete</button></a>
+            </div>        </form>
+      </div>
+    </div>
+</div>

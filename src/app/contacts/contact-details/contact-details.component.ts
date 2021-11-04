@@ -24,4 +24,7 @@ export class ContactDetailsComponent implements OnInit {
       this.contact = this.contactService.getContact(this.id);
     });  
   }  
+
+  onDelete() {
+  }
 }

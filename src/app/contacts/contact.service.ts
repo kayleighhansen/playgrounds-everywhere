@@ -3,25 +3,20 @@ import { Contact } from './contact.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root'
 })
-
 export class ContactService {
   private contacts: Contact[] = [];
   maxContactId:number;
-    
-  fetchContactsEvent = new Subject<Contact[]>();
+  
   contactAdded = new EventEmitter<Contact[]>();
-
   contactSelectedEvent = new EventEmitter<Contact>();
+
+  fetchContactsEvent = new Subject<Contact[]>();
   contactsChanged = new Subject<Contact[]>();
 
-
-  constructor(private http: HttpClient) { 
-    
-  }
+  constructor(private http: HttpClient) { }
 
   setContacts() {
     this.getContacts().subscribe(res => {
@@ -49,23 +44,10 @@ export class ContactService {
     this.http
       .get<Contact[]>
       ('https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts.json')
-      // .pipe(
-      //   map(contacts => {
-      //     return contacts.map(contact => {
-      //       console.log(contact);
-      //       this.contacts = contacts;
-      //       this.fetchContactsEvent.next(contacts);
-      //     });
-      //   })
-      // )
       .subscribe(contacts => {
         console.log(contacts);
         this.contacts = contacts;
         this.fetchContactsEvent.next(this.contacts);
-        // this.setContacts();
-
-        // console.log(this.contacts);
-        // this.fetchContactsEvent.next(this.contacts);
       });
 
     return;

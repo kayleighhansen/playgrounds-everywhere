@@ -6,7 +6,7 @@ export class Organization {
     public city : string;
     public email : string;
     public phone : string;
-    public contacts : string;
+    public contactId : string;
     public date : string;
     public type : string;
     //public imageUrl : string;
@@ -18,7 +18,7 @@ export class Organization {
                 city: string,
                 email: string, 
                 phone: string,
-                contacts: string,
+                contactId: string,
                 date: string,
                 type: string,
                 //imageUrl : string,
@@ -31,7 +31,7 @@ export class Organization {
         this.city = city;
         this.email = email;
         this.phone = phone;
-        this.contacts = contacts;
+        this.contactId = contactId;
         this.date = date;
         this.type = type;
         //this.imageUrl = imageUrl;

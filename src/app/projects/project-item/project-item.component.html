@@ -1,11 +1,10 @@
 <div class="contact-detail-link">
-    <a class="pointer" href="/add-project">
+    <a class="pointer" [routerLink]="[ project.id ]">
         <div class="contact-item">
-            <h3 class="contact-name"><b>{{ project.name }}</b>,  {{ project.organization }}</h3>
+            <h3 class="contact-name">{{ project.name }}</h3>
             <div class="contact-details">
-                <p class="contact-phone">{{ project.date }}</p>
-                <p class="contact-email">{{ project.equipment }}</p>
-                <p class="contact-country">{{ project.contacts }}</p>
+                <p class="contact-phone"><i class="fa fa-calendar"></i>{{ project.date }}</p>
+                <p class="contact-country"><i class="fa fa-user-circle-o"></i>{{ project.contacts }}</p>
             </div>
         </div>
     </a>

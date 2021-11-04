@@ -9,6 +9,7 @@ import { ProjectService } from '../project.service';
 })
 export class ProjectItemComponent implements OnInit {
   @Input() project: Project;
+  @Input() id: string;
 
   constructor(private projectService: ProjectService) { }
 

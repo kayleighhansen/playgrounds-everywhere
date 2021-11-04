@@ -5,6 +5,8 @@ import { RouterModule, Routes } from "@angular/router";
 import { AddProjectComponent } from './add-project/add-project.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectItemComponent } from './project-item/project-item.component';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { ProjectEditComponent } from './project-edit/project-edit.component';
 
 const appRoutes: Routes =[
   { path: 'add-project', component: AddProjectComponent}
@@ -14,7 +16,9 @@ const appRoutes: Routes =[
   declarations: [
     AddProjectComponent,
     ProjectListComponent,
-    ProjectItemComponent
+    ProjectItemComponent,
+    ProjectDetailsComponent,
+    ProjectEditComponent
   ],
   imports: [
     CommonModule,

@@ -25,6 +25,8 @@ import { AddTodoComponent } from './todos/add-todo/add-todo.component';
 import { TodoListComponent } from './todos/todo-list/todo-list.component';
 import { TodoItemComponent } from './todos/todo-item/todo-item.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { TodoDetailsComponent } from './todos/todo-details/todo-details.component';
+import { TodoEditComponent } from './todos/todo-edit/todo-edit.component';
 
 
 @NgModule({
@@ -50,6 +52,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     AddTodoComponent,
     TodoListComponent,
     TodoItemComponent,
+    TodoDetailsComponent,
+    TodoEditComponent,
   ],
   imports: [
     BrowserModule,

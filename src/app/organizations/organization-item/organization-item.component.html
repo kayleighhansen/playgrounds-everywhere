@@ -1,11 +1,10 @@
 <div class="contact-detail-link">
-    <a class="pointer" href="/add-organization">
+    <a class="pointer" [routerLink]="[ organization.id ]">
         <div class="contact-item">
             <h3 class="contact-name">{{ organization.name }}</h3>
             <div class="contact-details">
-                <p class="contact-phone">{{ organization.country }}</p>
-                <p class="contact-email">{{ organization.city }}</p>
-                <p class="contact-country">{{ organization.phone }}</p>
+                <p class="contact-country"><i class="fa fa-globe"></i> {{ organization.country }}</p>
+                <p class="contact-country"><i class="fa fa-phone"></i> {{ organization.phone }}</p>
             </div>
         </div>
     </a>

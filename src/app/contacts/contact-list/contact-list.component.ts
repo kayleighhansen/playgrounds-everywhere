@@ -11,7 +11,7 @@ import { ContactService } from '../contact.service';
 export class ContactListComponent implements OnInit, OnDestroy {
   @Output() contactWasSelected = new EventEmitter<Contact>();
   
-  public contacts: Contact[];
+  public contacts: Contact[] = [];
   fetchContactsSubscription: Subscription;
  
   constructor(private contactService: ContactService) { }
