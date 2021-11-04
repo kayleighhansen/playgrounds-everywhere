@@ -33,7 +33,6 @@ const appRoutes: Routes =[
   { path: 'contacts/:id', component: ContactDetailsComponent }, 
   { path: 'contacts/:id/edit', component: ContactEditComponent }, 
 
-
   { path: 'projects', component: ProjectsComponent },
   { path: 'projects/add-project', component: AddProjectComponent },
   { path: 'projects/:id', component: ProjectDetailsComponent },
