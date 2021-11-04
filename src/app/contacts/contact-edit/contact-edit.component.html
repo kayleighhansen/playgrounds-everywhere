@@ -16,26 +16,26 @@
 
                     <div class="form-group">
                         <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" style="cursor: default" id="lname" placeholder="" value="" #lnameInput>
+                        <input type="text" class="form-control" style="cursor: default" id="lname" placeholder="" value="{{ contact.lname }}" #lnameInput>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="organization">Organization</label><br>
-                    <input id="type" class="form-control" name="type" style="cursor: default" required value=""> 
+                    <input id="type" class="form-control" name="type" style="cursor: default" required value="{{ contact.organizationId }}"> 
                 </div>
 
                 <div class="form-group">
                     <label for="job-title">Job Title</label><br>
-                    <input type="text" class="form-control" id="job-title" style="cursor: default" placeholder="" value="" #jobInput>
+                    <input type="text" class="form-control" id="job-title" style="cursor: default" placeholder="" value="{{ contact.job }}" #jobInput>
                 </div>
                 <div class="form-group">
                     <label for="country">Home City</label><br>
-                    <input type="text" class="form-control" id="country" style="cursor: default" placeholder="" value="" required #lnameInput>
+                    <input type="text" class="form-control" id="country" style="cursor: default" placeholder="" value="{{ contact.city }}" required #lnameInput>
                 </div>
                 <div class="form-group">
                     <label for="country">Home Country  <span class="required">*</span></label><br>
-                    <input type="text" class="form-control" id="country" style="cursor: default" placeholder="" value="" #lnameInput>
+                    <input type="text" class="form-control" id="country" style="cursor: default" placeholder="" value="{{ contact.country }}" #lnameInput>
                 </div>
             </div>
 
@@ -46,19 +46,19 @@
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" style="cursor: default" placeholder="" value="" #emailInput>
+                    <input type="email" class="form-control" id="email" style="cursor: default" placeholder="" value="{{ contact.email }}" #emailInput>
                 </div>
 
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" style="cursor: default" placeholder="" value="" #numberInput>
+                    <input type="tel" class="form-control" id="phone" style="cursor: default" placeholder="" value="{{ contact.phone }}" #numberInput>
                 </div>
             </div>
 
             <div class="fieldset">
                 <div class="form-group">
                     <label for="details">Details</label><br>
-                    <textarea class="form-control" id="details" style="cursor: default" rows="3" cols="50" value="" #detailsInput ></textarea>
+                    <textarea class="form-control" id="details" style="cursor: default" rows="3" cols="50" value="{{ contact.details }}" #detailsInput ></textarea>
                 </div>
             </div>
 

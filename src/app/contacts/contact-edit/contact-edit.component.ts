@@ -12,10 +12,19 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class ContactEditComponent implements OnInit {
   @Input() contact: Contact;
   id: string;
-  
-  constructor(private contactService: ContactService,) { }
+
+  constructor(private contactService: ContactService,
+    private router: Router, 
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    console.log(this.contact);
+
+    this.route.params
+    .subscribe((params: Params) => {
+      this.id = params['id'];
+      this.contact = this.contactService.getContact(this.id);
+    }); 
   }
 
 }
