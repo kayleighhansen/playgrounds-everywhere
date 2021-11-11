@@ -243,6 +243,11 @@ small {
     background-color: #b0cde6;
     border: 2px solid #2d618f !important;
     padding: 5px 10px;
+    display:flex;
+}
+
+.form-group a p {
+    margin-top: 3px;
 }
 
 .details-title {
