@@ -29,7 +29,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { TodoDetailsComponent } from './todos/todo-details/todo-details.component';
 import { TodoEditComponent } from './todos/todo-edit/todo-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+
 
 
 @NgModule({
@@ -65,6 +67,7 @@ import {MatIconModule} from '@angular/material/icon'
     FormsModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
