@@ -26,6 +26,8 @@
 
     <div class="panel-body">
         <p class="alert alert-warning" role="alert" *ngIf="contacts.length < 1">No Contacts Available</p>
+        <p class="alert alert-warning" role="alert" *ngIf="this.isFetching == true">Loading</p>
+        <!-- <p class="alert alert-warning" role="alert" *ngIf="this.error.length > 0">{{ error.message }}</p> -->
         <div *ngIf="contacts.length >= 1">
           <app-contact-item *ngFor="let contactEl of contacts" [contact]="contactEl"></app-contact-item>
       </div>
