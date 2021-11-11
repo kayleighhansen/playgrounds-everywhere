@@ -6,7 +6,7 @@
     <div class="panel-body">
       <div class="btn-container">
 
-        <form>
+        <form id="add-contact" (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="fieldset">
                 <div class="fieldset-title">
                     <h4>Contact Details</h4>
@@ -15,20 +15,35 @@
                 <div class="form-section">
                     <div class="form-group">
                         <label for="fname">First Name <span class="required">*</span></label>
-                        <input type="text" class="form-control" id="fname" placeholder="" required #fnameInput>
+                        <input type="text" 
+                               class="form-control required" 
+                               id="fname" 
+                               name="fname"
+                               [ngModel]="contact?.fname" 
+                               #fnameInput="ngModel"
+                               required>
                     </div>
 
                     <div class="form-group">
                         <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" id="lname" placeholder="" #lnameInput>
+                        <input type="text" 
+                               id="lname"
+                               class="form-control"   
+                               name="lname"
+                               [ngModel]="contact?.lname" 
+                               #lnameInput="ngModel">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="organization">Organization</label><br>
                     <small>Organization they work or volunteer for</small>
-                    <select id="type" class="form-control organizationSelectList" name="type" required #typeInput>
-
+                    <select id="organizationId" 
+                            class="form-control organizationSelectList" 
+                            name="organizationId" 
+                            [ngModel]="contact?.organizationId"
+                            #organizationIdInput="ngModel"
+                            required>
                     </select>  
                     <div class="form-link-container">
                         <small><a href="add-organization" class="form-link">Don't see the organization you need?</a></small>
@@ -38,12 +53,24 @@
                 <div class="form-group">
                     <label for="job-title">Job Title</label><br>
                     <small>Position in their organization or title at work</small>
-                    <input type="text" class="form-control" id="job-title" placeholder="" #jobInput>
+                    <input type="text"
+                           id="jobTitle"
+                           class="form-control" 
+                           name="job"
+                           [ngModel]="contact?.job"
+                           #jobInput="ngModel">
                 </div>
+
                 <div class="form-group">
                     <label for="country">Home Country  <span class="required">*</span></label><br>
                     <small>Where they are primarily from</small><br>
-                    <select class="input-country" required #countryInput>
+                    <select id="homeCountry"
+                            class="input-country"
+                            name="country"
+                            [ngModel]="contact?.country"
+                            #countryInput="ngModel"
+                            required>
+
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
@@ -294,12 +321,23 @@
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="" #emailInput>
+                    <input type="email" 
+                           id="email"
+                           class="form-control"  
+                           name="email"
+                           [ngModel]="contact?.email"
+                           #emailInput="ngModel"
+                           >
                 </div>
 
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" placeholder="" #numberInput>
+                    <input type="tel" 
+                           class="form-control" 
+                           id="phone" 
+                           #numberInput="ngModel"
+                           name="phone"
+                           [ngModel]="contact?.phone">
                 </div>
             </div>
 
@@ -307,18 +345,20 @@
                 <div class="form-group">
                     <label for="details">Details</label><br>
                     <small>Any other important information about this contact</small>
-                    <textarea class="form-control" id="details" rows="3" cols="50" #detailsInput required></textarea>
+                    <textarea class="form-control" 
+                              id="details" 
+                              rows="3" 
+                              cols="50" 
+                              #detailsInput="ngModel"
+                              [ngModel]="contact?.details"
+                              name="details"
+                              required></textarea>
                 </div>
             </div>
 
-            <!-- <div class="form-group">
-                <label for="photos">Photo</label>
-                <input type="file" id="photos" accept ="image/*">
-            </div><br> -->
-
             <div class="submit-buttons">
-                <button type="button" class="btn btn-primary" (click)="OnAddContact()">Save</button>
-                <a href="./contacts"><button type="button" class="btn btn-primary" (click)="OnAddContact()">Save + Close</button></a>
+                <button type="button" class="btn btn-primary" (click)="onSubmit(f)" [disabled]="f.invalid"> Save </button>
+                <a href="./contacts"><button type="button" class="btn btn-primary"> Save + Close </button></a>
             </div>
         </form>
       </div>
