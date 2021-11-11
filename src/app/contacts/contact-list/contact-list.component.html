@@ -25,7 +25,10 @@
     </div>
 
     <div class="panel-body">
-        <app-contact-item *ngFor="let contactEl of contacts" [contact]="contactEl"></app-contact-item>
+        <p class="alert alert-warning" role="alert" *ngIf="contacts.length < 1">No Contacts Available</p>
+        <div *ngIf="contacts.length >= 1">
+          <app-contact-item *ngFor="let contactEl of contacts" [contact]="contactEl"></app-contact-item>
+      </div>
     </div>
     <div class="panel panel-footer">
       <div>

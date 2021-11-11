@@ -28,6 +28,8 @@ import { TodoItemComponent } from './todos/todo-item/todo-item.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { TodoDetailsComponent } from './todos/todo-details/todo-details.component';
 import { TodoEditComponent } from './todos/todo-edit/todo-edit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon'
 
 
 @NgModule({
@@ -61,6 +63,8 @@ import { TodoEditComponent } from './todos/todo-edit/todo-edit.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

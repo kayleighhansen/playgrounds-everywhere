@@ -233,6 +233,22 @@ small {
     /* font-weight: bold; */
 }
 
+.contact-detail-item {
+    background-color: white;
+    border:none !important;
+    box-shadow: none !important;
+}
+
+.form-group a {
+    background-color: #b0cde6;
+    border: 2px solid #2d618f !important;
+    padding: 5px 10px;
+}
+
+.details-title {
+    margin-top: 0 !important;
+}
+
 
 @media only screen and (max-width: 600px) {
 

@@ -9,10 +9,10 @@ import { map } from 'rxjs/operators';
 })
 export class ContactService {
   private contacts: Contact[] = [];
-  maxContactId: number;
 
   fetchContactsEvent = new Subject<Contact[]>();
-  contactsChanged = new Subject<Contact[]>();
+  
+  maxContactId: number;
 
   constructor(private http: HttpClient) { }
 
@@ -37,6 +37,17 @@ export class ContactService {
   fetchContacts() {
     this.http
       .get<Contact[]>('https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts.json')
+      .pipe(
+        map(responseData => {
+          const postsArray = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              postsArray.push({ ...responseData[key], id: key})
+            }
+          }
+          return postsArray;
+        })
+      )
       .subscribe(contacts => {
         this.contacts = contacts;
         this.fetchContactsEvent.next(this.contacts);
@@ -54,10 +65,10 @@ export class ContactService {
   }
 
   editContact() {
-
+    console.log("edit");
   }
 
   deleteContact() {
-
+    console.log("delete");
   }
 }

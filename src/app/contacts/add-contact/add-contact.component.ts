@@ -20,22 +20,7 @@ export class AddContactComponent implements OnInit {
   ngOnInit(): void {
 
     // json list of options
-    let organizationsList = [{
-      value:'',
-      name:''
-    },
-    {  
-      value: '0',  
-      name: 'Hansen Web Consulting'  
-    },  
-   {  
-      value: '0',  
-      name: 'SEEEme'  
-    },{  
-      value: '2',  
-      name: 'The US Government'  
-    }
-  ];
+    let organizationsList = [{value:'',name:''},{value: '0',name: 'Hansen Web Consulting'},{value: '0',name: 'SEEEme'},{value: '2',name: 'The US Government'}];
 
     const selectList = document.getElementsByClassName("organizationSelectList")[0];
 
@@ -66,7 +51,6 @@ export class AddContactComponent implements OnInit {
     // ADD THE CONTACT TO DATABASE
     console.log(newContact);
     this.contactService.addContact(newContact);
-
 
     // SEND USER BACK TO THE CONTACT PAGE
     this.router.navigate(['/contacts']);

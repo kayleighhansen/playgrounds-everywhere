@@ -7,54 +7,45 @@
       <div class="btn-container">
 
         <form>
-            <div class="fieldset">
-                <div class="form-section">
+            <div class="">
+                <div class="">
                     <div class="form-group">
-                        <label for="fname">First Name</label>
-                        <input type="text" class="form-control" style="cursor: default" id="fname" placeholder="" value="{{ contact.fname }}" disabled #fnameInput>
+                        <h2 type="text" class="form-control contact-detail-item" style="cursor: default; font-size: 20px;" id="fname" placeholder="" value="" disabled #fnameInput>{{ contact.fname }} {{ contact.lname }}</h2>
                     </div>
+                </div>
 
+                <div class="">
                     <div class="form-group">
-                        <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" style="cursor: default" id="lname" placeholder="" value="{{ contact.lname }}" disabled #lnameInput>
+                        <label for="email">Email</label>
+                        <a class="form-control contact-detail-item" id="email" style="cursor: default" placeholder="" href="mailto:{{ contact.email }}" #emailInput><mat-icon> mail_outline</mat-icon><p> {{ contact.email }}</p></a>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <a class="form-control contact-detail-item" id="phone" style="cursor: default" placeholder="" href="tel:{{ contact.phone }}" #numberInput><mat-icon> call</mat-icon><p> {{ contact.phone }}</p></a>
                     </div>
                 </div>
 
                 <div class="form-group">
+                    <div class="fieldset-title">
+                        <h4 class="details-title">Contact Details</h4>
+                    </div>
                     <label for="organization">Organization</label><br>
-                    <input id="type" class="form-control" name="type" style="cursor: default" required value="{{ contact.organizationId }}" disabled #typeInput> 
+                    <a class="form-control contact-detail-item" name="type" style="cursor: default" required href="organization/{{ contact.organizationId }}" disabled #typeInput><mat-icon>supervised_user_circle</mat-icon><p>{{ contact.organizationId }}</p></a>
                 </div>
 
                 <div class="form-group">
                     <label for="job-title">Job Title</label><br>
-                    <input type="text" class="form-control" id="job-title" style="cursor: default" placeholder="" value="{{ contact.job }}" disabled #jobInput>
+                    <input type="text" class="form-control contact-detail-item" id="job-title" style="cursor: default" placeholder="" value="{{ contact.job }}" disabled #jobInput>
                 </div>
                 <div class="form-group">
                     <label for="country">Home Country</label><br>
-                    <input type="text" class="form-control" id="country" style="cursor: default" placeholder="" value="{{ contact.country }}" disabled #lnameInput>
-                </div>
-            </div>
-
-            <div class="fieldset">
-                <div class="fieldset-title">
-                    <h4>Contact Information</h4>
+                    <input type="text" class="form-control contact-detail-item" id="country" style="cursor: default" placeholder="" value="{{ contact.country }}" disabled #lnameInput>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" style="cursor: default" placeholder="" value="{{ contact.email }}" disabled #emailInput>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" style="cursor: default" placeholder="" value="{{ contact.phone }}" disabled #numberInput>
-                </div>
-            </div>
-
-            <div class="fieldset">
                 <div class="form-group">
                     <label for="details">Details</label><br>
-                    <textarea class="form-control" id="details" style="cursor: default" rows="3" cols="50" value="{{ contact.details }}" disabled #detailsInput ></textarea>
+                    <textarea class="form-control contact-detail-item" id="details" style="cursor: default" rows="3" cols="50" value="{{ contact.details }}" disabled #detailsInput ></textarea>
                 </div>
             </div>
 

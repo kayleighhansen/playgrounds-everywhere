@@ -9,7 +9,6 @@ import { ContactService } from '../contact.service';
   styleUrls: ['../../app.component.css']
 })
 export class ContactListComponent implements OnInit, OnDestroy {
-  @Output() contactWasSelected = new EventEmitter<Contact>();
   
   public contacts: Contact[] = [];
   fetchContactsSubscription: Subscription;
@@ -27,7 +26,6 @@ export class ContactListComponent implements OnInit, OnDestroy {
       this.contacts = result;
       console.log(this.contacts);
     });
-
   }
 
   ngOnDestroy(): void {

@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { DataStorageService } from 'src/app/data-storage.service';
 import { Organization } from '../organization.model';
 import { OrganizationService } from '../organization.service';
 
@@ -19,7 +18,7 @@ export class AddOrganizationComponent implements OnInit {
   @ViewChild('typeInput') typeInput: ElementRef;
   @ViewChild('descriptionInput') descriptionInput: ElementRef;
 
-  constructor(private organizationService: OrganizationService, private dataStorageService: DataStorageService) { }
+  constructor(private organizationService: OrganizationService) { }
 
   ngOnInit(): void {
     // json list of options
