@@ -17,4 +17,6 @@ export class ContactItemComponent implements OnInit {
   ngOnInit(): void {
 
   } 
+
+  
 }
