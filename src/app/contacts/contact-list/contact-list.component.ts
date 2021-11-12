@@ -14,19 +14,25 @@ export class ContactListComponent implements OnInit, OnDestroy {
   fetchContactsSubscription: Subscription;
 
   error: string;
-  isFetching: boolean;
+  isFetching: boolean = false;
+  isEmpty: boolean = false;
 
   constructor(private contactService: ContactService) { }
-
-  OnFetchContacts() {
-    this.contactService.getContacts();
-  }
  
   ngOnInit(): void {
     const list = this.contactService.fetchContacts();
 
     this.isFetching = true;
-    
+
+    this.onFetchingContacts();
+
+    if (this.contacts.length == 0) {
+      this.isEmpty = true;
+      this.isFetching = false;
+    }
+  }
+
+  onFetchingContacts() {
     this.fetchContactsSubscription = this.contactService.fetchContactsEvent.subscribe((result)=> {
       this.isFetching = false;
       this.contacts = result;
