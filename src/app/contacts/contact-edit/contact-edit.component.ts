@@ -24,19 +24,26 @@ export class ContactEditComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.LoadDetails();
+
+  }
+
+  LoadDetails() {
     const singleContact = this.contactService.fetchContacts();
 
-    console.log(singleContact);
+    this.id = window.location.href.replace("http://localhost:4200/contacts/", "").replace("/edit", "");
 
+    console.log(this.id);
 
-    this.id = this.route.url.toString().replace('http://localhost:4200/contacts/', '').replace('edit', '');
-
-    this.fetchContactsSubscription = this.contactService.fetchContactsEvent.subscribe((result)=> {
-      if(this.id = result[0].id) {
-        this.contact = result[0];
+    this.fetchContactsSubscription = this.contactService.fetchContactsEvent.subscribe((result) => {
+      result.forEach((x) => {
+        if (x.id == this.id) {
+          this.contact = x ;
+        } 
       }
-        console.log(this.contact);
-
+    );
+      console.log(this.contact);
     }, error => {
       this.error = error.message;
     });

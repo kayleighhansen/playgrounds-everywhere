@@ -30,7 +30,11 @@ export class ContactDetailsComponent implements OnInit {
               private http: HttpClient) { }  
 
   ngOnInit(): void {
+    this.LoadDetails();
 
+  }  
+
+  LoadDetails() {
     const singleContact = this.contactService.fetchContacts();
 
     this.id = window.location.href.replace("http://localhost:4200/contacts/", "");
@@ -46,7 +50,7 @@ export class ContactDetailsComponent implements OnInit {
     }, error => {
       this.error = error.message;
     });
-  }  
+  }
 
   onDelete(id) {
     console.log(id);
