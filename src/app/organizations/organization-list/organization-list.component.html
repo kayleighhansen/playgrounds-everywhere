@@ -24,13 +24,15 @@
         </div>
       </div>
     </div>
-
     <div class="panel-body">
+      <p class="alert alert-warning" role="alert" *ngIf="this.isEmpty == true">No Organizations Available</p>
+      <div *ngIf="organizations.length >= 1">
         <app-organization-item *ngFor="let organizationEl of organizations" [organization]="organizationEl"></app-organization-item>
     </div>
-    <div class="panel panel-footer">
-      <div>
-        <button class="btn btn-primary" routerLink="add-organization" routerLinkActive="active">Add an Organization </button>
-      </div>
-    </div>
+  </div>
+</div>
+  <div class="example-button-container">
+    <button mat-fab color="warn" class="add-record-btn" routerLink="add-organization" aria-label="Example icon button with a home icon">
+      <mat-icon>person_add</mat-icon>
+    </button>
   </div>
