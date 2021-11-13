@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Contact } from './contact.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
@@ -7,25 +7,24 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ContactService {
   private contacts: Contact[] = [];
 
   contact: Contact[];
 
   fetchContactsEvent = new Subject<Contact[]>();
-  
-  maxContactId: number;
 
   constructor(private http: HttpClient) { }
+
+  ngOnInit() {
+    this.fetchContacts();
+  }
 
   setContacts() {
     this.getContacts().subscribe(res => {
       this.contacts = res;
     });
-  }
-
-  ngOnInit() {
-    this.fetchContacts();
   }
 
   getContact(id: string): Contact[] {
@@ -76,8 +75,6 @@ export class ContactService {
   }
 
   deleteContact(id : string) {
-    console.log(id);
-    console.log("delete");
     return this.http.delete(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts/` + id + `.json`);
   }
 }

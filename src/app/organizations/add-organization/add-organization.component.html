@@ -1,25 +1,33 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h1 class="mb-3">Add Organization</h1>
-        <a href="/organizations">Back to Organizations</a>
+        <a href="/organizations" class="form-link">Back to Organizations</a>
     </div>
     <div class="panel-body">
         <div class="btn-container">
 
-            <form>
-                <div class="fieldset">
-                    <div class="fieldset-title">
-                        <h4>Organization Details</h4>
-                        <small class="required explanation">* required fields *</small>
-                    </div>
+            <form id="add-contact" (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <div class="fieldset-add">
                     <div class="form-group">
                         <label for="name">Organization Name <span class="required">*</span></label>
-                        <input type="text" class="form-control" id="name" placeholder="" required #nameInput>
+                        <input type="text" 
+                               class="form-control required" 
+                               id="name" 
+                               name="name"
+                               [ngModel]="organization?.name"
+                               #nameInput="ngModel"
+                               required 
+                               >
                     </div>
 
                     <div class="form-group">
                         <label for="type">Organization Type <span class="required">*</span></label><br>
-                        <select id="type" class="form-control" name="type" required #typeInput>
+                        <select id="type" id="type"
+                                          class="form-control" 
+                                          name="type" 
+                                          [ngModel]="organization?.type"
+                                          #typeInput="ngModel"
+                                          required>
                             <option value="">Select an Organization Type</option>
                             <option value="primarySchool">Primary School</option>
                             <option value="secondarySchool">Secondary School</option>
@@ -32,7 +40,11 @@
                     <div class="form-group">
                         <label for="contacts">Contact</label><br>
                         <small>Main Contact in this Organization</small>
-                        <select id="type" class="form-control contactSelectList" name="type" required #typeInput>
+                        <select id="type" 
+                                class="form-control contactSelectList" 
+                                name="contactId" 
+                                [ngModel]="organization?.contactId"
+                                #contactIdInput="ngModel">
 
                         </select>   
                         <div class="form-link-container">
@@ -48,7 +60,12 @@
                     <div class="form-section">
                         <div class="form-group">
                             <label for="country">Country <span class="required">*</span></label><br>
-                            <select class="input-country" required #countryInput>
+                            <select id="homeCountry"
+                                    class="input-country" 
+                                    name="country"
+                                    [ngModel]="organization?.country"
+                                    #countryInput="ngModel"
+                                    required>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
                                 <option value="Algeria">Algeria</option>
@@ -295,7 +312,12 @@
 
                         <div class="form-group">
                             <label for="city">City</label><br>
-                            <input type="text" class="form-control" id="city" placeholder="" #cityInput>
+                            <input id="city" 
+                                   type="text" 
+                                   class="form-control" 
+                                   name="city"
+                                   [ngModel]="organization?.city"
+                                   #cityInput>
                         </div>
                     </div>
                 </div>
@@ -307,13 +329,23 @@
                     <div class="form-group">
                         <label for="phone">Phone</label><br>
                         <small>Primary Phone number</small>
-                        <input type="tel" class="form-control" id="phone" placeholder="" #phoneInput>
+                        <input type="tel" 
+                               class="form-control" 
+                               id="phone" 
+                               [ngModel]="organization?.phone"
+                               name="phone"
+                               #phoneInput="ngModel">
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label><br>
                         <small>Primary Email address</small><br>
-                        <input type="email" class="form-control" id="email" placeholder="" #emailInput>
+                        <input type="email" 
+                               class="form-control" 
+                               id="email"
+                               [ngModel]="organization?.email"
+                               name="email" 
+                               #emailInput="ngModel">
                     </div>
                 </div>
 
@@ -326,13 +358,19 @@
                     <div class="form-group">
                         <label for="description">More Details <span class="required">*</span></label><br>
                         <small>Any other important information about this organization</small>
-                        <textarea class="form-control" id="description" rows="3" cols="50" required #descriptionInput></textarea>
+                        <textarea class="form-control" 
+                                  id="description" 
+                                  rows="3" 
+                                  cols="50" 
+                                  required 
+                                  name="details"
+                                  [ngModel]="organization?.details"
+                                  #descriptionInput="ngModel"></textarea>
                     </div>
                 </div>
                 <div class="submit-buttons">
-                    <button type="button" class="btn btn-primary" (click)="OnAddOrganization()">Save</button>
-                    <a href="./contacts"><button type="button" class="btn btn-primary"
-                        (click)="OnAddOrganization()">Save and Close</button></a>
+                    <button type="button" class="btn btn-primary" (click)="onSubmit(f)" [disabled]="f.invalid">Save</button>
+                    <button type="button" class="btn btn-primary">Save and Close</button>
                 </div>
             </form>
         </div>
