@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Contact } from './contact.model';
+import { Organization } from '../organizations/organization.model'
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -10,10 +11,13 @@ import { map } from 'rxjs/operators';
 
 export class ContactService {
   private contacts: Contact[] = [];
+  private organizations: Organization[] = []
 
   contact: Contact[];
+  organization: Organization[];
 
   fetchContactsEvent = new Subject<Contact[]>();
+  fetchOrganizationsEvent = new Subject<Organization[]>();
 
   constructor(private http: HttpClient) { }
 
@@ -40,6 +44,10 @@ export class ContactService {
     return this.http.get<Contact[]>(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts.json`);
   }
 
+  getOrganizations(): Observable<Organization[]> {
+    return this.http.get<Organization[]>(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts.json`);
+  }
+
   fetchContacts() {
     this.http
       .get<Contact[]>('https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts.json')
@@ -57,6 +65,28 @@ export class ContactService {
       .subscribe(contacts => {
         this.contacts = contacts;
         this.fetchContactsEvent.next(this.contacts);
+      });
+
+    return;
+  }
+
+  fetchOrganizations() {
+    this.http
+      .get<Organization[]>('https://playgrounds-everywhere-default-rtdb.firebaseio.com/organizations.json')
+      .pipe(
+        map(responseData => {
+          const postsArray = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              postsArray.push({ ...responseData[key], id: key})
+            }
+          }
+          return postsArray;
+        })
+      )
+      .subscribe(organizations => {
+        this.organizations = organizations;
+        this.fetchOrganizationsEvent.next(this.organizations);
       });
 
     return;
