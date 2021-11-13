@@ -27,8 +27,14 @@ export class ContactListComponent implements OnInit, OnDestroy {
 
     this.fetchContactsSubscription = this.contactService.fetchContactsEvent.subscribe((result)=> {
       this.isFetching = false;
+
       this.contacts = result;
       console.log(this.contacts);
+
+      if(this.contacts.length < 1) {
+        this.isEmpty= true;
+      }
+
     }, error => {
       this.error = error.message;
     });

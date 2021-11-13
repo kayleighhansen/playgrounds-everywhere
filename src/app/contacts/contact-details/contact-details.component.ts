@@ -4,6 +4,7 @@ import { ContactService } from '../contact.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact-details',
@@ -17,18 +18,18 @@ export class ContactDetailsComponent implements OnInit {
   public contactsArray: Contact[] = [];
   fetchContactsSubscription: Subscription;
 
+  httpUrl = ""
+
   error: string;
 
   constructor(private contactService: ContactService,
               private router: Router, 
-              private route: ActivatedRoute) { }  
+              private route: ActivatedRoute,
+              private http: HttpClient) { }  
 
   ngOnInit(): void {
 
     const singleContact = this.contactService.fetchContacts();
-
-    console.log(singleContact);
-
 
     this.id = this.route.url.toString().replace('http://localhost:4200/contacts/', '');
 
@@ -44,10 +45,15 @@ export class ContactDetailsComponent implements OnInit {
  
   }  
 
-  ngOnDestroy(): void {
-    this.fetchContactsSubscription.unsubscribe();
+  onDelete(id) {
+    console.log(id);
+    this.contactService.deleteContact(id).subscribe(() => { 
+      this.contacts = [id];
+      this.router.navigate(['/contacts']);
+    });
   }
 
-  onDelete() {
+  ngOnDestroy(): void {
+    this.fetchContactsSubscription.unsubscribe();
   }
 }

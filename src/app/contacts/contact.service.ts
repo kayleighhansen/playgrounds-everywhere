@@ -75,7 +75,9 @@ export class ContactService {
     console.log("edit");
   }
 
-  deleteContact() {
+  deleteContact(id : string) {
+    console.log(id);
     console.log("delete");
+    return this.http.delete(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts/` + id + `.json`);
   }
 }
