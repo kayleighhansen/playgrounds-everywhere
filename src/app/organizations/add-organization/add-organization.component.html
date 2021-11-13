@@ -45,6 +45,7 @@
                                 name="contactId" 
                                 [ngModel]="organization?.contactId"
                                 #contactIdInput="ngModel">
+                            <option value="">-</option>
 
                         </select>   
                         <div class="form-link-container">
@@ -354,7 +355,7 @@
                 <input type="file" id="photos" accept ="image/*">
             </div><br> -->
 
-                <div class="fieldset">
+                <div class="">
                     <div class="form-group">
                         <label for="description">More Details <span class="required">*</span></label><br>
                         <small>Any other important information about this organization</small>
