@@ -19,7 +19,6 @@ export class ContactDetailsComponent implements OnInit {
   fetchContactsSubscription: Subscription;
 
   httpUrl = ""
-
   error: string;
 
   constructor(private contactService: ContactService,
