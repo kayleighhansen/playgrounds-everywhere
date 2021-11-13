@@ -37,7 +37,7 @@ export class ContactService {
       this.contact = res;
     });
 
-    return this.contacts;
+    return;
   }
 
   getContacts(): Observable<Contact[]> {

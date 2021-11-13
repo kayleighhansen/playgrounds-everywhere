@@ -31,7 +31,6 @@ export class ContactDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.LoadDetails();
-
   }  
 
   LoadDetails() {
@@ -51,6 +50,8 @@ export class ContactDetailsComponent implements OnInit {
       this.error = error.message;
     });
   }
+
+
 
   onDelete(id) {
     console.log(id);

@@ -2,6 +2,9 @@ import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/cor
 import { Subscription } from 'rxjs';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
+import { OrganizationService } from '../../organizations/organization.service';
+import { Organization } from 'src/app/organizations/organization.model';
+
 
 @Component({
   selector: 'app-contact-list',
@@ -11,16 +14,34 @@ import { ContactService } from '../contact.service';
 export class ContactListComponent implements OnInit, OnDestroy {
   
   public contacts: Contact[] = [];
-  public contactsArray: Contact[] = [];
+  public contact: Contact;
+  
   fetchContactsSubscription: Subscription;
+
+  organizationName: string;
+  organization: Organization;
 
   error: string;
   isFetching: boolean = false;
   isEmpty: boolean = false;
 
-  constructor(private contactService: ContactService) { }
+  constructor(private contactService: ContactService, private organizationService: OrganizationService) { }
  
   ngOnInit(): void {
+
+    this.LoadContacts();
+
+    this.getOrganization(this.contact.organizationId);
+  }
+
+  getOrganization(id: string) {
+    this.organizationService.getOrganization(id);
+
+    //this.organizationName = this.organization.name;
+    return this.organizationName = this.organization.name;;
+  }
+
+  LoadContacts() {
     const list = this.contactService.fetchContacts();
 
     this.isFetching = true;
@@ -29,7 +50,6 @@ export class ContactListComponent implements OnInit, OnDestroy {
       this.isFetching = false;
 
       this.contacts = result;
-      console.log(this.contacts);
 
       if(this.contacts.length < 1) {
         this.isEmpty= true;

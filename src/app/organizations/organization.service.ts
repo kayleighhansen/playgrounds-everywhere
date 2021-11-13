@@ -3,15 +3,16 @@ import { Organization } from './organization.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { OrganizationItemComponent } from './organization-item/organization-item.component';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class OrganizationService {
-  private organizations: Organization[] = [];
 
-  organization: Organization[];
+  private organizations: Organization[] = [];
+  private organization: Organization[];
   
   fetchOrganizationsEvent = new Subject<Organization[]>();
 
@@ -28,12 +29,12 @@ export class OrganizationService {
   }
 
   getOrganization(id: string): Organization[] {
-    this.getOrganizations().subscribe(res => {
-      console.log(res);
-      this.organization = res;
-    });
 
-    return this.organizations;  }
+    this.getOrganizations().subscribe(result => { 
+      
+    });
+    return;  
+  }
 
   getOrganizations(): Observable<Organization[]> {
     return this.http.get<Organization[]>(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/organizations.json`);

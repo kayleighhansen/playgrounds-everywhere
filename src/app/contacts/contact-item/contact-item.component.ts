@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Organization } from 'src/app/organizations/organization.model';
+import { Organization } from '../../organizations/organization.model';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
 import { OrganizationService } from '../../organizations/organization.service';
@@ -13,11 +13,25 @@ import { OrganizationService } from '../../organizations/organization.service';
 
 export class ContactItemComponent implements OnInit {
   @Input() contact: Contact;
+
+  organizationName: string;
+  organization: Organization[];
  
   constructor(private contactService: ContactService, private organizationService: OrganizationService) { }
 
   ngOnInit(): void {
 
+    //this.getOrganization(this.contact.organizationId);
+
+    console.log(this.contact.organizationId);
+    this.getOrganization(this.contact.organizationId);
+    this.organizationName = "Organization Name";
   }   
+
+  getOrganization(id: string) {
+    this.organization = this.organizationService.getOrganization(id);
+    console.log(this.organization);
+    return this.organizationName;
+  }
 
 }
