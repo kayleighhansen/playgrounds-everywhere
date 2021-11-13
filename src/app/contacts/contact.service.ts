@@ -10,6 +10,8 @@ import { map } from 'rxjs/operators';
 export class ContactService {
   private contacts: Contact[] = [];
 
+  contact: Contact[];
+
   fetchContactsEvent = new Subject<Contact[]>();
   
   maxContactId: number;
@@ -26,8 +28,13 @@ export class ContactService {
     this.fetchContacts();
   }
 
-  getContact(id: string): Contact {
-    return this.contacts.find((contact) => contact.contactId === id)
+  getContact(id: string): Contact[] {
+    this.getContacts().subscribe(res => {
+      console.log(res);
+      this.contact = res;
+    });
+
+    return this.contacts;
   }
 
   getContacts(): Observable<Contact[]> {
