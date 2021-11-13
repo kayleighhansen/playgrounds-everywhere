@@ -1,6 +1,9 @@
 export class Contact {
+    subscribe(arg0: (item: any) => void) {
+      throw new Error('Method not implemented.');
+    }
 
-    public contactId : string;
+    public id : string;
     public fname : string;
     public lname : string;
     public email : string;
@@ -23,7 +26,7 @@ export class Contact {
                 details: string
                 ){
 
-        this.contactId = id;
+        this.id = id;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
