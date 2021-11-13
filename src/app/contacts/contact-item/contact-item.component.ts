@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Organization } from 'src/app/organizations/organization.model';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
+import { OrganizationService } from '../../organizations/organization.service';
 
 @Component({
   selector: 'app-contact-item',
@@ -10,13 +13,11 @@ import { ContactService } from '../contact.service';
 
 export class ContactItemComponent implements OnInit {
   @Input() contact: Contact;
-  @Input() id: number;
  
-  constructor(private contactService: ContactService) { }
+  constructor(private contactService: ContactService, private organizationService: OrganizationService) { }
 
   ngOnInit(): void {
 
-  } 
+  }   
 
-  
 }

@@ -216,7 +216,8 @@ h3 {
 }
 
 .contact-details{
-    display: flex;
+    display: grid;
+    grid-template-columns: 100px 150px;
     column-gap: 50px;
 }
 
