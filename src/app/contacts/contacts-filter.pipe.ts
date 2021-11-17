@@ -10,9 +10,7 @@ export class ContactsFilterPipe implements PipeTransform {
     let filteredArray: Contact[] =[];  
     for (let i=0; i<contacts.length; i++) {
       let contact = contacts[i];
-      console.log("searching");
       if (contact.fname.toLowerCase().includes(term)) {
-        console.log("Here we is");
           filteredArray.push(contact);
       }
     }
