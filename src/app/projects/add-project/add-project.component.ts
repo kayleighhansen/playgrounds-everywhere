@@ -151,6 +151,5 @@ export class AddProjectComponent implements OnInit {
       
       organizationSelectList.appendChild(option);
     }
-
   }
 }
