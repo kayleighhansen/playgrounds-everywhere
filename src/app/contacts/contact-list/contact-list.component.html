@@ -17,7 +17,7 @@
         </ul>
         <div class="search-container">
           <form action="/action_page.php" class="pull-right">
-            <input class="search-bar-text" type="text" placeholder="Search.." name="search">
+            <input class="search-bar-text" type="text" placeholder="Search.." (keyup)="search(searchBox.value)" [(ngModel)]="search" #searchBox>
             <button type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>
@@ -29,7 +29,7 @@
         <!-- <p class="alert alert-warning" role="alert" *ngIf="this.isFetching == true">Loading</p> -->
         <!-- <p class="alert alert-warning" role="alert" *ngIf="this.error.length > 0">{{ error.message }}</p> -->
         <div *ngIf="contacts.length >= 1">
-          <app-contact-item *ngFor="let contactEl of contacts" [contact]="contactEl"></app-contact-item>
+          <app-contact-item *ngFor="let contactEl of contacts |  contactsFilter: search: 'fname';" [contact]="contactEl"></app-contact-item>
       </div>
     </div>
 </div>

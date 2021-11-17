@@ -25,6 +25,8 @@ export class ContactListComponent implements OnInit, OnDestroy {
   isFetching: boolean = false;
   isEmpty: boolean = false;
 
+  term: string;
+
   constructor(private contactService: ContactService, private organizationService: OrganizationService) { }
  
   ngOnInit(): void {
@@ -58,6 +60,10 @@ export class ContactListComponent implements OnInit, OnDestroy {
     }, error => {
       this.error = error.message;
     });
+  }
+
+  search(value: string) {
+    this.term = value;
   }
 
   ngOnDestroy(): void {

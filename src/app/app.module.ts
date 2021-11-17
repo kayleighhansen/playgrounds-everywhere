@@ -31,6 +31,7 @@ import { TodoEditComponent } from './todos/todo-edit/todo-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
 
 
 
@@ -59,6 +60,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     TodoItemComponent,
     TodoDetailsComponent,
     TodoEditComponent,
+    ContactsFilterPipe,
   ],
   imports: [
     BrowserModule,
