@@ -1,4 +1,4 @@
-# PlaygroundsEverywhere
+# Playgrounds Everywhere
 
 Kayleigh Hansen -Senior Project Fall 2021
 
