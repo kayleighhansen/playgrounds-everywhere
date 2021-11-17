@@ -12,21 +12,43 @@ export class ProjectListComponent implements OnInit {
   @Output() projectWasSelected = new EventEmitter<Project>();
 
   public projects: Project[] = []; 
+  public contact: Project;
+
   fetchProjectsSubscription: Subscription;
+
+  error: string;
+  isFetching: boolean = false;
+  isEmpty: boolean = false;
+
+  term: string;
   
   constructor(private projectService: ProjectService) { }
 
-  OnFetchProjects() {
-    this.projectService.getProjects();
+  ngOnInit(): void {
+    this.LoadProjects();
   }
 
-  ngOnInit(): void {
+  LoadProjects() {
     const list = this.projectService.fetchProjects();
 
-    this.fetchProjectsSubscription = this.projectService.fetchProjectsEvent.subscribe((result => {
+    this.isFetching = true;
+
+    this.fetchProjectsSubscription = this.projectService.fetchProjectsEvent.subscribe((result)=> {
+      this.isFetching = false;
+
       this.projects = result;
-      console.log(this.projects);
-    }))
+
+      if(this.projects.length < 1) {
+        this.isEmpty= true;
+      }
+
+    }, error => {
+      this.error = error.message;
+    });
+  }
+
+  search(value: string) {
+    this.term = value;
   }
 
   ngOnDestroy():void {

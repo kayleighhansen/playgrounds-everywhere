@@ -28,9 +28,9 @@
     <div class="panel-body">
         <app-project-item *ngFor="let projectEl of projects" [project]="projectEl"></app-project-item>
     </div>
-    <div class="panel panel-footer">
-      <div>
-        <button class="btn btn-primary" routerLink="add-project" routerLinkActive="active">Add a Project </button>
-      </div>
-    </div>
+  </div>
+  <div class="example-button-container">
+    <button mat-fab color="warn" class="add-record-btn" routerLink="add-project" aria-label="Example icon button with a home icon" style="display: flex; justify-content: center; align-items: center;">
+      <p style="font-weight:bold;">+</p><mat-icon>work</mat-icon>
+    </button>
   </div>
