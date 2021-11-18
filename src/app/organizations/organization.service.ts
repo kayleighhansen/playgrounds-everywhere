@@ -3,7 +3,6 @@ import { Organization } from './organization.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { OrganizationItemComponent } from './organization-item/organization-item.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,35 +10,28 @@ import { OrganizationItemComponent } from './organization-item/organization-item
 
 export class OrganizationService {
 
+  // object arrays 
   private organizations: Organization[] = [];
-  private organization: Organization[];
-  
-  fetchOrganizationsEvent = new Subject<Organization[]>();
 
+  // models 
+  organization: Organization[];
+
+  // subjects  
+  fetchOrganizationsEvent = new Subject<Organization[]>();
+  organizationListChanged = new Subject<Organization[]>();
+
+  // dependency injection
   constructor(private http: HttpClient) { }
 
-  ngOnInit() {
-    this.fetchOrganizations();
+  // on init methods
+  ngOnInit() { }
+
+  // get single record
+  getOrganization(id: string) {
+    return this.organization.find((organization) => organization.id === id)  
   }
 
-  setOrganizations() {
-    this.getOrganizations().subscribe(res => {
-      this.organizations = res;
-    });
-  }
-
-  getOrganization(id: string): Organization[] {
-
-    this.getOrganizations().subscribe(result => { 
-      
-    });
-    return;  
-  }
-
-  getOrganizations(): Observable<Organization[]> {
-    return this.http.get<Organization[]>(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/organizations.json`);
-  }
-
+  // get all records 
   fetchOrganizations() {
     this.http
       .get<Organization[]>('https://playgrounds-everywhere-default-rtdb.firebaseio.com/organizations.json')
@@ -57,11 +49,18 @@ export class OrganizationService {
       .subscribe(organizations => {
         this.organizations = organizations;
         this.fetchOrganizationsEvent.next(this.organizations);
+
+        this.organizations.sort((a , b) => 
+        a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
+        this.organizationListChanged.next(this.organizations.slice());
+
+        console.log(this.organizations);
       });
 
     return;
   }
 
+  // add new record
   addOrganization(newOrganization: Organization) {
     this.http.post(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/organizations.json`, newOrganization)
       .subscribe(responseData => {
@@ -69,6 +68,12 @@ export class OrganizationService {
       });
   }
 
+  // edit single record
+  editContact() {
+
+  }
+
+  // delete single record
   deleteOrganization(id : string) {
     return this.http.delete(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/organizations/` + id + `.json`);
   }

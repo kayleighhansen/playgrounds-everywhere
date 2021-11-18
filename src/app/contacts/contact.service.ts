@@ -1,4 +1,4 @@
-import { Injectable, ɵɵsetComponentScope } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Contact } from './contact.model';
 import { Organization } from '../organizations/organization.model'
 import { HttpClient } from '@angular/common/http';
@@ -10,31 +10,31 @@ import { map } from 'rxjs/operators';
 })
 
 export class ContactService {
-  private contacts: Contact[] = [];
-  private organizations: Organization[] = []
 
+  // object arrays to store records
+  private contacts: Contact[] = [];
+
+  // models 
   contact: Contact[];
   organization: Organization[];
 
+  // subjects
   fetchContactsEvent = new Subject<Contact[]>();
   fetchOrganizationsEvent = new Subject<Organization[]>();
   contactListChanged = new Subject<Contact[]>();
 
+  // dependency injections
   constructor(private http: HttpClient) { }
 
-  ngOnInit() {
-    this.fetchContacts();
-  }
+  // on init methods
+  ngOnInit() { }
 
-
+  // get single records
   getContact(id: string) {
     return this.contacts.find((contact) => contact.id === id)
   }
 
-  getOrganizations(): Observable<Organization[]> {
-    return this.http.get<Organization[]>(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts.json`);
-  }
-
+  // get all records
   fetchContacts(): Contact[] {
     this.http
       .get<Contact[]>('https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts.json')
@@ -63,6 +63,7 @@ export class ContactService {
     return;
   }
 
+  // add new record
   addContact(newContact: Contact) {
     this.http.post(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts.json`, newContact)
       .subscribe(responseData => {
@@ -71,10 +72,12 @@ export class ContactService {
       });
   }
 
+  // edit one record
   editContact() {
     console.log("edit");
   }
 
+  // delete one record
   deleteContact(id : string) {
     return this.http.delete(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts/` + id + `.json`);
   }
