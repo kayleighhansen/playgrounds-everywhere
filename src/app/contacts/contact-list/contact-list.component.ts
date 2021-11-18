@@ -16,7 +16,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
   public contacts: Contact[] = [];
   public contact: Contact;
   
-  fetchContactsSubscription: Subscription;
+  private contactChangeSub: Subscription;
 
   organizationName: string;
   organization: Organization;
@@ -38,20 +38,17 @@ export class ContactListComponent implements OnInit, OnDestroy {
 
   getOrganization(id: string) {
     this.organizationService.getOrganization(id);
-
-    //this.organizationName = this.organization.name;
     return this.organizationName = this.organization.name;;
   }
 
   LoadContacts() {
-    const list = this.contactService.fetchContacts();
 
+    this.contactService.getContacts();
     this.isFetching = true;
 
-    this.fetchContactsSubscription = this.contactService.fetchContactsEvent.subscribe((result)=> {
-      this.isFetching = false;
-
-      this.contacts = result;
+    this.contactChangeSub = this.contactService.contactListChanged.subscribe(
+      (contacts: Contact[]) => {
+        this.contacts = contacts;
 
       if(this.contacts.length < 1) {
         this.isEmpty= true;
@@ -67,7 +64,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.fetchContactsSubscription.unsubscribe();
+    this.contactChangeSub.unsubscribe();
   }
 
 }

@@ -38,7 +38,7 @@ export class AddOrganizationComponent implements OnInit {
 
     //   selectList.appendChild(option);
     // }
-    const list = this.contactServices.fetchContacts();
+    const list = this.contactServices.getContacts();
     const selectList = document.getElementsByClassName("contactSelectList")[0];
 
     this.fetchContactsSubscription = this.contactServices.fetchContactsEvent.subscribe((result) => {
