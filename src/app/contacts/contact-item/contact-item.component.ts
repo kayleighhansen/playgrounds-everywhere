@@ -26,6 +26,7 @@ export class ContactItemComponent implements OnInit {
     this.getOrganizationName(this.contact.organizationId);
     console.log(this.contact.organizationId);
 
+    // get organization name - subscription 
 
   }   
 
