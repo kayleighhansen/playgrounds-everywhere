@@ -43,7 +43,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
 
   LoadContacts() {
 
-    this.contactService.getContacts();
+    this.contactService.fetchContacts();
     this.isFetching = true;
 
     this.contactChangeSub = this.contactService.contactListChanged.subscribe(

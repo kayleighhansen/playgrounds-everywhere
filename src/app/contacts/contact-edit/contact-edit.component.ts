@@ -30,7 +30,7 @@ export class ContactEditComponent implements OnInit {
   }
 
   LoadDetails() {
-    const singleContact = this.contactService.getContacts();
+    const singleContact = this.contactService.fetchContacts();
 
     this.id = window.location.href.replace("http://localhost:4200/contacts/", "").replace("/edit", "");
 
