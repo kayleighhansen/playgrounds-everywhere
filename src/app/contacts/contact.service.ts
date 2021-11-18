@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵɵsetComponentScope } from '@angular/core';
 import { Contact } from './contact.model';
 import { Organization } from '../organizations/organization.model'
 import { HttpClient } from '@angular/common/http';
@@ -38,7 +38,21 @@ export class ContactService {
 
   getContacts() {
     return this.http.get('https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts.json').subscribe((result: any) => {
-      this.contacts = result;
+      // this.contacts = result;
+
+      console.log(result);
+        let arr:any = [];
+        let keys:any = [];
+
+      for (const [key, value] of Object.entries(result)) {
+        arr.push(value);
+        keys.push(key);
+      }
+
+      for (let i = 0; i < arr.length; i++){
+        let c = new Contact(keys[i], arr[i].fname, arr[i].lname, arr[i].email, arr[i].phone, arr[i].country, arr[i].organizationId, arr[i].job, arr[i].details);
+        this.contacts.push(c);
+      }
 
       this.contacts.sort((a , b) => 
         a.fname > b.fname ? 1 : b.fname > a.fname ? -1 : 0);

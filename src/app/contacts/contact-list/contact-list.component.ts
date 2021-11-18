@@ -33,7 +33,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
 
     this.LoadContacts();
 
-    this.getOrganization(this.contact.organizationId);
+    //this.getOrganization(this.contact.organizationId);
   }
 
   getOrganization(id: string) {
