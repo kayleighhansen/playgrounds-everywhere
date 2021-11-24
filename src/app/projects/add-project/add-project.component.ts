@@ -1,4 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Contact } from 'src/app/contacts/contact.model';
+import { ContactService } from '../../contacts/contact.service';
+import { Organization } from 'src/app/organizations/organization.model';
+import { OrganizationService } from '../../organizations/organization.service';
+import { NgForm } from '@angular/forms';
+import { Project } from '../project.model';
+import { ProjectService } from '../project.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-add-project',
@@ -7,16 +17,77 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddProjectComponent implements OnInit {
 
-  constructor() { }
+  fetchContactsSubscription: Subscription;
+  fetchOrganizationsSubscription: Subscription;
+  contact: Contact;
+  organization: Organization;
+  contacts: Contact[] = [];
+  organizations: Organization[] = [];
+
+  constructor(private contactServices: ContactService, 
+              private organizationServices: OrganizationService, 
+              private projectServices: ProjectService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.addContactsList();
+    this.addOrganizationsList();
+    this.addFormFeilds(); 
+  }
 
+  addContactsList() {
+    const list = this.contactServices.fetchContacts();
+    const selectList = document.getElementsByClassName("contactSelectList")[0];
+
+    this.fetchContactsSubscription = this.contactServices.fetchContactsEvent.subscribe((result) => {
+
+      this.contacts = result;
+      console.log(this.contacts);
+
+      if(this.contacts.length < 1) {
+      }
+
+      this.contacts.forEach(res => {
+        var option = document.createElement("option");
+        option.value = res.id;
+        option.text = res.fname + " " + res.lname;
+    
+        selectList.appendChild(option);
+      }); 
+    });
+  }
+
+  addOrganizationsList() {
+    const list = this.organizationServices.fetchOrganizations();
+    const selectList = document.getElementsByClassName("organizationSelectList")[0];
+
+    this.fetchOrganizationsSubscription = this.organizationServices.fetchOrganizationsEvent.subscribe((result) => {
+
+      this.organizations = result;
+      console.log(this.organizations);
+
+      if(this.organizations.length < 1) {
+      }
+
+      this.organizations.forEach(res => {
+        var option = document.createElement("option");
+        option.value = res.id;
+        option.text = res.name;
+    
+        selectList.appendChild(option);
+      }); 
+    });
+
+  }
+
+  addFormFeilds() {
     document.getElementById("add-equipment").addEventListener("click", function() {
       let quantities = document.getElementsByClassName("quantity-input-container")[0];
 
       let quantityInput = document.createElement("div");
       quantityInput.className="quantity-input";
-      quantityInput.setAttribute("style", "display:grid; grid-template-columns: 20% 70%;");
+      quantityInput.setAttribute("style", "display: grid; grid-template-columns: 15% 70% 10%; gap: 2.5%;");
 
       let div1 = document.createElement("div");
         let small1 = document.createElement("small");
@@ -56,7 +127,7 @@ export class AddProjectComponent implements OnInit {
 
       let quantityInput = document.createElement("div");
       quantityInput.className="quantity-input";
-      quantityInput.setAttribute("style", "display:grid; grid-template-columns: 20% 70%;");
+      quantityInput.setAttribute("style", "display: grid; grid-template-columns: 15% 70% 10%; gap: 2.5%;");
 
       let div1 = document.createElement("div");
         let small1 = document.createElement("small");
@@ -89,67 +160,30 @@ export class AddProjectComponent implements OnInit {
       quantityInput.appendChild(div2);
 
       quantities.appendChild(quantityInput);
-    });
-
-    // json list of options
-    let contactsList = [
-    {  
-      value: '',  
-      fname: '',
-      lname: ''
-    }, 
-    {  
-      value: '0',  
-      fname: 'Kayleigh',
-      lname: 'Hansen'
-    },  
-    {  
-      value: '1',  
-      fname: 'Zayne',
-      lname: ''  
-    },{  
-      value: '2',  
-      fname: 'Judith',
-      lname: 'Nalube'  
     }
-  ];
+  )}
 
-    const selectList = document.getElementsByClassName("contactSelectList")[0];
+  onSubmit(form: NgForm) {
+    const value = form.value;
 
-    for (const item of contactsList ) {
-      var option = document.createElement("option");
-      option.value = item.value;
-      option.text = item.fname + " " + item.lname;
+    const newProject = new Project(
+      "", 
+      value.name, 
+      value.organizationId, 
+      value.contactId, 
+      value.date, 
+      value.country, 
+      value.city, 
+      value.equipment, 
+      value.donation, 
+      value.price, 
+      value.details,
+      value.results
+    );
 
-      selectList.appendChild(option);
-    }
+    this.projectServices.addProject(newProject);
 
-    let organizationsList = [
-    {  
-      value: '',  
-      name: ''
-    }, 
-    {  
-      value: '0',  
-      name: 'Hansen Web Consulting'  
-    },  
-   {  
-      value: '0',  
-      name: 'SEEEme'  
-    },{  
-      value: '2',  
-      name: 'The US Government'  
-    }
-  ];
-
-    const organizationSelectList = document.getElementsByClassName("organizationSelectList")[0];
-
-    for (const item of organizationsList ) {
-      var option = document.createElement("option");
-      option.value = item.value;
-      option.text = item.name;
-      
-      organizationSelectList.appendChild(option);
-    }
+    this.router.navigate(['/projects']);
   }
+
 }

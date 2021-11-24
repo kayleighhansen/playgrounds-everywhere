@@ -56,7 +56,6 @@ export class AddOrganizationComponent implements OnInit {
     
         selectList.appendChild(option);
       }); 
-      
     });
 
   }

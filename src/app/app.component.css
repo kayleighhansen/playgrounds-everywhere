@@ -243,8 +243,9 @@ small {
 }
 
 .quantity-input {
-    display:grid;
-    grid-template-columns: 20% 70% 10%;
+    display: grid;
+    grid-template-columns: 15% 70% 10%;
+    gap: 2.5%;
 }
 
 .quantity-input-details {
