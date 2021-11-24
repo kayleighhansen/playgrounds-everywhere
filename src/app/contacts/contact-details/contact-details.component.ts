@@ -1,10 +1,12 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
+import { OrganizationService } from '../../organizations/organization.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Organization } from 'src/app/organizations/organization.model';
 
 @Component({
   selector: 'app-contact-details',
@@ -20,21 +22,32 @@ export class ContactDetailsComponent implements OnInit {
   id: string; 
   public contactsArray: Contact[] = [];
   fetchContactsSubscription: Subscription;
+  fetchOrganizationsSubscription: Subscription;
+
 
   httpUrl = ""
   error: string;
 
+  organizationName: string;
+  organization: Organization;
+  organizations: void;
+
   constructor(private contactService: ContactService,
+              private organizationService: OrganizationService,
               private router: Router, 
               private route: ActivatedRoute,
               private http: HttpClient) { }  
 
   ngOnInit(): void {
+    
     this.LoadDetails();
+
+    this.organizationName = this.getOrganizationName();
+
   }  
 
   LoadDetails() {
-    const singleContact = this.contactService.fetchContacts();
+    this.contactService.fetchContacts();
 
     this.id = window.location.href.replace("http://localhost:4200/contacts/", "");
 
@@ -45,13 +58,24 @@ export class ContactDetailsComponent implements OnInit {
         } 
       }
     );
-      console.log(this.contact);
     }, error => {
       this.error = error.message;
     });
   }
 
+  getOrganizationName(): string {
+    this.organizationService.fetchOrganizations();
 
+    this.fetchOrganizationsSubscription = this.organizationService.fetchOrganizationsEvent.subscribe((result) => {
+      result.forEach((x) => {
+        console.log(this.contact.organizationId);
+        if (x.id == this.contact.organizationId) {
+          console.log(x.name);
+          this.organizationName = x.name;
+        }});
+      });
+    return this.organizationName;
+  }
 
   onDelete(id) {
     console.log(id);
@@ -63,5 +87,6 @@ export class ContactDetailsComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.fetchContactsSubscription.unsubscribe();
+    this.fetchOrganizationsSubscription.unsubscribe();
   }
 }

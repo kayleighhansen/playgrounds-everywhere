@@ -28,6 +28,11 @@ export class OrganizationDetailsComponent implements OnInit {
 
   ngOnInit(): void {
  
+    this.LoadDetails();
+
+  }
+
+  LoadDetails() {
     const singleOrganization = this.organizationService.fetchOrganizations();
 
     this.id = this.route.url.toString().replace('http://localhost:4200/organizations/', '');
@@ -41,7 +46,10 @@ export class OrganizationDetailsComponent implements OnInit {
     }, error => {
       this.error = error.message;
     });
+  }
 
+  getContactName() {
+    
   }
 
   onDelete(id) {
