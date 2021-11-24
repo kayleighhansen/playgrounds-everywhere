@@ -21,7 +21,7 @@ export class AddProjectComponent implements OnInit {
       let div1 = document.createElement("div");
         let small1 = document.createElement("small");
         small1.textContent = "Quantity";
-        small1.setAttribute("style", "color: #337ab7;");
+        small1.setAttribute("style", "color: #74B187;");
         div1.appendChild(small1);
 
         let inputQuantity = document.createElement("input");
@@ -36,7 +36,7 @@ export class AddProjectComponent implements OnInit {
       let div2 = document.createElement("div");
         let small2 = document.createElement("small");
         small2.textContent = "Equipment";
-        small2.setAttribute("style", "color: #337ab7;");
+        small2.setAttribute("style", "color: #74B187;");
         div2.appendChild(small2);
 
         let inputEquipment = document.createElement("input");
@@ -61,7 +61,7 @@ export class AddProjectComponent implements OnInit {
       let div1 = document.createElement("div");
         let small1 = document.createElement("small");
         small1.textContent = "Quantity";
-        small1.setAttribute("style", "color: #337ab7;");
+        small1.setAttribute("style", "color: #74B187;");
         div1.appendChild(small1);
 
         let inputQuantity = document.createElement("input");
@@ -76,7 +76,7 @@ export class AddProjectComponent implements OnInit {
       let div2 = document.createElement("div");
         let small2 = document.createElement("small");
         small2.textContent = "Equipment";
-        small2.setAttribute("style", "color: #337ab7;");
+        small2.setAttribute("style", "color: #74B187;");
         div2.appendChild(small2);
 
         let inputEquipment = document.createElement("input");

@@ -56,8 +56,6 @@ export class ContactService {
         this.contacts.sort((a , b) => 
         a.fname > b.fname ? 1 : b.fname > a.fname ? -1 : 0);
         this.contactListChanged.next(this.contacts.slice());
-
-        console.log(this.contacts);
       });
 
     return;

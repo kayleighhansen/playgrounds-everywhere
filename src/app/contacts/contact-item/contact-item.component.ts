@@ -15,30 +15,9 @@ export class ContactItemComponent implements OnInit {
 
   @Input() contact: Contact;
 
-  organizationName: string;
-  organization: Organization;
  
-  constructor(private contactService: ContactService, 
-              private organizationService: OrganizationService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-
-    // this.getOrganizationName(this.contact.organizationId);
-    // console.log(this.contact.organizationId);
-
-    // get organization name - subscription 
-
-  }   
-
-  getOrganizationName(id: string) {
-
-    console.log(id);
-
-
-    this.organizationService.getOrganization(id);
-    console.log(this.organization);
-
-    return this.organizationName;
-  }
+  ngOnInit(): void {  }   
 
 }

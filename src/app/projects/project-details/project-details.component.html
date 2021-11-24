@@ -7,94 +7,92 @@
       <div class="btn-container">
 
         <form>
-            <div class="fieldset">
+            <div class="">
                 <div class="form-group">
-                    <label for="name">Project Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="" value="{{ project.name }}" style="cursor: default" disabled #nameInput>
+                    <h2 type="text" class="form-control contact-detail-item" style="cursor: default; font-size: 20px; background: none;" id="fname" placeholder="" value="" disabled #fnameInput>{{ this.project.name }}</h2>
                 </div>
                 <div class="form-group">
-                    <label for="contacts">Contacts Assisted</label><br>
-                    <input type="text" class="form-control" id="contacts" placeholder="" value="{{ project.contacts }}" style="cursor: default" disabled #nameInput>             
+                    <label for="organization">Organization</label><br>
+                    <a class="form-control contact-detail-item" name="organization" style="cursor: default" required href="organizations/{{ project.organizationId }}" disabled #typeInput><p><i class="fa fa-group"></i> {{ this.organizationName }}</p></a>
+                </div>
+                <div class="form-group">
+                    <label for="organization">Contact</label><br>
+                    <a class="form-control contact-detail-item" name="organization" style="cursor: default" required href="contacts/{{ project.organizationId }}" disabled #typeInput><p><i class="fa fa-user"></i> {{ this.contactName }}</p></a>
                 </div>
                 <div class="form-group">
                     <label for="price">Total Project Price</label>
-                    <input type="text" class="form-control" id="price" placeholder="" value="{{ project.price }}" style="cursor: default" disabled #nameInput>             
+                    <input type="text" class="form-control contact-detail-item" id="price" placeholder="" value="$ {{ project.price }}" style="cursor: default" disabled #nameInput>             
                 </div>
                 <div class="form-group">
                     <label for="details">Project Details</label>
-                    <textarea type="text" class="form-control" id="details" placeholder="" value="{{ project.details }}" style="cursor: default" disabled #nameInput></textarea>             
+                    <textarea type="text" class="form-control contact-detail-item" rows="5" id="details" placeholder="" value="{{ project.details }}" style="cursor: default" disabled #nameInput></textarea>             
                 </div>
             </div>
-            <div class="fieldset">
+            <div class="">
                 <div class="fieldset-title">
                     <h4>Project Location</h4>
+                </div>
+                <div class="">
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control contact-detail-item" id="date" placeholder="" value="{{ project.date }}" style="cursor: default" disabled #nameInput>             
+                    </div>
                 </div>
                 <div class="form-section">
                     <div class="form-group">
                         <label for="country">Country</label><br>
-                        <input type="text" class="form-control" id="country" placeholder="" value="{{ project.country }}" style="cursor: default" disabled #nameInput>             
+                        <input type="text" class="form-control contact-detail-item" id="country" placeholder="" value="{{ project.country }}" style="cursor: default" disabled #nameInput>             
                     </div>
 
                     <div class="form-group">
                         <label for="city">City</label>
-                        <input type="text" class="form-control" id="city" placeholder="" value="{{ project.city }}" style="cursor: default" disabled #nameInput>             
+                        <input type="text" class="form-control contact-detail-item" id="city" placeholder="" value="{{ project.city }}" style="cursor: default" disabled #nameInput>             
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="organization">Organization</label><br>
-                    <input type="text" class="form-control" id="organization" placeholder="" value="{{ project.organization }}" style="cursor: default" disabled #nameInput>             
-             
-                </div>
             </div>
-            <div class="fieldset">
+            <div class="">
                 <div class="fieldset-title">
                     <h4>Project Results</h4>
                 </div>
                 <div class="form-group">
                     <label for="equipment">Equipment Built</label>
-                    <div class="quantity-input">
+                    <div class="quantity-input-details">
                         <div>
                             <small>Quantity</small>
-                            <input type="text" class="form-control" id="equipment-quantity" placeholder="(1)" style="cursor: default" disabled>
+                            <input type="text" class="form-control contact-detail-item" id="equipment-quantity" placeholder="" style="cursor: default" disabled>
                         </div>
                         <div>
                             <small>Type</small>
-                            <input type="text" class="form-control" id="equipment-name" placeholder="(Swingset)" style="cursor: default" disabled>
+                            <input type="text" class="form-control contact-detail-item" id="equipment-name" placeholder="" style="cursor: default" disabled>
                         </div>
-                        <button class="add-input-item">+</button>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="equipment">Items Donated</label>
-                    <div class="quantity-input">
+                    <div class="quantity-input-details">
                         <div>
                             <small>Quantity</small>
-                            <input type="text" class="form-control" id="donation-quantity" placeholder="(1)" style="cursor: default" disabled>
+                            <input type="text" class="form-control contact-detail-item" id="donation-quantity" placeholder="" style="cursor: default" disabled>
                         </div>
                         <div>
                             <small>Type</small>
-                            <input type="text" class="form-control" id="donation-name" placeholder="(Tablet)" style="cursor: default" disabled>
+                            <input type="text" class="form-control contact-detail-item" id="donation-name" placeholder="" style="cursor: default" disabled>
                         </div>
-                        <button class="add-input-item">+</button>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="results">Project Results </label>
-                    <textarea class="form-control" id="results" rows="3" cols="50" value="{{ project.results }}" style="cursor: default" disabled></textarea>
+                    <textarea class="form-control contact-detail-item" id="results" rows="5" cols="50" value="{{ project.results }}" style="cursor: default" disabled></textarea>
                 </div>
             </div>
 
-            <!-- <div class="form-group">
-                <label for="photos">Photo</label>
-                <input type="file" id="photos" accept ="image/*">
-            </div><br> -->
-
             <div class="submit-buttons">
-                <button type="button" class="btn btn-primary">Edit</button>
-                <a href="./projects"><button type="button" class="btn btn-primary">Delete</button></a>
-            </div>        </form>
+                <button type="button" routerLink="edit" class="btn btn-primary">Edit</button>
+                <button type="button" class="btn btn-warning" (click)="onDelete(project.id)">Delete</button>
+            </div>        
+        </form>
       </div>
     </div>
 </div>

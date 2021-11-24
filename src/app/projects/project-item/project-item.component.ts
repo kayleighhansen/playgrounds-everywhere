@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Project } from '../project.model';
-import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-project-item',
@@ -9,9 +8,8 @@ import { ProjectService } from '../project.service';
 })
 export class ProjectItemComponent implements OnInit {
   @Input() project: Project;
-  @Input() id: string;
 
-  constructor(private projectService: ProjectService) { }
+  constructor() { }
 
   ngOnInit(): void { 
   }

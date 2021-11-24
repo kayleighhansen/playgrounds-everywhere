@@ -247,6 +247,12 @@ small {
     grid-template-columns: 20% 70% 10%;
 }
 
+.quantity-input-details {
+    display: grid;
+    grid-template-columns: 20% 75%;
+    gap: 5%;
+}
+
 .add-input-item {
     font-size: 30px;
     background:none;
