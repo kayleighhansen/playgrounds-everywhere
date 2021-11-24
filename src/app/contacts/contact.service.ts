@@ -73,9 +73,23 @@ export class ContactService {
   }
 
   // edit one record
-  editContact() {
-    console.log("edit");
+  updateContact(originalContact: Contact, newContact: Contact) {
+
+    if(originalContact == null || newContact == null){
+      return;
+    }
+    
+    const pos = this.contacts.indexOf(originalContact);
+
+    if(pos < 0) {
+      return;
+    }
+    newContact.id = originalContact.id;
+    this.contacts[pos] = newContact;
+
+    //this.storeContact();
   }
+
 
   // delete one record
   deleteContact(id : string) {

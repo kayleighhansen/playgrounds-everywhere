@@ -10,7 +10,7 @@
             <div class="">
                 <div class="">
                     <div class="form-group">
-                        <h2 type="text" class="form-control contact-detail-item" style="cursor: default; font-size: 20px; background: none;" id="fname" placeholder="" value="" disabled #fnameInput>{{ [this.contact.fname] }} {{ contact.lname }}</h2>
+                        <h2 type="text" class="form-control contact-detail-item" style="cursor: default; font-size: 20px; background: none;" id="fname" placeholder="" value="" disabled #fnameInput>{{ this.contact.fname }} {{ contact.lname }}</h2>
                     </div>
                 </div>
 
@@ -31,7 +31,7 @@
                         <h4 class="details-title">Contact Details</h4>
                     </div>
                     <label for="organization">Organization</label><br>
-                    <a class="form-control contact-detail-item" name="organization" style="cursor: default" required href="organization/{{ contact.organizationId }}" disabled #typeInput><mat-icon>supervised_user_circle</mat-icon><p>{{ contact.organizationId }}</p></a>
+                    <a class="form-control contact-detail-item" name="organization" style="cursor: default" required href="organizations/{{ contact.organizationId }}" disabled #typeInput><mat-icon>supervised_user_circle</mat-icon><p> {{ organizationName }}</p></a>
                 </div>
 
                 <div class="form-group">

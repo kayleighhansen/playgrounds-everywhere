@@ -23,8 +23,8 @@ export class ContactItemComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.getOrganizationName(this.contact.organizationId);
-    console.log(this.contact.organizationId);
+    // this.getOrganizationName(this.contact.organizationId);
+    // console.log(this.contact.organizationId);
 
     // get organization name - subscription 
 

@@ -20,7 +20,7 @@
 
                     <div class="form-group">
                         <label for="contacts">Contact</label><br>
-                        <a class="form-control contact-detail-item" name="contact" style="cursor: default" required href="contact/{{ organization.contactId }}" disabled #contactIdInput><p>{{ organization.contactId }}</p></a>
+                        <a class="form-control contact-detail-item" name="contact" style="cursor: default" required href="contacts/{{ organization.contactId }}" disabled #contactIdInput><p><i class="fa fa-user"></i> {{ organization.contactId }}</p></a>
                     </div>
                 </div>
 
@@ -47,12 +47,12 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label><br>
-                        <a class="form-control contact-detail-item" id="phone" style="cursor: default" placeholder="" href="tel:{{ organization.phone }}" #numberInput><p> {{ organization.phone }}</p></a>
+                        <a class="form-control contact-detail-item" id="phone" style="cursor: default" placeholder="" href="tel:{{ organization.phone }}" #numberInput><p><i class="fa fa-phone"></i> {{ organization.phone }}</p></a>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label><br>
-                        <a class="form-control contact-detail-item" id="email" style="cursor: default" placeholder="" href="mailto:{{ organization.email }}" #emailInput><p> {{ organization.email }}</p></a>
+                        <a class="form-control contact-detail-item" id="email" style="cursor: default" placeholder="" href="mailto:{{ organization.email }}" #emailInput><p><i class="fa fa-envelope"></i> {{ organization.email }}</p></a>
                     </div>
                 </div>
 
