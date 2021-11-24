@@ -1,12 +1,11 @@
 <div class="panel panel-default">
     <div class="panel-heading">
       <h1 class="mb-3">Contact Edit</h1>
-      <a href="./contacts" class="form-link">Back to Contacts</a>
+      <a href="./contacts" class="form-link"> Back to Contacts</a>
     </div>  
     <div class="panel-body">
-      <div class="btn-container">
-       
-        <!-- <form id="addContact" (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="btn-container">        
+        <form>
             <div class="fieldset-add">
                 <div class="form-section">
                     <div class="form-group">
@@ -15,8 +14,6 @@
                                class="form-control required" 
                                id="fname" 
                                name="fname"
-                               ([ngModel])="contact?.fname" 
-                               #fnameInput="ngModel"
                                required>
                     </div>
 
@@ -25,9 +22,7 @@
                         <input type="text" 
                                id="lname"
                                class="form-control"   
-                               name="lname"
-                               [ngModel]="contact?.lname" 
-                               #lnameInput="ngModel">
+                               name="lname">
                     </div>
                 </div>
 
@@ -37,8 +32,6 @@
                     <select id="organizationId" 
                             class="form-control organizationSelectList" 
                             name="organizationId" 
-                            [ngModel]="contact?.organizationId"
-                            #organizationIdInput="ngModel"
                             required>
                             <option value="">-</option>
                     </select>  
@@ -53,9 +46,7 @@
                     <input type="text"
                            id="jobTitle"
                            class="form-control" 
-                           name="job"
-                           [ngModel]="contact?.job"
-                           #jobInput="ngModel">
+                           name="job">
                 </div>
 
                 <div class="form-group">
@@ -64,8 +55,6 @@
                     <select id="homeCountry"
                             class="input-country"
                             name="country"
-                            [ngModel]="contact?.country"
-                            #countryInput="ngModel"
                             required>
 
                         <option value="Afghanistan">Afghanistan</option>
@@ -321,9 +310,7 @@
                     <input type="email" 
                            id="email"
                            class="form-control"  
-                           name="email"
-                           [ngModel]="contact?.email"
-                           #emailInput="ngModel">
+                           name="email">
                 </div>
 
                 <div class="form-group">
@@ -331,9 +318,7 @@
                     <input type="tel" 
                            class="form-control" 
                            id="phone" 
-                           #numberInput="ngModel"
-                           name="phone"
-                           [ngModel]="contact?.phone">
+                           name="phone">
                 </div>
             </div>
 
@@ -345,19 +330,16 @@
                               id="details" 
                               rows="3" 
                               cols="50" 
-                              #detailsInput="ngModel"
-                              [ngModel]="contact?.details"
                               name="details"
                               required></textarea>
                 </div>
             </div>
 
             <div class="submit-buttons">
-                <button type="button" class="btn btn-primary" (click)="onSubmit(f)" [disabled]="f.invalid"> Save </button>
+                <button type="button" class="btn btn-primary"> Save </button>
                 <button type="button" class="btn btn-warning"> Save + Close </button>
             </div>
-        </form> -->
-
+        </form>
       </div>
     </div>
 </div>
