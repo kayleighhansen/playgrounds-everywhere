@@ -36,7 +36,6 @@ export class OrganizationDetailsComponent implements OnInit {
  
     this.LoadDetails();
 
-    this.contactName = this.getContactName();
 
   }
 
@@ -49,7 +48,7 @@ export class OrganizationDetailsComponent implements OnInit {
       if(this.id = result[0].id) {
         this.organization = result[0];
       }
-        console.log(this.organization);
+      this.contactName = this.getContactName();
 
     }, error => {
       this.error = error.message;

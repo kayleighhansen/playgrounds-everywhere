@@ -42,8 +42,6 @@ export class ContactDetailsComponent implements OnInit {
     
     this.LoadDetails();
 
-    this.organizationName = this.getOrganizationName();
-
   }  
 
   LoadDetails() {
@@ -58,6 +56,7 @@ export class ContactDetailsComponent implements OnInit {
         } 
       }
     );
+    this.organizationName = this.getOrganizationName();
     }, error => {
       this.error = error.message;
     });
