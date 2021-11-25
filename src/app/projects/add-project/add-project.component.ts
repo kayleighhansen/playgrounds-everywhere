@@ -167,7 +167,7 @@ export class AddProjectComponent implements OnInit {
   onSubmit(form: NgForm) {
     const value = form.value;
     const newProject = new Project(
-      "", 
+      "0", 
       value.name, 
       value.organizationId, 
       value.contactId, 

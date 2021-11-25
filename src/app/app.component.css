@@ -230,6 +230,10 @@ h3 {
     grid-template-columns: 1fr 1fr;
 }
 
+.edit-button {
+    border-radius: 5px !important;
+}
+
 .submit-buttons:first-child {
     background-color: #74B187;
 }
