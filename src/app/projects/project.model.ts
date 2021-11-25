@@ -8,7 +8,9 @@ export class Project {
     public country : string;
     public city : string;
     public equipment : string;
+    public equipmentAmount: number;
     public donations : string;
+    public donationsAmount : number;
     public price : number;
     public details : string;
     public results : string;
@@ -21,7 +23,9 @@ export class Project {
                 country: string, 
                 city: string,
                 equipment: string,
+                equipmentAmount: number,
                 donations: string,
+                donationsAmount: number,
                 price: number,
                 details: string,
                 results: string){
@@ -34,7 +38,9 @@ export class Project {
         this.country = country;
         this.city = city;
         this.equipment = equipment;
+        this.equipmentAmount = equipmentAmount;
         this.donations = donations;
+        this.donationsAmount = donationsAmount;
         this.price = price;
         this.details = details;      
         this.results = results;
