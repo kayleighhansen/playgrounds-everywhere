@@ -61,9 +61,8 @@
                 <textarea class="form-control contact-detail-item" id="details" style="cursor: default" rows="3" cols="50" value="{{ organization.details }}" disabled #detailsInput ></textarea>
             </div>
 
-                <div class="submit-buttons">
-                    <button type="button" routerLink="edit" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-warning" (click)="onDelete(organization.id)">Delete</button>
+                <div class="">
+                    <button type="button" routerLink="edit" class="btn btn-primary edit-button">Edit</button>
                 </div>
             </form>
         </div>
