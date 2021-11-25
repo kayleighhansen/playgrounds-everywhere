@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Contact } from './contact.model';
 import { Organization } from '../organizations/organization.model'
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -85,7 +85,20 @@ export class ContactService {
     newContact.id = originalContact.id;
     this.contacts[pos] = newContact;
 
-    //this.storeContact();
+    this.storeContact();
+  }
+
+  storeContact() {
+    let contacts = JSON.stringify(this.contacts);
+
+    let contactHeader = new HttpHeaders({"Content-Type" : "application/json" });
+
+    this.http.put('https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts.json', contacts, {headers: contactHeader})
+      .subscribe(
+        () => {
+          this.contactListChanged.next(this.contacts.slice())
+        }
+      );
   }
 
 

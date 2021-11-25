@@ -19,7 +19,9 @@ export class ContactEditComponent implements OnInit, OnDestroy {
   public contact: Contact;
   originalContact: Contact;
   organization: Organization;
+  public organizationName: string;
   fetchOrganizationsSubscription: Subscription;
+  fetchOrganizationSubscription: Subscription;
   public organizations: Organization[] = [];
 
   id: string; 
@@ -34,39 +36,14 @@ export class ContactEditComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
     this.LoadDetails();
-
-    const list = this.organizationService.fetchOrganizations();
-    const selectList = document.getElementsByClassName("organizationSelectList")[0];
-
-    this.fetchOrganizationsSubscription = this.organizationService.fetchOrganizationsEvent.subscribe((result) => {
-
-      this.organizations = result;
-      console.log(this.organizations);
-
-      if(this.organizations.length < 1) {
-      }
-
-      this.organizations.forEach(res => {
-        var option = document.createElement("option");
-        option.value = res.id;
-        option.text = res.name;
-    
-        selectList.appendChild(option);
-      }); 
-      
-    });
-
-    this.originalContact = this.contactService.getContact(this.id);
+    //
   }
 
   LoadDetails() {
-    const singleContact = this.contactService.fetchContacts();
+    this.contactService.fetchContacts();
 
     this.id = window.location.href.replace("http://localhost:4200/contacts/", "").replace("/edit", "");
-
-    console.log(this.id);
 
     this.fetchContactsSubscription = this.contactService.fetchContactsEvent.subscribe((result) => {
       result.forEach((x) => {
@@ -75,10 +52,51 @@ export class ContactEditComponent implements OnInit, OnDestroy {
         } 
       }
     );
-      console.log(this.contact);
+    this.getOrganizationList();
+    this.organizationName = this.getOrganizationName();
     }, error => {
       this.error = error.message;
     });
+  }
+
+  getOrganizationList() {
+    this.organizationService.fetchOrganizations();
+    const selectList = document.getElementsByClassName("organizationSelectList")[0];
+
+    this.fetchOrganizationSubscription = this.organizationService.fetchOrganizationsEvent.subscribe((result) => {
+
+      this.organizations = result;
+      console.log(this.organizations);
+
+      this.organizations.forEach(res => {
+        var option = document.createElement("option");
+        option.value = res.id;
+        option.text = res.name;
+        option.id = res.id;
+
+        if (option.value == this.contact.organizationId) {
+          console.log(option);
+          document.getElementById(option.id);
+        };
+    
+        selectList.appendChild(option);
+      }); 
+      
+    });
+  }
+
+  getOrganizationName(): string {
+    this.organizationService.fetchOrganizations();
+
+    this.fetchOrganizationsSubscription = this.organizationService.fetchOrganizationsEvent.subscribe((result) => {
+      result.forEach((x) => {
+        console.log(this.contact.organizationId);
+        if (x.id == this.contact.organizationId) {
+          console.log(x.name);
+          this.organizationName = x.name;
+        }});
+      });
+    return this.organizationName;
   }
 
   onSubmit(form: NgForm) {
@@ -96,7 +114,6 @@ export class ContactEditComponent implements OnInit, OnDestroy {
 
       this.contactService.updateContact(this.originalContact, newContact);
 
-
     this.router.navigate(['/contacts']);
   }
 
@@ -110,5 +127,6 @@ export class ContactEditComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.fetchOrganizationsSubscription.unsubscribe();
+    this.fetchOrganizationSubscription.unsubscribe();
   }
 }

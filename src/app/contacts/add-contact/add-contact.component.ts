@@ -27,7 +27,11 @@ export class AddContactComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getOrganizationList();
 
+  }
+
+  getOrganizationList() {
     const list = this.organizationService.fetchOrganizations();
     const selectList = document.getElementsByClassName("organizationSelectList")[0];
 
@@ -48,16 +52,6 @@ export class AddContactComponent implements OnInit, OnDestroy {
       }); 
       
     });
-
-    // const selectList = document.getElementsByClassName("organizationSelectList")[0];
-
-    // for (const item of organizationsList ) {
-    //   var option = document.createElement("option");
-    //   option.value = item.value;
-    //   option.text = item.name;
-
-    //   selectList.appendChild(option);
-    // }
   }
 
   onSubmit(form: NgForm) {
