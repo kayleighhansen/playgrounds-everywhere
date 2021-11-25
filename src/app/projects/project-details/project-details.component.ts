@@ -21,9 +21,9 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
   public singleProject: string;
 
   id: string;
-  httpUrl = "";
   error: string;
-
+  httpUrl = "";
+  
   public projectsArray: Project[] = [];
 
   public organizationName: string;
@@ -35,16 +35,11 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
 
   constructor(private projectService: ProjectService,
               private organizationService: OrganizationService,
-              private contactService: ContactService,
-              private router: Router,
-              private route: ActivatedRoute,
-              private http: HttpClient) { }
+              private contactService: ContactService) { }
 
   ngOnInit(): void {
 
     this.LoadDetails();
-    this.organizationName = this.getOrganizationName();
-    //this.contactName = this.getContactName();
 
   }
 
@@ -59,13 +54,15 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
           this.project = x ;
         }}
       );
+      this.organizationName = this.getOrganizationName();
+      this.contactName = this.getContactName();
     }, error => {
       this.error = error.message;
     });
   }
 
   getOrganizationName(): string {
-    this.contactService.fetchContacts();
+    this.organizationService.fetchOrganizations();
 
     this.fetchOrganizationsSubscription = this.organizationService.fetchOrganizationsEvent.subscribe((result) => {
       result.forEach((x) => {
@@ -84,11 +81,11 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
 
     this.fetchContactsSubscription = this.contactService.fetchContactsEvent.subscribe((result) => {
       result.forEach((x) => {
-        console.log(this.project.organizationId);
-        if (x.id == this.project.organizationId) {
+        if (x.id == this.project.contactId) {
           this.contactName = x.fname + " " + x.lname;
         }});
       });
+      console.log(this.contactName);
     return this.contactName;
   }
 

@@ -9,7 +9,6 @@ import { Project } from '../project.model';
 import { ProjectService } from '../project.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',

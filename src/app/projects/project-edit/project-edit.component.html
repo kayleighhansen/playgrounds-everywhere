@@ -5,8 +5,7 @@
     </div>
     <div class="panel-body">
         <div class="btn-container">
-
-            <form id="add-project">
+            <form id="add-project" (ngSubmit)="onSubmit(f)" #f="ngForm">
                 <div class="">
                     <div class="fieldset-title">
                         <h4>Project Details</h4>
@@ -429,13 +428,13 @@
                                   cols="50"
                                   name="results"
                                   [ngModel]="project?.results"
-                                  #resultsInput="ngModel"
+                                  #resultsInput="ngModel" 
                                   required></textarea>
                     </div>
                 </div>
 
             <div class="submit-buttons">
-                <button type="button" class="btn btn-primary"> Save </button>
+                <button type="button" class="btn btn-primary" (click)="onSubmit(f)" [disabled]="f.invalid"> Save </button>
                 <button type="button" class="btn btn-warning"> Save + Close </button>
             </div>           
         </form>

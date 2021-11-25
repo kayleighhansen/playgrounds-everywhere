@@ -12,51 +12,27 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-project-edit',
   templateUrl: './project-edit.component.html',
-  styleUrls: ['./project-edit.component.css']
+  styleUrls: ['../../app.component.css']
 })
 export class ProjectEditComponent implements OnInit {
 
-  fetchContactsSubscription: Subscription;
-  fetchOrganizationsSubscription: Subscription;
-  contact: Contact;
-  project: Project;
-  organization: Organization;
-  contacts: Contact[] = [];
-  organizations: Organization[] = [];
-  
-  constructor(private projectService: ProjectService,
-              private organizationService: OrganizationService,
-              private contactService: ContactService,
+  public project: Project;
+
+  constructor(private contactServices: ContactService, 
+              private organizationServices: OrganizationService, 
+              private projectServices: ProjectService,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(form: NgForm) {
-    const value = form.value;
-    const newProject = new Project(
-      "0", 
-      value.name, 
-      value.organizationId, 
-      value.contactId, 
-      value.date, 
-      value.country, 
-      value.city, 
-      value.equipment, 
-      value.equipmentAmount,
-      value.donation, 
-      value.donationsAmount,
-      value.price, 
-      value.details,
-      value.results
-    );
-
-    console.log(newProject);
-    this.projectService.addProject(newProject);
-
-    //this.router.navigate(['/projects']);
+  LoadDetails() {
+    console.log("Load Details");
   }
 
+  onSubmit(form: NgForm){
+    console.log("submit");
+  }
 
 }

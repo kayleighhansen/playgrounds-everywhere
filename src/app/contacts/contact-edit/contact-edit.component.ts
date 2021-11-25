@@ -100,6 +100,14 @@ export class ContactEditComponent implements OnInit, OnDestroy {
     this.router.navigate(['/contacts']);
   }
 
+  onDelete(id) {
+    console.log(id);
+    this.contactService.deleteContact(id).subscribe(() => { 
+      this.contacts = [id];
+      this.router.navigate(['/contacts']);
+    });
+  }
+
   ngOnDestroy(): void {
     this.fetchOrganizationsSubscription.unsubscribe();
   }

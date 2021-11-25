@@ -76,13 +76,7 @@ export class ContactDetailsComponent implements OnInit {
     return this.organizationName;
   }
 
-  onDelete(id) {
-    console.log(id);
-    this.contactService.deleteContact(id).subscribe(() => { 
-      this.contacts = [id];
-      this.router.navigate(['/contacts']);
-    });
-  }
+
 
   ngOnDestroy(): void {
     this.fetchContactsSubscription.unsubscribe();
