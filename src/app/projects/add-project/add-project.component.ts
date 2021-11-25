@@ -20,6 +20,7 @@ export class AddProjectComponent implements OnInit {
   fetchContactsSubscription: Subscription;
   fetchOrganizationsSubscription: Subscription;
   contact: Contact;
+  project: Project;
   organization: Organization;
   contacts: Contact[] = [];
   organizations: Organization[] = [];
@@ -165,7 +166,6 @@ export class AddProjectComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     const value = form.value;
-
     const newProject = new Project(
       "", 
       value.name, 
@@ -175,15 +175,18 @@ export class AddProjectComponent implements OnInit {
       value.country, 
       value.city, 
       value.equipment, 
+      value.equipmentAmount,
       value.donation, 
+      value.donationsAmount,
       value.price, 
       value.details,
       value.results
     );
 
+    console.log(newProject);
     this.projectServices.addProject(newProject);
 
-    this.router.navigate(['/projects']);
+    //this.router.navigate(['/projects']);
   }
 
 }
