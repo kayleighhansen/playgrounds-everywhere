@@ -100,6 +100,8 @@ export class ContactEditComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(form: NgForm) {
+    this.originalContact = this.contactService.getContact(this.id);
+    
     const value = form.value;
     const newContact = new Contact(
       "",
@@ -112,9 +114,13 @@ export class ContactEditComponent implements OnInit, OnDestroy {
       value.job, 
       value.details);
 
+      console.log(this.originalContact);
+
       this.contactService.updateContact(this.originalContact, newContact);
 
-    this.router.navigate(['/contacts']);
+      console.log(newContact);
+
+    //this.router.navigate(['/contacts']);
   }
 
   onDelete(id) {

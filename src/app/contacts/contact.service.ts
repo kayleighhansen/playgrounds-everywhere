@@ -82,26 +82,17 @@ export class ContactService {
     if(pos < 0) {
       return;
     }
+
     newContact.id = originalContact.id;
     this.contacts[pos] = newContact;
 
-    this.storeContact();
+    console.log(newContact);
+
+    this.http.patch(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts/` + newContact.id + `.json`, newContact)
+
   }
 
-  storeContact() {
-    let contacts = JSON.stringify(this.contacts);
-
-    let contactHeader = new HttpHeaders({"Content-Type" : "application/json" });
-
-    this.http.put('https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts.json', contacts, {headers: contactHeader})
-      .subscribe(
-        () => {
-          this.contactListChanged.next(this.contacts.slice())
-        }
-      );
-  }
-
-
+  
   // delete one record
   deleteContact(id : string) {
     return this.http.delete(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts/` + id + `.json`);
