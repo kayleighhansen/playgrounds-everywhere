@@ -88,8 +88,11 @@ export class ContactService {
 
     console.log(newContact);
 
-    this.http.patch(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts/` + newContact.id + `.json`, newContact)
-
+    this.http.put(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts/` + newContact.id + `.json`, newContact)
+      .subscribe(responseData => {
+        console.log(responseData);
+        
+      });
   }
 
   
