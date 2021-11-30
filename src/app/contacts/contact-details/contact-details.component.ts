@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Organization } from 'src/app/organizations/organization.model';
 import { NgForm } from '@angular/forms';
-import { Note } from '../note.model';
+import { Note } from './note.model';
 
 @Component({
   selector: 'app-contact-details',
@@ -46,7 +46,6 @@ export class ContactDetailsComponent implements OnInit {
   ngOnInit(): void {
     
     this.LoadDetails();
-    this.loadNotes();
 
   }  
 
@@ -85,35 +84,6 @@ export class ContactDetailsComponent implements OnInit {
     this.fetchOrganizationsSubscription.unsubscribe();
   }
 
-  addNote(form: NgForm) {
-
-    const value = form.value;
-    const newNote = new Note(
-      "",
-      new Date().toLocaleDateString(),
-      value.text,
-      this.contact.id
-    )
-
-    this.contactService.addNote(newNote);
-
-    // reload notes
-  }
-
-  loadNotes() {
-    this.id = window.location.href.replace("http://localhost:4200/contacts/", "");
-
-    this.contactService.fetchNotes(this.id);
-
-    this.fetchNotesSubscription = this.contactService.fetchNotesEvent.subscribe((result) => {
-      result.forEach((x) => {
-        if (x.id == this.id) {
-          this.note = x ;
-        } 
-      }
-    );
-    }, error => {
-      this.error = error.message;
-    });
-  }
+  
+  
 }

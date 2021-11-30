@@ -4,7 +4,7 @@ import { Organization } from '../organizations/organization.model'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Note } from './note.model';
+import { Note } from './contact-details/note.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class ContactService {
 
   // object arrays to store records
   private contacts: Contact[] = [];
-  private notes: Note[] = [];
+  
 
   // models 
   contact: Contact[];
@@ -23,10 +23,9 @@ export class ContactService {
   // subjects
   fetchContactsEvent = new Subject<Contact[]>();
   fetchOrganizationsEvent = new Subject<Organization[]>();
-  fetchNotesEvent = new Subject<Note[]>();
+  
   fetchOrganizationEvent = new Subject<Organization[]>();
   contactListChanged = new Subject<Contact[]>();
-  noteListChanged = new Subject<Note[]>();
 
   // dependency injections
   constructor(private http: HttpClient) { }
@@ -105,37 +104,6 @@ export class ContactService {
     return this.http.delete(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts/` + id + `.json`);
   }
 
-  addNote(newNote: Note) {
-    this.http.post(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts/`+ newNote.contactId + `/notes.json`, newNote)
-      .subscribe(responseData => {
-        console.log(responseData);
-      });
-  }
-
-  fetchNotes(contactId) {
-    this.http
-      .get<Note[]>('https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts/' + contactId + '/notes.json')
-      .pipe(
-        map(responseData => {
-          const postsArray = [];
-          for (const key in responseData) {
-            if (responseData.hasOwnProperty(key)) {
-              postsArray.push({ ...responseData[key], id: key})
-            }
-          }
-          return postsArray;
-        })
-      )
-      .subscribe(notes => {
-        this.notes = notes;
-        this.fetchNotesEvent.next(this.notes);
-
-        this.notes.sort((a , b) => 
-        a.date > b.date ? 1 : b.date > a.date ? -1 : 0);
-        this.noteListChanged.next(this.notes.slice());
-      });
-
-    return;
-  }
+  
 
 }

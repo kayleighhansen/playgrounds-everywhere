@@ -34,10 +34,6 @@ export class ContactListComponent implements OnInit, OnDestroy {
 
     this.LoadContacts();
 
-    document.getElementsByClassName('search-bar-text')[0].innerHTML= "";
-
-
-    //this.getOrganization(this.contact.organizationId);
   }
 
   getOrganization(id: string) {
