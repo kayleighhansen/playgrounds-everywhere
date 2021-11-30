@@ -16,28 +16,27 @@ import { Organization } from 'src/app/organizations/organization.model';
 export class ContactEditComponent implements OnInit, OnDestroy {
 
   public contacts: Contact[] = [];
+  public contactsArray: Contact[] = [];
+  public organizations: Organization[] = [];
+
   public contact: Contact;
   originalContact: Contact;
   organization: Organization;
+
   public organizationName: string;
+  id: string; 
+  error: string;
+
+  fetchContactsSubscription: Subscription;
   fetchOrganizationsSubscription: Subscription;
   fetchOrganizationSubscription: Subscription;
-  public organizations: Organization[] = [];
-
-  id: string; 
-  public contactsArray: Contact[] = [];
-  fetchContactsSubscription: Subscription;
-
-  error: string;
 
   constructor(private contactService: ContactService,
               private organizationService: OrganizationService,
-              private router: Router,
-              private route: ActivatedRoute) { }
+              private router: Router) { }
 
   ngOnInit(): void {
     this.LoadDetails();
-    
   }
 
   LoadDetails() {
@@ -52,6 +51,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
         } 
       }
     );
+
     this.setCountryList();
     this.getOrganizationList();
     this.organizationName = this.getOrganizationName();
@@ -65,7 +65,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
     this.organizationService.fetchOrganizations();
     const selectList = document.getElementsByClassName("organizationSelectList")[0];
 
-    this.fetchOrganizationSubscription = this.organizationService.fetchOrganizationsEvent.subscribe((result) => {
+    this.fetchOrganizationSubscription = this.organizationService.fetchOrganizationEvent.subscribe((result) => {
 
       this.organizations = result;
 
@@ -365,7 +365,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
 
       console.log(newContact);
 
-    this.router.navigate(['/contacts']);
+    //this.router.navigate(['/contacts']);
   }
 
   onDelete(id) {

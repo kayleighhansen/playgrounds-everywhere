@@ -18,6 +18,7 @@ export class OrganizationService {
 
   // subjects  
   fetchOrganizationsEvent = new Subject<Organization[]>();
+  fetchOrganizationEvent = new Subject<Organization[]>();
   organizationListChanged = new Subject<Organization[]>();
 
   // dependency injection
@@ -49,6 +50,7 @@ export class OrganizationService {
       .subscribe(organizations => {
         this.organizations = organizations;
         this.fetchOrganizationsEvent.next(this.organizations);
+        this.fetchOrganizationEvent.next(this.organizations);
 
         this.organizations.sort((a , b) => 
         a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
