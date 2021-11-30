@@ -107,13 +107,31 @@ h4 {
 }
 
 .btn-container {
-    display:flex;
     justify-content: center;
     padding: 20px;
     padding: 20px;
     background-color: #d5e5da;
     margin: 0px 20px;
     border-radius: 20px;
+}
+
+.notes-container {
+    padding: 15px;
+}
+
+.note-controls a{
+    margin: 0px 10px;
+}
+
+.note-item {
+    border-top: 1px solid black; 
+    padding: 10px;
+}
+
+.notes-header {
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 25px;
 }
 
 .btn-primary {

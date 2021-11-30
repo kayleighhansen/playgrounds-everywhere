@@ -56,8 +56,6 @@ export class AddContactComponent implements OnInit, OnDestroy {
 
   onSubmit(form: NgForm) {
 
-    console.log(form.value);
-
     const value = form.value;
     const newContact = new Contact(
       "",
@@ -78,7 +76,8 @@ export class AddContactComponent implements OnInit, OnDestroy {
     this.router.navigate(['/contacts']);
   }
 
-  onClear() {
+  onExit() {
+    this.router.navigate(['/contacts']);
   }
 
   setCountryList() {

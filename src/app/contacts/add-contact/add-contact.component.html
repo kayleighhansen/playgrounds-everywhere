@@ -114,7 +114,7 @@
 
             <div class="submit-buttons">
                 <button type="button" class="btn btn-primary" (click)="onSubmit(f)" [disabled]="f.invalid"> Save </button>
-                <button type="button" class="btn btn-warning"> Save + Close </button>
+                <button type="button" class="btn btn-warning" (click)="onExit()"> Exit </button>
             </div>
         </form>
       </div>
