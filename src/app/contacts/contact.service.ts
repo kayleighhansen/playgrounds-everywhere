@@ -21,6 +21,7 @@ export class ContactService {
   // subjects
   fetchContactsEvent = new Subject<Contact[]>();
   fetchOrganizationsEvent = new Subject<Organization[]>();
+  fetchOrganizationEvent = new Subject<Organization[]>();
   contactListChanged = new Subject<Contact[]>();
 
   // dependency injections
@@ -28,9 +29,6 @@ export class ContactService {
 
   // on init methods
   ngOnInit() { }
-
-
-  
 
   // get single records
   getContact(id: string) {
@@ -98,9 +96,9 @@ export class ContactService {
       });
   }
 
-  
   // delete one record
   deleteContact(id : string) {
     return this.http.delete(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts/` + id + `.json`);
   }
+  
 }
