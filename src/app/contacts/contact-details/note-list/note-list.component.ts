@@ -57,9 +57,11 @@ export class NoteListComponent implements OnInit, OnDestroy {
       this.contactId
     )
 
+    console.log(newNote);
+
     this.noteService.addNote(newNote);
 
-    // reload notes
+    this.LoadNotes();
   }
 
   ngOnDestroy(): void {
