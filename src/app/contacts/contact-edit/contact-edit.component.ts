@@ -52,9 +52,10 @@ export class ContactEditComponent implements OnInit, OnDestroy {
         } 
       }
     );
+    this.setCountryList();
     this.getOrganizationList();
     this.organizationName = this.getOrganizationName();
-    this.setCountryList();
+    
     }, error => {
       this.error = error.message;
     });
@@ -67,7 +68,6 @@ export class ContactEditComponent implements OnInit, OnDestroy {
     this.fetchOrganizationSubscription = this.organizationService.fetchOrganizationsEvent.subscribe((result) => {
 
       this.organizations = result;
-      console.log(this.organizations);
 
       this.organizations.forEach(res => {
         var option = document.createElement("option");
@@ -95,14 +95,13 @@ export class ContactEditComponent implements OnInit, OnDestroy {
       "Angola",
       "Anguilla",
       "Antarctica",
-      "Antigua and Barbuda",
       "Argentina",
       "Armenia",
       "Aruba",
       "Australia",
       "Austria",
       "Azerbaijan",
-      "Bahamas (the)",
+      "Bahamas",
       "Bahrain",
       "Bangladesh",
       "Barbados",
@@ -112,13 +111,11 @@ export class ContactEditComponent implements OnInit, OnDestroy {
       "Benin",
       "Bermuda",
       "Bhutan",
-      "Bolivia (Plurinational State of)",
-      "Bonaire, Sint Eustatius and Saba",
-      "Bosnia and Herzegovina",
+      "Bolivia",
+      "Bosnia",
       "Botswana",
       "Bouvet Island",
       "Brazil",
-      "British Indian Ocean Territory (the)",
       "Brunei Darussalam",
       "Bulgaria",
       "Burkina Faso",
@@ -127,18 +124,16 @@ export class ContactEditComponent implements OnInit, OnDestroy {
       "Cambodia",
       "Cameroon",
       "Canada",
-      "Cayman Islands (the)",
-      "Central African Republic (the)",
+      "Cayman Islands",
+      "Central African Republic",
       "Chad",
       "Chile",
       "China",
       "Christmas Island",
-      "Cocos (Keeling) Islands (the)",
+      "Cocos Islands",
       "Colombia",
-      "Comoros (the)",
-      "Congo (the Democratic Republic of the)",
-      "Congo (the)",
-      "Cook Islands (the)",
+      "Comoros",
+      "Democratic Republic of the Congo",
       "Costa Rica",
       "Croatia",
       "Cuba",
@@ -149,7 +144,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
       "Denmark",
       "Djibouti",
       "Dominica",
-      "Dominican Republic (the)",
+      "Dominican Republic",
       "Ecuador",
       "Egypt",
       "El Salvador",
@@ -158,16 +153,13 @@ export class ContactEditComponent implements OnInit, OnDestroy {
       "Estonia",
       "Eswatini",
       "Ethiopia",
-      "Falkland Islands (the) [Malvinas]",
-      "Faroe Islands (the)",
       "Fiji",
       "Finland",
       "France",
       "French Guiana",
       "French Polynesia",
-      "French Southern Territories (the)",
       "Gabon",
-      "Gambia (the)",
+      "Gambia",
       "Georgia",
       "Germany",
       "Ghana",
@@ -183,15 +175,13 @@ export class ContactEditComponent implements OnInit, OnDestroy {
       "Guinea-Bissau",
       "Guyana",
       "Haiti",
-      "Heard Island and McDonald Islands",
-      "Holy See (the)",
       "Honduras",
       "Hong Kong",
       "Hungary",
       "Iceland",
       "India",
       "Indonesia",
-      "Iran (Islamic Republic of)",
+      "Iran",
       "Iraq",
       "Ireland",
       "Isle of Man",
@@ -204,8 +194,6 @@ export class ContactEditComponent implements OnInit, OnDestroy {
       "Kazakhstan",
       "Kenya",
       "Kiribati",
-      "Korea (the Democratic People's Republic of)",
-      "Korea (the Republic of)",
       "Kuwait",
       "Kyrgyzstan",
       "Lao People's Democratic Republic (the)",
@@ -230,8 +218,8 @@ export class ContactEditComponent implements OnInit, OnDestroy {
       "Mauritius",
       "Mayotte",
       "Mexico",
-      "Micronesia (Federated States of)",
-      "Moldova (the Republic of)",
+      "Micronesia",
+      "Moldova",
       "Monaco",
       "Mongolia",
       "Montenegro",
@@ -242,42 +230,34 @@ export class ContactEditComponent implements OnInit, OnDestroy {
       "Namibia",
       "Nauru",
       "Nepal",
-      "Netherlands (the)",
+      "Netherlands",
       "New Caledonia",
       "New Zealand",
       "Nicaragua",
-      "Niger (the)",
+      "Niger",
       "Nigeria",
       "Niue",
       "Norfolk Island",
-      "Northern Mariana Islands (the)",
+      "Northern Mariana Islands",
       "Norway",
       "Oman",
       "Pakistan",
       "Palau",
-      "Palestine, State of",
+      "Palestine",
       "Panama",
       "Papua New Guinea",
       "Paraguay",
       "Peru",
-      "Philippines (the)",
+      "Philippines",
       "Pitcairn",
       "Poland",
       "Portugal",
       "Puerto Rico",
       "Qatar",
-      "Republic of North Macedonia",
+      "Macedonia",
       "Romania",
-      "Russian Federation (the)",
+      "Russian Federation",
       "Rwanda",
-      "Réunion",
-      "Saint Barthélemy",
-      "Saint Helena, Ascension and Tristan da Cunha",
-      "Saint Kitts and Nevis",
-      "Saint Lucia",
-      "Saint Martin (French part)",
-      "Saint Pierre and Miquelon",
-      "Saint Vincent and the Grenadines",
       "Samoa",
       "San Marino",
       "Sao Tome and Principe",
@@ -287,50 +267,45 @@ export class ContactEditComponent implements OnInit, OnDestroy {
       "Seychelles",
       "Sierra Leone",
       "Singapore",
-      "Sint Maarten (Dutch part)",
       "Slovakia",
       "Slovenia",
       "Solomon Islands",
       "Somalia",
       "South Africa",
-      "South Georgia and the South Sandwich Islands",
+      "South Korea",
       "South Sudan",
       "Spain",
       "Sri Lanka",
-      "Sudan (the)",
+      "Sudan",
       "Suriname",
-      "Svalbard and Jan Mayen",
+      "Svalbard",
       "Sweden",
       "Switzerland",
       "Syrian Arab Republic",
       "Taiwan",
       "Tajikistan",
-      "Tanzania, United Republic of",
+      "Tanzania",
       "Thailand",
-      "Timor-Leste",
       "Togo",
       "Tokelau",
       "Tonga",
-      "Trinidad and Tobago",
+      "Trinidad",
       "Tunisia",
       "Turkey",
       "Turkmenistan",
-      "Turks and Caicos Islands (the)",
       "Tuvalu",
       "Uganda",
       "Ukraine",
-      "United Arab Emirates (the)",
-      "United Kingdom of Great Britain and Northern Ireland (the)",
-      "United States Minor Outlying Islands (the)",
-      "United States of America (the)",
+      "United Arab Emirates",
+      "Great Britain",
+      "United States",
       "Uruguay",
       "Uzbekistan",
       "Vanuatu",
-      "Venezuela (Bolivarian Republic of)",
+      "Venezuela",
       "Viet Nam",
-      "Virgin Islands (British)",
-      "Virgin Islands (U.S.)",
-      "Wallis and Futuna",
+      "Virgin Islands",
+      "Virgin Islands",
       "Western Sahara",
       "Yemen",
       "Zambia",
@@ -338,8 +313,8 @@ export class ContactEditComponent implements OnInit, OnDestroy {
       "Åland Islands"
     ];
 
-    const homeList = document.getElementById("homeCountry");
-    console.log(0)
+    const list = document.getElementById("homeCountry");
+    console.log(this.contact.country);
 
     countryList.forEach((res) => {
       var option = document.createElement("option");
@@ -350,7 +325,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
         option.selected = true;
       };
 
-      homeList.appendChild(option);
+      list.appendChild(option);
     });
   }
 
@@ -359,9 +334,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
 
     this.fetchOrganizationsSubscription = this.organizationService.fetchOrganizationsEvent.subscribe((result) => {
       result.forEach((res) => {
-        console.log(this.contact.organizationId);
         if (res.id == this.contact.organizationId) {
-          console.log(res.name);
           this.organizationName = res.name;
         }});
       });
@@ -392,7 +365,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
 
       console.log(newContact);
 
-    //this.router.navigate(['/contacts']);
+    this.router.navigate(['/contacts']);
   }
 
   onDelete(id) {
