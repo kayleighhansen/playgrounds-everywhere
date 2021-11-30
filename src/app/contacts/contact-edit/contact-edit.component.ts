@@ -297,13 +297,13 @@ export class ContactEditComponent implements OnInit, OnDestroy {
       "Uganda",
       "Ukraine",
       "United Arab Emirates",
-      "Great Britain",
+      "United Kingdom",
       "United States",
       "Uruguay",
       "Uzbekistan",
       "Vanuatu",
       "Venezuela",
-      "Viet Nam",
+      "Vietnam",
       "Virgin Islands",
       "Virgin Islands",
       "Western Sahara",
@@ -346,10 +346,11 @@ export class ContactEditComponent implements OnInit, OnDestroy {
     
     const value = form.value;
 
-    console.log(form.value);
+    console.log(form.value.country);
+    console.log(form.value.organizationId);
 
     const newContact = new Contact(
-      "",
+      this.contact.id,
       value.fname,
       value.lname, 
       value.email, 
@@ -361,11 +362,11 @@ export class ContactEditComponent implements OnInit, OnDestroy {
 
       console.log(this.originalContact);
 
-      //this.contactService.updateContact(this.originalContact, newContact);
+      this.contactService.updateContact(this.originalContact, newContact);
 
       console.log(newContact);
 
-    //this.router.navigate(['/contacts']);
+    this.router.navigate(['/contacts']);
   }
 
   onDelete(id) {

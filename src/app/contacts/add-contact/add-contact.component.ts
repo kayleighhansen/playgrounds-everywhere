@@ -56,6 +56,8 @@ export class AddContactComponent implements OnInit, OnDestroy {
 
   onSubmit(form: NgForm) {
 
+    console.log(form.value);
+
     const value = form.value;
     const newContact = new Contact(
       "",
@@ -291,13 +293,13 @@ export class AddContactComponent implements OnInit, OnDestroy {
       "Uganda",
       "Ukraine",
       "United Arab Emirates",
-      "Great Britain",
+      "United Kingdom",
       "United States",
       "Uruguay",
       "Uzbekistan",
       "Vanuatu",
       "Venezuela",
-      "Viet Nam",
+      "Vietnam",
       "Virgin Islands",
       "Virgin Islands",
       "Western Sahara",

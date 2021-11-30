@@ -15,7 +15,7 @@
                                id="fname" 
                                name="fname"
                                [ngModel]="contact?.fname"
-                               #fname="ngModel"
+                               #fnameInput="ngModel"
                                required>
                     </div>
 
@@ -26,7 +26,7 @@
                                class="form-control"   
                                name="lname"
                                [ngModel]="contact?.lname"
-                               #lname="ngModel">
+                               #lnameInput="ngModel">
                     </div>
                 </div>
 
@@ -36,6 +36,8 @@
                     <select id="organizationId" 
                             class="form-control organizationSelectList" 
                             name="organizationId"
+                            [ngModel]="contact?.organizationId"
+                            #organizationIdInput="ngModel"
                             required>
                             <option value="">-</option>
                     </select>  
@@ -50,9 +52,9 @@
                     <input type="text"
                            id="jobTitle"
                            class="form-control" 
+                           name="job"
                            [ngModel]="contact?.job"
-                           #job="ngModel"
-                           name="job">
+                           #jobInput="ngModel">
                 </div>
 
                 <div class="form-group">
@@ -61,6 +63,8 @@
                     <select id="homeCountry"
                             class="input-country form-control"
                             name="country"
+                            [ngModel]="contact?.country"
+                            #countryInput="ngModel"
                             required>
                             <option value="">-</option>
                     </select>            
@@ -79,7 +83,7 @@
                            class="form-control"  
                            name="email"
                            [ngModel]="contact?.email"
-                           #email="ngModel">
+                           #emailInput="ngModel">
                 </div>
 
                 <div class="form-group">
@@ -87,9 +91,9 @@
                     <input type="tel" 
                            class="form-control" 
                            id="phone" 
+                           #numberInput="ngModel"
                            name="phone"
-                           [ngModel]="contact?.phone"
-                           #phone="ngModel">
+                           [ngModel]="contact?.phone">
                 </div>
             </div>
 
@@ -101,10 +105,10 @@
                               id="details" 
                               rows="3" 
                               cols="50" 
-                              name="details"
-                              required
+                              #detailsInput="ngModel"
                               [ngModel]="contact?.details"
-                               #details="ngModel"></textarea>
+                              name="details"
+                              required></textarea>
                 </div>
             </div>
 
