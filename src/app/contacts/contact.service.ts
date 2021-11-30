@@ -29,6 +29,9 @@ export class ContactService {
   // on init methods
   ngOnInit() { }
 
+
+  
+
   // get single records
   getContact(id: string) {
     return this.contacts.find((contact) => contact.id === id)
