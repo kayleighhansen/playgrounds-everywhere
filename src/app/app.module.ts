@@ -45,6 +45,7 @@ import { TodoListComponent } from './todos/todo-list/todo-list.component';
 import { TodoEditComponent } from './todos/todo-edit/todo-edit.component';
 import { AddTodoComponent } from './todos/add-todo/add-todo.component';
 import { TodoDetailsComponent } from './todos/todo-details/todo-details.component';
+
 import { NoteListComponent } from './contacts/contact-details/note-list/note-list.component';
 import { NoteItemComponent } from './contacts/contact-details/note-item/note-item.component';
 

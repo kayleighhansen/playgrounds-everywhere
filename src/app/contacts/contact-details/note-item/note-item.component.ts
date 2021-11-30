@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Note } from '../note.model';
 
 @Component({
   selector: 'app-note-item',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteItemComponent implements OnInit {
 
+  @Input() note: Note;
+
   constructor() { }
 
   ngOnInit(): void {
+
+    console.log(this.note);
   }
 
 }

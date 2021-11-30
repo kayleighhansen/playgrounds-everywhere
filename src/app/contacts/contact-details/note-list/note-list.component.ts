@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { NoteService } from '../note.service';
 import { Note } from '../note.model';
 import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-note-list',
   templateUrl: './note-list.component.html',
   styleUrls: ['./note-list.component.css']
 })
-export class NoteListComponent implements OnInit {
+export class NoteListComponent implements OnInit, OnDestroy {
 
   notes: Note[] = [];
   note: Note;
@@ -59,6 +60,10 @@ export class NoteListComponent implements OnInit {
     this.noteService.addNote(newNote);
 
     // reload notes
+  }
+
+  ngOnDestroy(): void {
+    this.noteService.noteListChanged.unsubscribe();
   }
 
 }

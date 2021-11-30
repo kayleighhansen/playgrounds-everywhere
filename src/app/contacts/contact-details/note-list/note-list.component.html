@@ -1,15 +1,18 @@
 <h3 class="notes-header">Notes</h3>
-<div class="notes-list">
-    <div class="note-item">
-        <p class="date">10-5-1998</p>
-        <p>This is my bestest friend in the whole world, we worked on a big project together and he said he wanted to do it again sometime</p>
-        <div class="note-controls pull-right">
-            <a><mat-icon> edit</mat-icon></a>
-            <a><mat-icon> delete</mat-icon></a>
-        </div>
-    </div>
+<div class="note-list">
+    <p class="alert alert-warning" role="alert" *ngIf="this.isEmpty == true">No Notes Available</p>
+    <div *ngIf="notes.length >= 1">
+      <app-note-item *ngFor="let noteEl of notes" [note]="noteEl"></app-note-item>
+  </div>
 </div>
 <form class="add-note" (ngSubmit)="addNote(f)" #f="ngForm">
-    <textarea name="contact-note" id="contactNote" style="width:100%;" rows="3"></textarea>
+    <textarea name="contact-note" 
+              id="contactNote" 
+              style="width:100%;" 
+              class="add-note-textarea" 
+              rows="3"
+              #textInput="ngModel"
+              [ngModel]="note?.text"
+              required></textarea>
     <button class="add-note btn btn-primary edit-button" (click)="addNote(f)" [disabled]="f.invalid">Add Note</button>
 </form>
