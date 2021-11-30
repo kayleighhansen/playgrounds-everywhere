@@ -4,20 +4,20 @@
 
       <div class="input-group">
 
-        <ul class="nav navbar-nav">
+        <form class="nav navbar-nav">
           <li class="dropdown" appDropdown>
             <a class="dropdown-toggle" role="button">Sort By <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a class="default">All</a></li>
-              <li class="default"><a>By Country</a></li>
-              <li class="default"><a>By Date</a></li>
-              <li class="default"><a>By Name</a></li>
+              <li><a class="default" id="sortby-all">All</a></li>
+              <li><a class="default" id="sortby-country">By Country</a></li>
+              <li><a class="default" id="sortby-date">By Date</a></li>
+              <li><a class="default" id="sortby-name">By Name</a></li>
             </ul>
           </li>
-        </ul>
+        </form>
         <div class="search-container">
           <form action="/action_page.php" class="pull-right">
-            <input class="search-bar-text" type="text" placeholder="Search.." (keyup)="search(searchBox.value)" #searchBox>
+            <input class="search-bar-text" type="text" placeholder="Search.." (keyup)="search(searchBox.value)" name="searchbox" [(ngModel)]="search" value="" #searchBox>
             <button type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>
@@ -26,8 +26,6 @@
 
     <div class="panel-body">
         <p class="alert alert-warning" role="alert" *ngIf="this.isEmpty == true">No Contacts Available</p>
-        <!-- <p class="alert alert-warning" role="alert" *ngIf="this.isFetching == true">Loading</p> -->
-        <!-- <p class="alert alert-warning" role="alert" *ngIf="this.error.length > 0">{{ error.message }}</p> -->
         <div *ngIf="contacts.length >= 1">
           <app-contact-item *ngFor="let contactEl of contacts |  contactsFilter: search: 'fname';" [contact]="contactEl"></app-contact-item>
       </div>

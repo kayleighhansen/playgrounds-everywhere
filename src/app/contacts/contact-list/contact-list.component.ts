@@ -21,17 +21,21 @@ export class ContactListComponent implements OnInit, OnDestroy {
   organizationName: string;
   organization: Organization;
 
+  term: string;
   error: string;
+
   isFetching: boolean = false;
   isEmpty: boolean = false;
-
-  term: string;
 
   constructor(private contactService: ContactService, private organizationService: OrganizationService) { }
  
   ngOnInit(): void {
 
+
     this.LoadContacts();
+
+    document.getElementsByClassName('search-bar-text')[0].innerHTML= "";
+
 
     //this.getOrganization(this.contact.organizationId);
   }

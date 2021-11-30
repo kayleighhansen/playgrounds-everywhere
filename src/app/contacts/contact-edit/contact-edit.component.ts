@@ -361,7 +361,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
 
       console.log(this.originalContact);
 
-      this.contactService.updateContact(this.originalContact, newContact);
+      //this.contactService.updateContact(this.originalContact, newContact);
 
       console.log(newContact);
 
