@@ -17,4 +17,8 @@ export class NoteItemComponent implements OnInit {
     console.log(this.note);
   }
 
+  onEdit() {}
+
+  onDelete() {}
+
 }
