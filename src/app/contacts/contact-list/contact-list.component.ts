@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
@@ -11,7 +11,7 @@ import { Organization } from 'src/app/organizations/organization.model';
   templateUrl: './contact-list.component.html',
   styleUrls: ['../../app.component.css']
 })
-export class ContactListComponent implements OnInit, OnDestroy {
+export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
   
   public contacts: Contact[] = [];
   public contact: Contact;
@@ -27,7 +27,15 @@ export class ContactListComponent implements OnInit, OnDestroy {
   isFetching: boolean = false;
   isEmpty: boolean = false;
 
+  @ViewChild('searchBox', {static: false}) searchBox: ElementRef
+
   constructor(private contactService: ContactService, private organizationService: OrganizationService) { }
+  
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.searchBox.nativeElement.value = null;
+    }, 200);
+  }
  
   ngOnInit(): void {
 

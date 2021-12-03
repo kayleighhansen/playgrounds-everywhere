@@ -14,5 +14,5 @@
               #textInput="ngModel"
               [ngModel]="note?.text"
               required></textarea>
-    <button class="add-note btn btn-primary edit-button" (click)="addNote(f)" [disabled]="f.invalid">Add Note</button>
+    <button type="button" class="add-note btn btn-primary edit-button" (click)="addNote(f)" [disabled]="f.invalid">Add Note</button>
 </form>

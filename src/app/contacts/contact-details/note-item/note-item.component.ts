@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Note } from '../note.model';
+import { NoteService } from '../note.service';
 
 @Component({
   selector: 'app-note-item',
@@ -10,7 +11,9 @@ export class NoteItemComponent implements OnInit {
 
   @Input() note: Note;
 
-  constructor() { }
+  public notes: Note[] = [];
+
+  constructor(private noteService: NoteService) { }
 
   ngOnInit(): void {
 
@@ -19,6 +22,11 @@ export class NoteItemComponent implements OnInit {
 
   onEdit() {}
 
-  onDelete() {}
+  onDelete(id) {
+    console.log(id);
+    this.noteService.deleteNote(id).subscribe(() => { 
+      this.notes = [id];
+    });
+  }
 
 }

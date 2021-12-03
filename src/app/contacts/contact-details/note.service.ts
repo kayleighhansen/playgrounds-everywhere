@@ -13,7 +13,6 @@ export class NoteService {
   fetchNotesEvent = new Subject<Note[]>();
   noteListChanged = new Subject<Note[]>();
 
-  
   constructor(private http: HttpClient) { }
 
   fetchNotes(contactId) {
@@ -46,6 +45,11 @@ export class NoteService {
     this.http.post(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts/`+ newNote.contactId + `/notes.json`, newNote)
       .subscribe(responseData => {
         console.log(responseData);
+        
       });
+  }
+
+  deleteNote(id: string) {
+    return this.http.delete(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts/notes` + id + `.json`);
   }
 }
