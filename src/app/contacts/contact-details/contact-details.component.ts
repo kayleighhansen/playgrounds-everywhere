@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Organization } from 'src/app/organizations/organization.model';
 import { NgForm } from '@angular/forms';
-import { Note } from './note.model';
+import { Note } from './notes/note.model';
 
 @Component({
   selector: 'app-contact-details',
@@ -17,37 +17,31 @@ import { Note } from './note.model';
 })
 export class ContactDetailsComponent implements OnInit {
   public contacts: Contact[] = [];
-  public contact: Contact;
-
-  public note: Note;
-
-  public singleContact: string;
-
-  id: string; 
   public contactsArray: Contact[] = [];
+
+  public contact: Contact;
+  public note: Note;
+  organization: Organization;
+  
+  public singleContact: string;
+  organizationName: string;
+  id: string; 
+  error: string;
+  organizations: void;
+  httpUrl = ""
+  
   fetchContactsSubscription: Subscription;
   fetchNotesSubscription: Subscription;
   fetchOrganizationsSubscription: Subscription;
 
-
-  httpUrl = ""
-  error: string;
-
-  organizationName: string;
-  organization: Organization;
-  organizations: void;
-
   constructor(private contactService: ContactService,
-              private organizationService: OrganizationService,
-              private router: Router, 
-              private route: ActivatedRoute,
-              private http: HttpClient) { }  
+              private organizationService: OrganizationService) { }  
 
   ngOnInit(): void {
     
     this.LoadDetails();
-
   }  
+
 
   LoadDetails() {
     this.contactService.fetchContacts();

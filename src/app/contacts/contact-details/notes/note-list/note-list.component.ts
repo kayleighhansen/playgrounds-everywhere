@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { NoteService } from '../note.service';
 import { Note } from '../note.model';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 
 @Component({
@@ -15,24 +16,36 @@ export class NoteListComponent implements OnInit, OnDestroy {
   notes: Note[] = [];
   note: Note;
 
+  originalNote: Note;
+  editMode: boolean = false;
+
+  @ViewChild('textInput', {static: false}) textInput: ElementRef;
+
   id: string;
   contactId = window.location.href.replace("http://localhost:4200/contacts/", "");
   isFetching: boolean;
   isEmpty: boolean;
   error: string;
-
   private noteChangeSub: Subscription;
 
-  constructor(private noteService: NoteService) { }
 
-  ngOnInit(): void {
-    this.LoadNotes();
+
+  constructor(private noteService: NoteService, 
+              private router: Router,
+              private route: ActivatedRoute) { }
+
+  ngOnInit(): void { }
+
+   ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.router.navigate(['/contacts/' + this.contactId]); 
+      this.LoadNotes();  
+      this.isFetching = false; 
+    }, 800);
   }
 
   LoadNotes() {
-
     this.noteService.fetchNotes(this.contactId);
-    this.isFetching = true;
 
     this.noteChangeSub = this.noteService.noteListChanged.subscribe(
       (notes: Note[]) => {
@@ -41,7 +54,6 @@ export class NoteListComponent implements OnInit, OnDestroy {
       if(this.notes.length < 1) {
         this.isEmpty= true;
       }
-
     }, error => {
       this.error = error.message;
     });
@@ -61,7 +73,13 @@ export class NoteListComponent implements OnInit, OnDestroy {
 
     this.noteService.addNote(newNote);
 
-    console.log(this.notes);
+    this.noteService.fetchNotes(newNote.contactId);
+
+    this.isFetching = true;
+
+    this.ngAfterViewInit();
+
+    this.textInput.nativeElement.value = null;
   }
 
   ngOnDestroy(): void {

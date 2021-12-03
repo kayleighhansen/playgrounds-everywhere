@@ -1,6 +1,7 @@
 <h3 class="notes-header">Notes</h3>
 <div class="note-list">
-    <p class="alert alert-warning" role="alert" *ngIf="this.isEmpty == true">No Notes Available</p>
+    <!-- <p class="alert alert-warning" role="alert" *ngIf="this.isEmpty == true">No Notes Available</p> -->
+    <p *ngIf="isFetching == true" class="alert alert-warning" role="alert">Loading Notes</p>
     <div *ngIf="notes.length >= 1">
       <app-note-item *ngFor="let noteEl of notes" [note]="noteEl"></app-note-item>
   </div>
@@ -11,8 +12,8 @@
               style="width:100%;" 
               class="add-note-textarea" 
               rows="3"
-              #textInput="ngModel"
+              #textInput
               [ngModel]="note?.text"
               required></textarea>
-    <button type="button" class="add-note btn btn-primary edit-button" (click)="addNote(f)" [disabled]="f.invalid">Add Note</button>
+    <button type="button" class="add-note-btn btn btn-primary edit-button" (click)="addNote(f)" [disabled]="f.invalid">Add Note</button>
 </form>

@@ -1,0 +1,10 @@
+<div class="note-item">
+    <div class="note-details">
+        <p class="date">{{ note.date }}</p>
+        <p class="text">{{ note.text }}</p>
+    </div>
+    <div class="note-controls">
+        <a (click)=onEdit()><mat-icon class="notes-btn"> edit</mat-icon></a>
+        <a (click)="onDelete(this.note.id)" style="cursor: default;"><mat-icon class="notes-btn"> delete</mat-icon></a>
+    </div>
+</div>

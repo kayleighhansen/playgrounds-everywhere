@@ -1,0 +1,23 @@
+.note-item {
+    border-bottom: 1px solid black;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.note-controls {
+    text-align: right;
+}
+
+.date {
+    margin: 0 0 3px;
+}
+
+.text {
+    font-style: italic;
+}
+
+.notes-btn {
+    color: black;
+}

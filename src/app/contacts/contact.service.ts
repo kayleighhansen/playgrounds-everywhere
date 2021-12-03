@@ -4,7 +4,7 @@ import { Organization } from '../organizations/organization.model'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Note } from './contact-details/note.model';
+import { Note } from './contact-details/notes/note.model';
 
 @Injectable({
   providedIn: 'root'
@@ -103,7 +103,4 @@ export class ContactService {
   deleteContact(id : string) {
     return this.http.delete(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/contacts/` + id + `.json`);
   }
-
-  
-
 }

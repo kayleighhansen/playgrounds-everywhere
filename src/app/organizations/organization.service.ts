@@ -56,7 +56,7 @@ export class OrganizationService {
         a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
         this.organizationListChanged.next(this.organizations.slice());
 
-        console.log(this.organizations);
+        //console.log(this.organizations);
       });
 
     return;

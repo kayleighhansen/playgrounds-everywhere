@@ -5,6 +5,10 @@ body {
     /* margin-top: 100px!important; */
 }
 
+h1, h4, label {
+    color: black;
+}
+
 main {
     padding-top: 60px;
 }
@@ -144,19 +148,25 @@ h4 {
 
 .btn-container {
     justify-content: center;
-    padding: 20px;
-    padding: 20px;
+    padding: 5px 20px 20px 20px;
     background-color: #d5e5da;
     margin: 0px 20px;
     border-radius: 20px;
 }
 
 .notes-container {
-    padding: 15px;
+    padding: 5px 20px 20px 20px;
+    margin: 20px;
+    background-color: lightgray;
+    border-radius: 20px;
 }
 
 .note-controls a{
     margin: 0px 10px;
+}
+
+.form-control {
+    color:black;
 }
 
 .note-item {

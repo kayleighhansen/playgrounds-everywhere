@@ -1,8 +1,0 @@
-<div class="note-item" style="border-bottom: 1px solid black;">
-    <p class="date">{{ note.date }}</p>
-    <p>{{ note.text }}</p>
-    <div class="note-controls">
-        <a (click)=onEdit()><mat-icon> edit</mat-icon></a>
-        <a (click)="onDelete(this.note.id)" style="cursor: default;"><mat-icon> delete</mat-icon></a>
-    </div>
-</div>
