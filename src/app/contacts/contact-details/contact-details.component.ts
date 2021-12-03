@@ -83,7 +83,4 @@ export class ContactDetailsComponent implements OnInit {
     this.fetchContactsSubscription.unsubscribe();
     this.fetchOrganizationsSubscription.unsubscribe();
   }
-
-  
-  
 }
