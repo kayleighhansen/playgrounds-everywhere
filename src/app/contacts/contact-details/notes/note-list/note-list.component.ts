@@ -85,5 +85,4 @@ export class NoteListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.noteService.noteListChanged.unsubscribe();
   }
-
 }

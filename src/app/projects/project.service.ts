@@ -50,7 +50,6 @@ export class ProjectService {
         a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
         this.projectListChanged.next(this.projects.slice());
 
-        console.log(this.projects);
       });
 
     return;

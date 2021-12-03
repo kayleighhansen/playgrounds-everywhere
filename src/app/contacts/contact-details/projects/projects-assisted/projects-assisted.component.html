@@ -1,3 +1,9 @@
 <h3 class="notes-header">Projects</h3>
 
-<button type="button" class="add-note-btn btn btn-primary edit-button">Add New Project</button>
+<p *ngIf="isEmpty == true" class="alert alert-warning" role="alert">No Projects Available</p>
+
+<div *ngIf="projects.length >= 1">
+    <app-projects-assisted-item *ngFor="let projectEl of projects" [project]="projectEl"></app-projects-assisted-item>
+</div>
+
+<a class="add-note-btn btn btn-primary edit-button" href="./projects/add-project">Add New Project</a>
