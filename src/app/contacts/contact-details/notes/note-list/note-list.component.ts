@@ -28,13 +28,13 @@ export class NoteListComponent implements OnInit, OnDestroy {
   error: string;
   private noteChangeSub: Subscription;
 
-
-
   constructor(private noteService: NoteService, 
               private router: Router,
               private route: ActivatedRoute) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.LoadNotes();
+  }
 
    ngAfterViewInit(): void {
     setTimeout(() => {

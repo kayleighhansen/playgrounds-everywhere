@@ -1,62 +1,85 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-      <h1 class="mb-3">Contact Details</h1>
-      <a href="./contacts" class="form-link"><mat-icon>keyboard_arrow_left</mat-icon>Back to Contacts</a>
-    </div>  
-    <div class="panel-body">
-      <div class="btn-container details-container">
-
-        <form>
-            <div class="">
-                <div class="">
-                    <div class="form-group">
-                        <h2 type="text" class="form-control contact-detail-item" style="cursor: default; font-size: 20px; background: none;" id="fname" placeholder="" value="" disabled #fnameInput>{{ this.contact.fname }} {{ contact.lname }}</h2>
-                    </div>
-                </div>
-
-                <div class="">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <a class="form-control contact-detail-item" id="email" style="cursor: default" placeholder="" href="mailto:{{ contact.email }}" #emailInput><mat-icon> mail_outline</mat-icon><p> {{ contact.email }}</p></a>
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <a class="form-control contact-detail-item" id="phone" style="cursor: default" placeholder="" href="tel:{{ contact.phone }}" #numberInput><mat-icon> call</mat-icon><p> {{ contact.phone }}</p></a>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="fieldset-title">
-                        <h4 class="details-title">Contact Details</h4>
-                    </div>
-                    <label for="organization">Organization</label><br>
-                    <a class="form-control contact-detail-item" name="organization" style="cursor: default" required href="organizations/{{ contact.organizationId }}" disabled #typeInput><mat-icon>supervised_user_circle</mat-icon><p> {{ organizationName }}</p></a>
-                </div>
-
-                <div class="form-group">
-                    <label for="job-title">Job Title</label><br>
-                    <input type="text" class="form-control contact-detail-item" id="job-title" style="cursor: default" placeholder="" value="{{ contact.job }}" disabled #jobInput>
-                </div>
-                <div class="form-group">
-                    <label for="country">Home Country</label><br>
-                    <input type="text" class="form-control contact-detail-item" id="country" style="cursor: default" placeholder="" value="{{ contact.country }}" disabled #lnameInput>
-                </div>
-
-                <div class="form-group">
-                    <label for="details">Details</label><br>
-                    <textarea class="form-control contact-detail-item" id="details" style="cursor: default" rows="3" cols="50" value="{{ contact.details }}" disabled #detailsInput ></textarea>
-                </div>
-            </div>
-
-            <div class="edit-buttons">
-                <button type="button" routerLink="edit" class="btn btn-primary edit-button">Edit</button>
-            </div>
-        </form>
-      </div>
-
-      <div class="notes-container">
-        <app-note-list></app-note-list>
+        <h1 class="mb-3">Contact Details</h1>
+        <a href="./contacts" class="form-link">
+            <mat-icon>keyboard_arrow_left</mat-icon>Back to Contacts
+        </a>
     </div>
+    <div class="panel-body">
+        <div class="btn-container details-container">
+
+            <form>
+                <div class="">
+                    <div class="">
+                        <div class="form-group">
+                            <h2 type="text" class="form-control contact-detail-item"
+                                style="cursor: default; font-size: 20px; background: none;" id="fname" placeholder=""
+                                value="" disabled #fnameInput>{{ this.contact.fname }} {{ contact.lname }}</h2>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <a class="form-control contact-detail-item" id="email" style="cursor: default"
+                                placeholder="" href="mailto:{{ contact.email }}" #emailInput>
+                                <mat-icon> mail_outline</mat-icon>
+                                <p> {{ contact.email }}</p>
+                            </a>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <a class="form-control contact-detail-item" id="phone" style="cursor: default"
+                                placeholder="" href="tel:{{ contact.phone }}" #numberInput>
+                                <mat-icon> call</mat-icon>
+                                <p> {{ contact.phone }}</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="fieldset-title">
+                            <h4 class="details-title">Contact Details</h4>
+                        </div>
+                        <label for="organization">Organization</label><br>
+                        <a class="form-control contact-detail-item" name="organization" style="cursor: default" required
+                            href="organizations/{{ contact.organizationId }}" disabled #typeInput>
+                            <mat-icon>supervised_user_circle</mat-icon>
+                            <p> {{ organizationName }}</p>
+                        </a>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="job-title">Job Title</label><br>
+                        <input type="text" class="form-control contact-detail-item" id="job-title"
+                            style="cursor: default" placeholder="" value="{{ contact.job }}" disabled #jobInput>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Home Country</label><br>
+                        <input type="text" class="form-control contact-detail-item" id="country" style="cursor: default"
+                            placeholder="" value="{{ contact.country }}" disabled #lnameInput>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="details">Details</label><br>
+                        <textarea class="form-control contact-detail-item" id="details" style="cursor: default" rows="3"
+                            cols="50" value="{{ contact.details }}" disabled #detailsInput></textarea>
+                    </div>
+                </div>
+
+                <div class="edit-buttons">
+                    <button type="button" routerLink="edit" class="btn btn-primary edit-button">Edit</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="notes-container">
+            <app-note-list></app-note-list>
+        </div>
+
+        <div class="notes-container">
+            <app-projects-assisted></app-projects-assisted>
+        </div>
     </div>
 </div>
