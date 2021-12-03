@@ -42,7 +42,6 @@ export class ContactDetailsComponent implements OnInit {
     this.LoadDetails();
   }  
 
-
   LoadDetails() {
     this.contactService.fetchContacts();
 

@@ -48,6 +48,7 @@ import { TodoDetailsComponent } from './todos/todo-details/todo-details.componen
 
 import { NoteListComponent } from './contacts/contact-details/notes/note-list/note-list.component';
 import { NoteItemComponent } from './contacts/contact-details/notes/note-item/note-item.component';
+import { ProjectsAssistedComponent } from './contacts/contact-details/projects/projects-assisted/projects-assisted.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { NoteItemComponent } from './contacts/contact-details/notes/note-item/no
     OrganizationDetailsComponent,
     ProjectDetailsComponent,
     NoteListComponent,
-    NoteItemComponent
+    NoteItemComponent,
+    ProjectsAssistedComponent
   ],
   imports: [
     BrowserModule,
