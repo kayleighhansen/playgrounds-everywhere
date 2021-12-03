@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Contact } from '../../../contact.model';
 import { ProjectService } from 'src/app/projects/project.service';
 import { Project } from 'src/app/projects/project.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-projects-assisted',
@@ -11,18 +12,51 @@ import { Project } from 'src/app/projects/project.model';
 export class ProjectsAssistedComponent implements OnInit {
 
   contactId = window.location.href.replace("http://localhost:4200/contacts/", "");
+  contact: Contact[];
+  contacts: Contact[] = [];
 
-  constructor() { }
+  project: Project[];
+  projects: Project[] = [];
+  
+  projectsAssisted: Project[] = [];
+
+  private projectChangeSub: Subscription;
+
+  isEmpty: boolean;
+  error: string;
+
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit(): void {
-    this.getProjects(this.contactId);
+    this.projectsAssisted = this.fetchProjects();
   }
 
-  getProjects(id: string) {
-    // fetch projects
+  fetchProjects(): Project[] {
+    this.projectService.fetchProjects();
 
-    // for each that matches the right id put in array
+    this.projectChangeSub = this.projectService.projectListChanged.subscribe(
+      (projects: Project[]) => {
+        this.projects = projects;
 
-    // return the array of relevant projects
+        this.projects.forEach((result) => {
+          if(result.contactId == this.contactId) {
+            this.projectsAssisted.push(result);
+          }
+          console.log(this.projectsAssisted);
+        });
+
+        console.log(this.projectsAssisted);
+
+        if(this.projectsAssisted.length < 1) {
+          this.isEmpty= true;
+        }
+    }, error => {
+      this.error = error.message;
+    });
+    return this.projectsAssisted;
+  }
+
+  ngOnDestroy(): void {
+    this.projectChangeSub.unsubscribe();
   }
 }
