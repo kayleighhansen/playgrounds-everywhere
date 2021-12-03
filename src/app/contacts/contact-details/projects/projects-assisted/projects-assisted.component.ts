@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../../../contact.model';
+import { ProjectService } from 'src/app/projects/project.service';
+import { Project } from 'src/app/projects/project.model';
 
 @Component({
   selector: 'app-projects-assisted',
