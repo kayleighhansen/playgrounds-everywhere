@@ -6,7 +6,7 @@ import { Project } from 'src/app/projects/project.model';
 @Component({
   selector: 'app-projects-assisted',
   templateUrl: './projects-assisted.component.html',
-  styleUrls: ['../../../app.component.css']
+  styleUrls: ['../../../../app.component.css']
 })
 export class ProjectsAssistedComponent implements OnInit {
 

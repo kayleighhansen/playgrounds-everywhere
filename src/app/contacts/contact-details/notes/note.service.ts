@@ -42,8 +42,8 @@ export class NoteService {
         
         this.fetchNotesEvent.next(this.notes);
 
-        // this.notes.sort((a , b) => 
-        // a.date > b.date ? 1 : b.date > a.date ? -1 : 0);
+        this.notes.sort((a , b) => 
+        a.date > b.date ? 1 : b.date > a.date ? -1 : 0);
         this.noteListChanged.next(this.notes.slice());
       });
 
