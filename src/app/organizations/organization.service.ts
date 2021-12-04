@@ -71,8 +71,28 @@ export class OrganizationService {
   }
 
   // edit single record
-  editContact() {
+  updateOrganization(originalOrganization: Organization, newOrganization: Organization) {
 
+    if(originalOrganization == null || newOrganization == null){
+      return;
+    }
+    
+    const pos = this.organizations.indexOf(originalOrganization);
+
+    if(pos < 0) {
+      return;
+    }
+
+    newOrganization.id = originalOrganization.id;
+    this.organizations[pos] = newOrganization;
+
+    console.log(newOrganization);
+
+    this.http.put(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/organizations/` + newOrganization.id + `.json`, newOrganization)
+      .subscribe(responseData => {
+        console.log(responseData);
+        
+      });
   }
 
   // delete single record

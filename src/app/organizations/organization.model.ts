@@ -9,7 +9,6 @@ export class Organization {
     public contactId : string;
     public date : string;
     public type : string;
-    //public imageUrl : string;
     public details : string;
 
     constructor(id: string, 
@@ -21,7 +20,6 @@ export class Organization {
                 contactId: string,
                 date: string,
                 type: string,
-                //imageUrl : string,
                 details : string
                 ){
 
@@ -34,8 +32,6 @@ export class Organization {
         this.contactId = contactId;
         this.date = date;
         this.type = type;
-        //this.imageUrl = imageUrl;
         this.details = details;
-
     };
 }

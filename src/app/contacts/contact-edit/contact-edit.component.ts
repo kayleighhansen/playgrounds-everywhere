@@ -2,7 +2,7 @@ import { Component, Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
 import { OrganizationService } from '../../organizations/organization.service'
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Organization } from 'src/app/organizations/organization.model';
@@ -35,10 +35,12 @@ export class ContactEditComponent implements OnInit, OnDestroy {
               private organizationService: OrganizationService,
               private router: Router) { }
 
+  // initialize with details            
   ngOnInit(): void {
     this.LoadDetails();
   }
 
+  // load the details for editing
   LoadDetails() {
     this.contactService.fetchContacts();
 
@@ -61,6 +63,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
     });
   }
 
+  // get list of organizations
   getOrganizationList() {
     this.organizationService.fetchOrganizations();
     const selectList = document.getElementsByClassName("organizationSelectList")[0];
@@ -85,6 +88,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
     });
   }
 
+  // set list of countries
   setCountryList() {
     const countryList = [
       "Afghanistan",
@@ -329,6 +333,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
     });
   }
 
+  // get name of organization
   getOrganizationName(): string {
     this.organizationService.fetchOrganizations();
 
@@ -341,6 +346,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
     return this.organizationName;
   }
 
+  // submit form
   onSubmit(form: NgForm) {
     this.originalContact = this.contactService.getContact(this.id);
     
@@ -369,6 +375,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
     this.router.navigate(['/contacts']);
   }
 
+  // delete contact
   onDelete(id) {
     console.log(id);
     this.contactService.deleteContact(id).subscribe(() => { 
@@ -377,6 +384,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
     });
   }
 
+  // unsubscribe
   ngOnDestroy(): void {
     this.fetchOrganizationsSubscription.unsubscribe();
     this.fetchOrganizationSubscription.unsubscribe();
