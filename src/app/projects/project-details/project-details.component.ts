@@ -66,13 +66,10 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
 
     this.fetchOrganizationsSubscription = this.organizationService.fetchOrganizationsEvent.subscribe((result) => {
       result.forEach((x) => {
-        console.log(this.project.organizationId);
         if (x.id == this.project.organizationId) {
-          console.log(x.name);
           this.organizationName = x.name;
         }});
       });
-      console.log(this.organizationName);
     return this.organizationName;
   }
 
@@ -85,7 +82,6 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
           this.contactName = x.fname + " " + x.lname;
         }});
       });
-      console.log(this.contactName);
     return this.contactName;
   }
 

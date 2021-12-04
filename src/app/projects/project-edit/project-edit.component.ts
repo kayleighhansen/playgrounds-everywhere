@@ -28,10 +28,11 @@ export class ProjectEditComponent implements OnInit {
   contact: Contact;
   contacts: Contact[] = [];
   contactName:string;
+  originalProject: Project;
 
   constructor(private contactService: ContactService, 
               private organizationService: OrganizationService, 
-              private projectServices: ProjectService,
+              private projectService: ProjectService,
               private router: Router,
               private route: ActivatedRoute) { }
 
@@ -40,11 +41,11 @@ export class ProjectEditComponent implements OnInit {
   }
 
   LoadDetails() {
-    this.projectServices.fetchProjects();
+    this.projectService.fetchProjects();
 
     this.id = window.location.href.replace("http://localhost:4200/projects/", "").replace("/edit", "");
 
-    this.fetchProjectsSubscription = this.projectServices.fetchProjectsEvent.subscribe((result) => {
+    this.fetchProjectsSubscription = this.projectService.fetchProjectsEvent.subscribe((result) => {
       result.forEach((x) => {
         if (x.id == this.id) {
           this.project = x ;
@@ -309,7 +310,6 @@ export class ProjectEditComponent implements OnInit {
   getOrganizationList() {
     this.organizationService.fetchOrganizations();
     const selectList = document.getElementsByClassName("organizationSelectList")[0];
-    console.log(selectList);
 
     this.fetchOrganizationsSubscription = this.organizationService.fetchOrganizationEvent.subscribe((result) => {
 
@@ -380,7 +380,32 @@ export class ProjectEditComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    console.log("submit");
+    this.originalProject = this.project;
+    
+    const value = form.value;
+
+    const newProject = new Project(
+      this.project.id,
+      value.name,
+      value.organizationId,
+      value.contactId,
+      value.date,
+      value.location,
+      value.country,
+      value.city,
+      value.equipment,
+      value.equipmentAmount,
+      value.donation,
+      value.donationAmount,
+      value.price,
+      value.details,
+      value.results);
+
+      console.log(newProject);
+
+      //this.projectService.updateProject(this.originalProject, newProject);
+
+    //this.router.navigate(['/projects']);
   }
 
   onDelete(id: string) {
