@@ -26,12 +26,13 @@ export class OrganizationListComponent implements OnInit, OnDestroy {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.searchBox.nativeElement.value = null;
+      this.LoadContacts();
     }, 200);
   }
 
-  ngOnInit(): void {
-    this.LoadContacts();
-  }
+  ngOnInit(): void { }
+
+
 
   LoadContacts(){
     this.organizationService.fetchOrganizations();
