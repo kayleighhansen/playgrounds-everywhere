@@ -91,7 +91,13 @@ export class OrganizationEditComponent implements OnInit, OnDestroy {
   }
 
   // delete the organiztion
-  onDelete() { }
+  onDelete(id) {
+    console.log(id);
+    this.organizationService.deleteOrganization(id).subscribe(() => { 
+      this.organizations = [id];
+      this.router.navigate(['/organizations']);
+    });
+  }
 
   setCountryList() {
     const countryList = [

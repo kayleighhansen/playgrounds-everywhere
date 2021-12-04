@@ -74,16 +74,7 @@
                                    #cityInput="ngModel"
                                    required>
                         </div>
-                        <div class="form-group">
-                            <label for="city">Date</label><br>
-                            <input type="date" 
-                                   class="form-control" 
-                                   id="date" 
-                                   name="date"
-                                   [ngModel]="organization?.date"
-                                   #dateInput="ngModel"
-                                   required>
-                        </div>
+                       
                     </div>
                 </div>
 
@@ -127,7 +118,7 @@
                 </div>
                 <div class="submit-buttons">
                     <button type="button" class="btn btn-primary" (click)="onSubmit(f)"> Save </button>
-                    <button type="button" class="btn btn-warning" (click)="onDelete()"> Delete</button>
+                    <button type="button" class="btn btn-warning" (click)="onDelete(this.organization.id)"> Delete</button>
                 </div>
             </form>
         </div>

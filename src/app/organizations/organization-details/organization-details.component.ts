@@ -35,21 +35,21 @@ export class OrganizationDetailsComponent implements OnInit {
   ngOnInit(): void {
  
     this.LoadDetails();
-
-
   }
 
   LoadDetails() {
-    const singleOrganization = this.organizationService.fetchOrganizations();
+    this.organizationService.fetchOrganizations();
 
-    this.id = this.route.url.toString().replace('http://localhost:4200/organizations/', '');
+    this.id = window.location.href.replace("http://localhost:4200/organizations/", "");
 
-    this.fetchOrganizationsSubscription = this.organizationService.fetchOrganizationsEvent.subscribe((result)=> {
-      if(this.id = result[0].id) {
-        this.organization = result[0];
+    this.fetchOrganizationsSubscription = this.organizationService.fetchOrganizationsEvent.subscribe((result) => {
+      result.forEach((x) => {
+        if (x.id == this.id) {
+          this.organization = x ;
+        } 
       }
-      this.contactName = this.getContactName();
-
+    );
+    this.contactName = this.getContactName();
     }, error => {
       this.error = error.message;
     });
@@ -61,7 +61,6 @@ export class OrganizationDetailsComponent implements OnInit {
     this.fetchContactsSubscription = this.contactService.fetchContactsEvent.subscribe((result) => {
       result.forEach((x) => {
         if (x.id == this.organization.contactId) {
-          console.log(x.fname);
           this.contactName = x.fname + " " + x.lname;
         }});
       });
