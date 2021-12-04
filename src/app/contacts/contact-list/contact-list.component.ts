@@ -38,10 +38,7 @@ export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
   }
  
   ngOnInit(): void {
-
-
     this.LoadContacts();
-
   }
 
   getOrganization(id: string) {

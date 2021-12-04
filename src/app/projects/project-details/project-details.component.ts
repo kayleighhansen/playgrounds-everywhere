@@ -89,10 +89,6 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
     return this.contactName;
   }
 
-  onDelete(id) {
-
-  }
-
   ngOnDestroy(): void {
     this.fetchContactsSubscription.unsubscribe();
     this.fetchOrganizationsSubscription.unsubscribe();

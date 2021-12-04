@@ -26,18 +26,7 @@ export class AddOrganizationComponent implements OnInit {
               private contactServices: ContactService) { }
 
   ngOnInit(): void {
-    // json list of options
-    // let contactsList = [{ value: '0', fname: 'Kayleigh', lname: 'Hansen'},  { value: '1', fname: 'Zayne', lname: ''  },{ value: '2', fname: 'Judith', lname: 'Nalube' }];
 
-    // const selectList = document.getElementsByClassName("contactSelectList")[0];
-
-    // for (const item of contactsList ) {
-    //   var option = document.createElement("option");
-    //   option.value = item.value;
-    //   option.text = item.fname + " " + item.lname;
-
-    //   selectList.appendChild(option);
-    // }
     const list = this.contactServices.fetchContacts();
     const selectList = document.getElementsByClassName("contactSelectList")[0];
 
@@ -83,8 +72,9 @@ export class AddOrganizationComponent implements OnInit {
     // SEND USER BACK TO THE CONTACT PAGE
     this.router.navigate(['/organizations']);
   }
-  onClear() {
 
+  onExit() {
+    this.router.navigate(['/organizations']);
   }
 
 }

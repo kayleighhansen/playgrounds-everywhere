@@ -171,6 +171,7 @@ export class AddProjectComponent implements OnInit {
       value.organizationId, 
       value.contactId, 
       value.date, 
+      value.location,
       value.country, 
       value.city, 
       value.equipment, 

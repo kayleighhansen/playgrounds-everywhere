@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, OnDestroy, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, OnDestroy, Output, ElementRef, ViewChild } from '@angular/core';
 import { Organization } from '../organization.model';
 import { Subscription } from 'rxjs';
 import { OrganizationService } from '../organization.service';
@@ -14,14 +14,27 @@ export class OrganizationListComponent implements OnInit, OnDestroy {
   public organizationsArray: Organization[] = [];
   fetchOrganizationsSubscription: Subscription;
 
+  term: string;
   error: string;
   isFetching: boolean = false;
-  isEmpty: boolean = false;
+  isEmpty: boolean = false; 
+
+  @ViewChild('searchBox', {static: false}) searchBox: ElementRef;
 
   constructor(private organizationService: OrganizationService) { }
 
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.searchBox.nativeElement.value = null;
+    }, 200);
+  }
+
   ngOnInit(): void {
-    const list = this.organizationService.fetchOrganizations();
+    this.LoadContacts();
+  }
+
+  LoadContacts(){
+    this.organizationService.fetchOrganizations();
 
     this.isFetching = true;
 
@@ -38,6 +51,11 @@ export class OrganizationListComponent implements OnInit, OnDestroy {
     }, error => {
       this.error = error.message;
     });
+
+  }
+
+  search(value: string) {
+    this.term = value;
   }
 
   ngOnDestroy(): void {

@@ -5,12 +5,13 @@ export class Project {
     public organizationId : string;
     public contactId : string;
     public date : string;
+    public location : string;
     public country : string;
     public city : string;
     public equipment : string;
     public equipmentAmount: number;
-    public donations : string;
-    public donationsAmount : number;
+    public donation : string;
+    public donationAmount : number;
     public price : number;
     public details : string;
     public results : string;
@@ -20,12 +21,13 @@ export class Project {
                 organizationId: string,
                 contactId: string,
                 date: string,
+                location:string,
                 country: string, 
                 city: string,
                 equipment: string,
                 equipmentAmount: number,
-                donations: string,
-                donationsAmount: number,
+                donation: string,
+                donationAmount: number,
                 price: number,
                 details: string,
                 results: string){
@@ -35,12 +37,13 @@ export class Project {
         this.organizationId = organizationId;
         this.contactId = contactId;
         this.date = date;
+        this.location = location;
         this.country = country;
         this.city = city;
         this.equipment = equipment;
         this.equipmentAmount = equipmentAmount;
-        this.donations = donations;
-        this.donationsAmount = donationsAmount;
+        this.donation = donation;
+        this.donationAmount = donationAmount;
         this.price = price;
         this.details = details;      
         this.results = results;

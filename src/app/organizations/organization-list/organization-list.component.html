@@ -18,7 +18,7 @@
         </ul>
         <div class="search-container">
           <form action="/action_page.php" class="pull-right">
-            <input class="search-bar-text" type="text" placeholder="Search.." name="search">
+            <input class="search-bar-text" type="text" placeholder="Search.." (keyup)="search(searchBox.value)" name="searchbox" [(ngModel)]="search" value="" #searchBox>
             <button type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>

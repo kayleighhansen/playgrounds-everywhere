@@ -1,7 +1,9 @@
 <div class="panel panel-default">
     <div class="panel-heading">
       <h1 class="mb-3">Project Details</h1>
-      <a href="/projects">Back to Projects</a>
+      <a href="./contacts" class="form-link">
+        <mat-icon>keyboard_arrow_left</mat-icon>Back to Projects
+    </a>
     </div>  
     <div class="panel-body">
       <div class="btn-container">
@@ -16,7 +18,7 @@
                     <a class="form-control contact-detail-item" name="organization" style="cursor: default" required href="organizations/{{ project.organizationId }}" disabled #typeInput><p><i class="fa fa-group"></i> {{ this.organizationName }}</p></a>
                 </div>
                 <div class="form-group">
-                    <label for="organization">Contact</label><br>
+                    <label for="organization">Primary Contact</label><br>
                     <a class="form-control contact-detail-item" name="organization" style="cursor: default" required href="contacts/{{ project.organizationId }}" disabled #typeInput><p><i class="fa fa-user"></i> {{ this.contactName }}</p></a>
                 </div>
                 <div class="form-group">
@@ -35,7 +37,11 @@
                 <div class="">
                     <div class="form-group">
                         <label for="date">Date</label>
-                        <input type="date" class="form-control contact-detail-item" id="date" placeholder="" value="{{ project.date }}" style="cursor: default" disabled #nameInput>             
+                        <input type="text" class="form-control contact-detail-item" id="date" placeholder="" value="{{ project.date }}" style="cursor: default" disabled #nameInput>             
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Location</label>
+                        <input type="text" class="form-control contact-detail-item" id="date" placeholder="" value="{{ project.location }}" style="cursor: default" disabled #nameInput>             
                     </div>
                 </div>
                 <div class="form-section">
@@ -59,11 +65,11 @@
                     <div class="quantity-input-details">
                         <div>
                             <small>Quantity</small>
-                            <input type="text" class="form-control contact-detail-item" id="equipment-quantity" placeholder="" style="cursor: default" disabled>
+                            <input type="text" class="form-control contact-detail-item" id="equipment-quantity" placeholder="" value="{{ project.equipmentAmount }}" style="cursor: default" disabled>
                         </div>
                         <div>
                             <small>Type</small>
-                            <input type="text" class="form-control contact-detail-item" id="equipment-name" placeholder="" style="cursor: default" disabled>
+                            <input type="text" class="form-control contact-detail-item" id="equipment-name" placeholder="" value="{{ project.equipment }}" style="cursor: default" disabled>
                         </div>
                     </div>
                 </div>
@@ -73,11 +79,11 @@
                     <div class="quantity-input-details">
                         <div>
                             <small>Quantity</small>
-                            <input type="text" class="form-control contact-detail-item" id="donation-quantity" placeholder="" style="cursor: default" disabled>
+                            <input type="text" class="form-control contact-detail-item" id="donation-quantity" placeholder="" value="{{ project.donationAmount }}" style="cursor: default" disabled>
                         </div>
                         <div>
                             <small>Type</small>
-                            <input type="text" class="form-control contact-detail-item" id="donation-name" placeholder="" style="cursor: default" disabled>
+                            <input type="text" class="form-control contact-detail-item" id="donation-name" placeholder="" value="{{ project.donation }}" style="cursor: default" disabled>
                         </div>
                     </div>
                 </div>
