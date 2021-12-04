@@ -25,6 +25,7 @@ export class ProjectEditComponent implements OnInit {
   organizationName: string;
   public organization: Organization;
   public organizations: Organization[] = [];
+  public projects: Project[] = [];
   contact: Contact;
   contacts: Contact[] = [];
   contactName:string;
@@ -403,13 +404,23 @@ export class ProjectEditComponent implements OnInit {
 
       console.log(newProject);
 
-      //this.projectService.updateProject(this.originalProject, newProject);
+      this.projectService.updateProject(this.originalProject, newProject);
 
-    //this.router.navigate(['/projects']);
+    this.router.navigate(['/projects']);
   }
 
-  onDelete(id: string) {
+  onDelete(id) {
+    console.log(id);
+    this.projectService.deleteProject(id).subscribe(() => { 
+      this.projects = [id];
+      this.router.navigate(['/projects']);
+    });
+  }
 
+  ngOnDestroy(): void {
+    this.fetchOrganizationsSubscription.unsubscribe();
+    this.fetchContactsSubscription.unsubscribe();
+    this.fetchProjectsSubscription.unsubscribe();
   }
 
 }

@@ -34,12 +34,11 @@ export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.searchBox.nativeElement.value = null;
+      this.LoadContacts();
     }, 200);
   }
  
-  ngOnInit(): void {
-    this.LoadContacts();
-  }
+  ngOnInit(): void { }
 
   getOrganization(id: string) {
     this.organizationService.getOrganization(id);

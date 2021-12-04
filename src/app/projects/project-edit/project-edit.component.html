@@ -25,10 +25,10 @@
                     <div class="form-group">
                         <label for="contacts">Contacts Assisted</label><br>
                         <small>Contacts that assisted this project</small>
-                        <select id="type" 
+                        <select id="contactId" 
                                 class="form-control contactSelectList" 
-                                id="contact"
-                                name="contact"
+                                id="contactId"
+                                name="contactId"
                                 [ngModel]="project?.contactId"
                                 #typeInput="ngModel">
                             <option value="-">--</option>
@@ -44,7 +44,7 @@
                         <small>Organizations that assisted this project</small>
                         <select id="organizationId" 
                                 class="form-control organizationSelectList" 
-                                name="organization"
+                                name="organizationId"
                                 [ngModel]="project?.organizationId"
                                 #typeInput="ngModel">
                             <option value="-">--</option>
@@ -107,7 +107,12 @@
                     <div class="form-section">
                         <div class="form-group">
                             <label for="country">Country <span class="required">*</span></label><br>
-                            <select class="input-country" id="input-country" required #countryInput>
+                            <select class="input-country" 
+                                    id="input-country" 
+                                    name="country"
+                                    [ngModel]="project?.country"
+                                    required 
+                                    #countryInput="ngModel">
                                 <option value="" selected>--</option>
                                 
                             </select>
@@ -206,7 +211,7 @@
 
                 <div class="submit-buttons">
                     <button type="button" class="btn btn-primary" (click)="onSubmit(f)"> Save </button>
-                    <button type="button" class="btn btn-warning" (click)="onDelete(this.organization.id)"> Delete</button>
+                    <button type="button" class="btn btn-warning" (click)="onDelete(this.project.id)"> Delete</button>
                 </div>           
         </form>
         </div>

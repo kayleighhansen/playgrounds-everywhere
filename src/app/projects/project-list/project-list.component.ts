@@ -9,7 +9,6 @@ import { ProjectService } from '../project.service';
   styleUrls: ['../../app.component.css']
 })
 export class ProjectListComponent implements OnInit {
-  @Output() projectWasSelected = new EventEmitter<Project>();
 
   public projects: Project[] = []; 
   public contact: Project;
@@ -24,8 +23,14 @@ export class ProjectListComponent implements OnInit {
   
   constructor(private projectService: ProjectService) { }
 
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      //this.searchBox.nativeElement.value = null;
+      this.LoadProjects();
+    }, 200);
+  }
+
   ngOnInit(): void {
-    this.LoadProjects();
   }
 
   LoadProjects() {

@@ -78,7 +78,11 @@ export class ProjectService {
     newProject.id = originalProject.id;
     this.projects[pos] = newProject;
 
-    //this.storeProject();
+    this.http.put(`https://playgrounds-everywhere-default-rtdb.firebaseio.com/projects/` + newProject.id + `.json`, newProject)
+      .subscribe(responseData => {
+        console.log(responseData);
+        
+      });
   }
 
   // delete one record
